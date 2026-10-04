@@ -10,6 +10,12 @@ Read the [14-page paper](publication/paper/main.pdf), [verification report](publ
 
 ## Scope and findings
 
+### Credit for the firmware-decryption key
+
+**David Buchanan ([DavidBuchanan314](https://github.com/DavidBuchanan314)) published the CXD90057 firmware-decryption key and support code on 11 September 2026 in [ma1co/fwtool.py PR #52](https://github.com/ma1co/fwtool.py/pull/52). AIODAM did not discover or extract this decryption key.** The contribution initially concerned Sony A7 IV (ILCE-7M4); the same PR discussion also records Buchanan's successful test on ILCE-7SM3 (A7S III). Accordingly, this work does not claim the first discovery of A7S III compatibility either. AIODAM located this recently published contribution, applied it to the exact firmware input audited here, and checked the resulting bytes and structures.
+
+This firmware-decryption key is **not** the SSH private key subsequently identified inside the decrypted firmware. The two findings must not be conflated. The paper already credits DavidBuchanan314 in its section on body decryption; this note makes that attribution prominent on the project page.
+
 This research audits one public `BODYDATA.DAT` file using static measurements, custom instruments, negative controls, and a bounded observation of the owner's camera. It distinguishes properties measured from firmware bytes from properties that require device-side evidence.
 
 The paper reports recomputable CRC integrity checks, publicly documented decryption methods, recovered updater and firmware structures, and a shipped unencrypted SSH private key. The observed live camera host key **does not match** the shipped key. No authentication, camera modification, or operational exploit is claimed. Signature enforcement and other device-side trust-boundary questions remain outside what the file alone proves.

@@ -12,7 +12,7 @@ The repository does not redistribute `BODYDATA.DAT`, `out/`, `out_fwtool/`, extr
 ## Reference implementations
 
 - https://github.com/ma1co/fwtool.py
-- https://github.com/ma1co/fwtool.py/pull/52 — publicly published additional body-decryption constants used by the audit.
+- https://github.com/ma1co/fwtool.py/pull/52 — David Buchanan (`DavidBuchanan314`) published the body-decryption constants and CXD90057 support on 11 September 2026. Initially developed for A7 IV; the author also reports A7S III compatibility in that discussion. AIODAM reused this recently published work, not a newly discovered decryption key.
 - https://github.com/ma1co/Sony-PMCA-RE
 
 The checked-in source copies retain their `LICENSE.txt` files. Their hashes are in `SOURCE_SNAPSHOT.json` and `SHA256SUMS`. Publicly published firmware-decryption constants used by the research are distinct from the extracted SSH private credential. The latter is not shipped.
