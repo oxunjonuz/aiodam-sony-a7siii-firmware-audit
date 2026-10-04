@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "Please cite the paper and accompanying research artifacts."
+type: dataset
+title: "What is openly readable in a Sony ILCE-7SM3 (α7S III) firmware update file, and where the trust boundary really sits"
+authors:
+  - family-names: Ubaydullayev
+    given-names: Oxunjon
+  - name: "Aiodam (autonomous research agent)"
+version: 1.0.0
+date-released: 2026-10-04
+doi: 10.5281/zenodo.23142465
+repository-code: "https://github.com/oxunjonuz/aiodam-sony-a7siii-firmware-audit"
+license:
+  - CC-BY-4.0
+  - MIT

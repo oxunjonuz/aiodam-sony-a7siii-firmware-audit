@@ -1,0 +1,134 @@
+{
+ "tail_stats": {
+  "tail_hex_first32": "0b02163cf6e4983c0b1b5926a0b5161daa43baf7af92a06967e859b8f4783c2f",
+  "tail_hex_last32": "8403d63c975a9c0fce43226e8a8351e175f5ad3d6bb03921689673fee3a08f83",
+  "iv_hex": "89a85276c7208ea533a0e187fac4092c",
+  "entropy_bits_per_byte": 7.216529589725436,
+  "zeros_in_tail": 0,
+  "zero_bytes_at_start": 0,
+  "first_byte": 11,
+  "last_byte": 131,
+  "entropy_control": {
+   "control_random_256B_windows": {
+    "n": 1171,
+    "mean": 7.172619475203454,
+    "min": 6.998761597686942,
+    "max": 7.329497107454123,
+    "sd": 0.05121312253460084
+   },
+   "f07_256B_windows": {
+    "n": 11352,
+    "mean": 7.174888940678719,
+    "min": 6.99198293560292,
+    "max": 7.367034765557392
+   },
+   "tail_entropy": 7.216529589725436,
+   "tail_percentile_in_control": 0.8087105038428694,
+   "tail_percentile_in_f07": 0.7864693446088795
+  }
+ },
+ "key_from_pmca": {
+  "source": "tools/Sony-PMCA-RE-master/pmca/spk/constants.py",
+  "source_note": "ScalarAInstaller.apk/lib/librsaforinstaller.so",
+  "modulus_bits": 2048,
+  "exponent": 65537,
+  "tail_as_int_be_lt_modulus": true,
+  "tail_as_int_le_lt_modulus": true
+ },
+ "public_key_tests": {
+  "be_e65537": {
+   "m_first16_hex": "51bba585d9098eb24733c61cfc043de7",
+   "m_last16_hex": "066a51265a971375417223520d1665b9",
+   "pkcs1_v15_signature": {
+    "ok": false,
+    "why": "first byte is not 00 01: 51 bb"
+   },
+   "pkcs1_v15_encryption": {
+    "ok": false,
+    "why": "first byte is not 00 02: 51 bb"
+   },
+   "pss": {
+    "ok": false,
+    "first_byte": 81,
+    "last_byte": 185
+   },
+   "m_entropy": 7.21446191389348
+  },
+  "le_e65537": {
+   "m_first16_hex": "4830a0239c07158d13a415ab89add08f",
+   "m_last16_hex": "24a0c1e6263ff65e9ca0f6264c76ee33",
+   "pkcs1_v15_signature": {
+    "ok": false,
+    "why": "first byte is not 00 01: 48 30"
+   },
+   "pkcs1_v15_encryption": {
+    "ok": false,
+    "why": "first byte is not 00 02: 48 30"
+   },
+   "pss": {
+    "ok": false,
+    "first_byte": 72,
+    "last_byte": 51
+   },
+   "m_entropy": 7.18233081042011
+  },
+  "be_e3": {
+   "pkcs1_v15_signature": {
+    "ok": false,
+    "why": "first byte is not 00 01: 82 0d"
+   },
+   "m_first16_hex": "820d3705db053ab5fca0f18fd5f580d4"
+  }
+ },
+ "hashes_inside_tail": {
+  "tested": [
+   "firmware/blake2b",
+   "firmware/md5",
+   "firmware/sha1",
+   "firmware/sha256",
+   "firmware/sha512",
+   "header512/blake2b",
+   "header512/crc32",
+   "header512/md5",
+   "header512/sha1",
+   "header512/sha256",
+   "header512/sha512",
+   "iv16/blake2b",
+   "iv16/crc32",
+   "iv16/md5",
+   "iv16/sha1",
+   "iv16/sha256",
+   "iv16/sha512",
+   "payload_minus_tail/blake2b",
+   "payload_minus_tail/md5",
+   "payload_minus_tail/sha1",
+   "payload_minus_tail/sha256",
+   "payload_minus_tail/sha512",
+   "tail256/blake2b",
+   "tail256/crc32",
+   "tail256/md5",
+   "tail256/sha1",
+   "tail256/sha256",
+   "tail256/sha512",
+   "whole_payload/blake2b",
+   "whole_payload/md5",
+   "whole_payload/sha1",
+   "whole_payload/sha256",
+   "whole_payload/sha512"
+  ],
+  "found_in_tail": {},
+  "n_tested": 33,
+  "n_found": 0,
+  "CONTROL_planted": {
+   "found_at": 100,
+   "expected": 100
+  }
+ },
+ "container_protection": {
+  "dend_crc_covers_tail": true,
+  "dend_crc_recomputable_without_any_key": true,
+  "note": "C8 of an earlier round: a changed body byte + a recomputed DEND.crc is accepted by the reference parser. So neither the body nor the tail is authenticated by the container CRC.",
+  "tail_changes_would_be_invisible_without_signature_file": true,
+  "second_file_available": false
+ }
+}

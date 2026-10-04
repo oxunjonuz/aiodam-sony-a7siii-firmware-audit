@@ -1,0 +1,44 @@
+{
+ "passed": 5,
+ "total": 5,
+ "controls_red": 1,
+ "controls": 1,
+ "results": [
+  {
+   "name": "artifacts unchanged: 12 paths, sha256 match",
+   "ok": true,
+   "control": false,
+   "detail": ""
+  },
+  {
+   "name": "re-derivation of the numbers from the bytes: 98 numbers",
+   "ok": true,
+   "control": false,
+   "detail": ""
+  },
+  {
+   "name": "every number is present in the BODY of the paper (98 numbers)",
+   "ok": true,
+   "control": false,
+   "detail": "missing from the text: []"
+  },
+  {
+   "name": "every number is present in the PRINTED PDF (98 numbers)",
+   "ok": true,
+   "control": false,
+   "detail": "missing from the PDF: []"
+  },
+  {
+   "name": "Appendix A prints exactly the same numbers (98 rows = 98 numbers)",
+   "ok": true,
+   "control": false,
+   "detail": "rows in the table: 98, numbers: 98 (a mismatch is acceptable only in the header)"
+  },
+  {
+   "name": "CONTROL: a deliberately corrupted number is not found in the text — this one must go red",
+   "ok": false,
+   "control": true,
+   "detail": "looked for 987654321 in the body of the paper"
+  }
+ ]
+}

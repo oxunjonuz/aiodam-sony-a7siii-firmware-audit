@@ -1,0 +1,125 @@
+{
+ "P1_header": {
+  "CONTROL_bitflip_prefix": {
+   "crc_496_after_flip_matches": false,
+   "solved_4_when_region_is_496": "23598c7e",
+   "solved_4_when_region_is_500": "f635cdf7"
+  },
+  "crc_over_388_bytes_fwtool_struct": "0x6189c048",
+  "crc_over_496_bytes": "0x9818bd58",
+  "firmware_offset": 1253888,
+  "firmware_size": 739658240,
+  "first4_hex": "c4a9fc03",
+  "fsU": {
+   "mode": "U"
+  },
+  "fsU_declared_offset": 512,
+  "fsU_offset_matches_header_len_512": true,
+  "header_len_implied": 512,
+  "magic": "UDTRFIRM",
+  "magic_at_block_offset": 4,
+  "matches_388": false,
+  "matches_496": false,
+  "model": "0x91030083",
+  "num_file_systems": 2,
+  "region_500_matches": false,
+  "solved_4_bytes_when_region_is_496": "366039c8",
+  "solved_4_bytes_when_region_is_500": "00000000",
+  "stored_checksum": "0x9eb4163d",
+  "version": "5.01",
+  "zeros_in_stream_92_508": true,
+  "zeros_in_stream_92_512": false
+ },
+ "P2_frame": {
+  "bytes": "c4a9fc03",
+  "checksum_field": "0xa9c4",
+  "checksum_residual_needed_from_512_1024": 4645,
+  "is_full_block": true,
+  "last_block_flag": false,
+  "note": "the full sum cannot be checked: bytes 512..1024 of the first block use another key",
+  "prob_random_size_field_is_valid_nonlast": 0.0155792236328125,
+  "size_field": "0x3fc",
+  "size_without_flag": 1020,
+  "sum_known_part_2_512": 39835
+ },
+ "P3_arithmetic": {
+  "CONTROL_framed_without_last_partial": 743817488,
+  "CONTROL_predicted_flen_payload_1016": 746747152,
+  "CONTROL_predicted_flen_payload_1020_plus_4": 743818512,
+  "blocks_if_framed": 726385,
+  "components_fill_stream_exactly": true,
+  "decomposition_of_leftover": "4*726385 + 572 = 2906112",
+  "difference_bytes": 0,
+  "framing_overhead": 2905540,
+  "framing_overhead_plus_padding": 2906112,
+  "last_block_padding": 572,
+  "last_block_payload": 448,
+  "leftover_as_reported_in_report": 2906112,
+  "observed_cipher_len": 743818240,
+  "observed_file_len": 743818512,
+  "predicted_cipher_len": 743818240,
+  "predicted_file_len": 743818512,
+  "stream_end_from_header": 740912128,
+  "sum_of_declared_components": 740912128
+ },
+ "P4_unlock_attempt": {
+  "CONTROL_planted": {
+   "finds_all_occurrences": [
+    516
+   ],
+   "found_at": 516,
+   "planted": "hsqs at 516",
+   "tool_can_find": true
+  },
+  "candidates": {
+   "cbc_90045_block0": {
+    "magics": [],
+    "max_ff_run": 512,
+    "max_zero_run": 512,
+    "zeros": 473
+   },
+   "double_aes_block0": {
+    "magics": [],
+    "max_ff_run": 1024,
+    "max_zero_run": 512,
+    "zeros": 473
+   },
+   "ecb_key_aes": {
+    "magics": [],
+    "max_ff_run": 619,
+    "max_zero_run": 512,
+    "zeros": 473
+   },
+   "ecb_key_cxd90014": {
+    "magics": [],
+    "max_ff_run": 902,
+    "max_zero_run": 982,
+    "zeros": 1
+   },
+   "ecb_key_cxd90045": {
+    "magics": [],
+    "max_ff_run": 940,
+    "max_zero_run": 1024,
+    "zeros": 0
+   }
+  },
+  "iv_used": "89a85276c7208ea533a0e187fac4092c",
+  "magics_searched": [
+   "68737173",
+   "6372616d6673",
+   "28cd3d45",
+   "5542494653",
+   "7f454c46",
+   "53ef",
+   "726f6f746673",
+   "414e44524f494421",
+   "1f8b08",
+   "425a68",
+   "fd377a585a",
+   "7573746172",
+   "464154",
+   "4d53444f53",
+   "6e6f64657369676e"
+  ]
+ }
+}

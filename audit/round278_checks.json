@@ -1,0 +1,139 @@
+{
+ "stream_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+ "results": [
+  {
+   "name": "N1 squashfs: sha256 of the image cut out of the stream",
+   "ok": true,
+   "control": false,
+   "detail": "62e86fad175e0326969d5f1cea29d780feb496ce8034acd2c9c3954320d8ccaa"
+  },
+  {
+   "name": "N2 squashfs unpacked: 58 files, 3 151 747 B, the names match the 7z listing",
+   "ok": true,
+   "control": false,
+   "detail": "files=58 bytes=3151747 list_match=True"
+  },
+  {
+   "name": "N3 every ELF in the squashfs is AArch64 (e_machine=183)",
+   "ok": true,
+   "control": false,
+   "detail": "elfs=31 non-aarch64=[]"
+  },
+  {
+   "name": "N4 10 occurrences of the literal \"OPENSSH PRIVATE KEY\" in the stream: 5 BEGIN and 5 END",
+   "ok": true,
+   "control": false,
+   "detail": "hits=10 begins=[69454712, 186092096, 294356432, 558669176, 587628092]"
+  },
+  {
+   "name": "N5 the BEGIN->END discriminator: 4 string tables (<=64 B) and 1 real block (>400 B)",
+   "ok": true,
+   "control": false,
+   "detail": "adjacent=[40, 40, 40, 40] real=[471]"
+  },
+  {
+   "name": "N6 the block parses as an unencrypted openssh-key-v1 (cipher=none, kdf=none, 1 key)",
+   "ok": true,
+   "control": false,
+   "detail": "cipher=b'none' kdf=b'none' comment=b'root@(none)' pad=4"
+  },
+  {
+   "name": "N7 independent arithmetic: d*G == the point from the key (that is, the key works)",
+   "ok": true,
+   "control": false,
+   "detail": "d*G matched the embedded point"
+  },
+  {
+   "name": "N8 the public blob I assembled matches the embedded one and the expected base64",
+   "ok": true,
+   "control": false,
+   "detail": "AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYA…"
+  },
+  {
+   "name": "N9 the public part occurs in the stream EXACTLY ONCE (inside the key itself)",
+   "ok": true,
+   "control": false,
+   "detail": "hits=[587628343] (the full base64 line does not occur: the key body is wrapped at 70 characters)"
+  },
+  {
+   "name": "N10 ssh-keygen (OpenSSH) on the raw bytes gives the same fingerprint",
+   "ok": true,
+   "control": false,
+   "detail": "256 SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI root@(none) (ECDSA)"
+  },
+  {
+   "name": "N11 the TEXT of create_host_key.sh was found — the exact command that creates this key",
+   "ok": true,
+   "control": false,
+   "detail": "owner=0700_part_image/dev/nflasha15 hits=[395581615]"
+  },
+  {
+   "name": "N12 the TEXT of get_finger_print.sh was found (it takes the fingerprint of the same path)",
+   "ok": true,
+   "control": false,
+   "detail": "owner=0700_part_image/dev/nflasha15 hits=[395382813, 553149981]"
+  },
+  {
+   "name": "N13 the key lies inside the member 0700_part_image/dev/nflasha5",
+   "ok": true,
+   "control": false,
+   "detail": "0700_part_image/dev/nflasha5"
+  },
+  {
+   "name": "N14 there are no other private keys: RSA/EC/PKCS8/DSA = 0, and the single \"ENCRYPTED PRIVATE KEY\" is a glib string table",
+   "ok": true,
+   "control": false,
+   "detail": "{\"-----BEGIN RSA PRIVATE KEY-----\": 0, \"-----BEGIN EC PRIVATE KEY-----\": 0, \"-----BEGIN PRIVATE KEY-----\": 0, \"-----BEGIN ENCRYPTED PRIVATE KEY-----\": 1, \"-----BEGIN DSA PRIVATE KEY-----\": 0}"
+  },
+  {
+   "name": "N15 sshd_config: exactly one HostKey = /tmp_network/ssh/ssh_host_ecdsa_key",
+   "ok": true,
+   "control": false,
+   "detail": "['HostKey /tmp_network/ssh/ssh_host_ecdsa_key']"
+  },
+  {
+   "name": "N16 sshd_config: public-key login is off, root is off, only forwards to localhost:15740 / localhost:60152 are allowed",
+   "ok": true,
+   "control": false,
+   "detail": "missing=[]"
+  },
+  {
+   "name": "N17 the PAM hooks ssh_account_lock_recorder and ssh_session_monitoring really are in the image",
+   "ok": true,
+   "control": false,
+   "detail": "{\"ssh_account_lock_recorder\": 8, \"ssh_session_monitoring\": 7}"
+  },
+  {
+   "name": "C1 corrupting one bit of the scalar breaks d*G == Q",
+   "ok": true,
+   "control": true,
+   "detail": "the control fired: a substituted scalar does not give the embedded point"
+  },
+  {
+   "name": "C2 a \"key\" made from a binary string table does NOT parse",
+   "ok": true,
+   "control": true,
+   "detail": "len=73, the parse failed"
+  },
+  {
+   "name": "C3 the search is not vacuous: the corrupted blob = 0 hits, the real one = 1",
+   "ok": true,
+   "control": true,
+   "detail": "tweaked=0 real=1"
+  },
+  {
+   "name": "C4 the earlier \"three blocks\" does not hold: 5 literals, 1 real block",
+   "ok": true,
+   "control": true,
+   "detail": "the count \"3\" is false under any criterion"
+  },
+  {
+   "name": "C5 the unpacking did something: the image and the unpacked file are not the same thing",
+   "ok": true,
+   "control": true,
+   "detail": "chkfirm.sh is there, pformat.elf = 1 631 008 B"
+  }
+ ],
+ "green": "17/17",
+ "controls": "5/5"
+}

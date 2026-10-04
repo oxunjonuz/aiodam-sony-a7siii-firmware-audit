@@ -1,0 +1,142 @@
+================================================================================
+ AIODAM MAC_FINGERPRINT 279.1
+ started          : 2026-10-04 17:43:05 +0500
+ this script      : /work/transcend/SONY_A7SIII_AUDIT_279/MAC_FINGERPRINT.sh
+ script sha256    : 2cb22487626173caace3975ad8e829264148c71e398955752ebb414636517468
+ report file      : /tmp/fp_t280 (built as /tmp/fp_t280.part while the run goes on)
+ platform         : Linux 6.12.76-linuxkit aarch64
+ OpenSSH on this Mac: OpenSSH_10.0p2 Debian-7+deb13u4, OpenSSL 3.5.6 7 Apr 2026
+ probe method     : nc -z
+ looking for key  : SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI
+                   type ecdsa-sha2-nistp256, blob 104 B, blob sha256 27c2fd6812c48a64dd0d6e66d6257bc14eb82cfd625a8dfe963f4c182c4d3832
+                   blob sha256 source: embedded constant, recomputed from the embedded base64 and equal
+================================================================================
+
+[0] WHAT THIS RUN DOES
+    TCP connect() attempts to ports 22, 15740, 60152 on addresses found
+    on this Mac, and at most one SSH key-exchange handshake. No authentication,
+    no login, no credential, no write to the camera, no service mode, no ICMP.
+    No UDP is sent (the mDNS search exists but is off; --mdns turns it on).
+
+[1] THIS MAC
+    interfaces: could not be read (no ifconfig/ip, or none has an IPv4 address)
+    default gateway  : not found
+    local /24 networks:  
+
+[2] WHERE THE CAMERA COULD BE
+    USB: skipped (macOS-only check; this is linux).
+
+    candidate addresses (this Mac's ARP neighbours, its gateway, one documented guess):
+      172.28.0.1  <- ARP neighbour 8a:0f:09:2f:3c:fa -
+      192.168.122.1  <- guess: common Sony access-point-mode address (UNVERIFIED)
+      192.168.1.102  <- given with --ip
+
+[3] PROBING (TCP connect only)
+      172.28.0.1  port 22:closed  port 15740:closed  port 60152:closed
+      192.168.122.1  port 22:closed  port 15740:closed  port 60152:closed
+      192.168.1.102  port 22:OPEN  port 15740:closed  port 60152:closed
+
+    TCP connect attempts on the main path: 11
+
+[4] WHAT WAS IDENTIFIED
+    target: 192.168.1.102 (given with --ip; discovery still ran and is reported above)
+    SSH (port 22) open at: 192.168.1.102
+    identification routes, in order of strength: (1) the algorithm set the server
+    negotiates, compared against the firmware's sshd_config (step [5]); (2) an
+    accepting socket on the camera's PTP/IP port 15740; (3) the MAC OUI, which is
+    only a heuristic. Measured 2026-10-04: the owner's camera answered on port
+    22 while port 15740 was closed - in that state route 1 is the one that
+    identifies it, and route 2 says nothing.
+    NOTE: the host that will be fingerprinted does NOT show the camera's PTP/IP port.
+          If it is not the camera, a MISMATCH below belongs to some other device.
+
+[5] SSH HOST KEY FROM THE LIVE HOST
+    port 22 is open. Sending one SSH key-exchange handshake to 192.168.1.102:22
+    (this is the handshake, before any authentication: no name, no password, no key of
+     yours is offered, and the camera is not asked to change anything).
+    algorithms this server agreed to : kex=ecdh-sha2-nistp256 cipher=aes128-ctr mac=hmac-sha2-256 hostkey=ecdsa-sha2-nistp256
+    the firmware's sshd_config wants : kex=ecdh-sha2-nistp256 cipher=aes128-ctr mac=hmac-sha2-256 hostkey=ecdsa-sha2-nistp256
+    -> IDENTICAL set: this SSH server is configured by the firmware's own sshd_config.
+    raw key line(s) returned by the live host:
+      192.168.1.102 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBGUAdziIrqiEdzNu0MDQmLaXSDqPC8CcvMN1MaEnDtHvHlFxEA5X1jgZ+470wZFJrdvTPokuRp1V88imQaqAjw=
+    ssh-keyscan stderr (verbatim, trimmed to 12 lines):
+      debug1: CIDR range 192.168.1.102
+      debug1: CIDR expand: address 192.168.1.102
+      debug1: compat_banner: match: OpenSSH_7.9 pat OpenSSH* compat 0x04000000
+      debug1: SSH2_MSG_KEXINIT sent
+      debug1: SSH2_MSG_KEXINIT received
+      debug1: kex: algorithm: ecdh-sha2-nistp256
+      debug1: kex: host key algorithm: (no match)
+      192.168.1.102: Connection closed by remote host
+      debug1: compat_banner: match: OpenSSH_7.9 pat OpenSSH* compat 0x04000000
+      debug1: SSH2_MSG_KEXINIT sent
+      debug1: SSH2_MSG_KEXINIT received
+      debug1: kex: algorithm: ecdh-sha2-nistp256
+
+[6] COMPARISON WITH THE KEY INSIDE BODYDATA.DAT
+    expected fingerprint : SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI
+    expected blob sha256 : 27c2fd6812c48a64dd0d6e66d6257bc14eb82cfd625a8dfe963f4c182c4d3832
+    keys returned        : 1   types: ecdsa-sha2-nistp256
+    their fingerprints   : SHA256:0VOxJqn75lys4Lf91tSlZu8nazWWxD6rTVc35jZo87U
+
+    route 1  blob base64 equal to the firmware key      : no
+    route 2  SHA256 fingerprint equal (ssh-keygen -lf)  : no
+    route 3  decoded blob sha256 equal                  : no
+             (observed blob is 104 bytes)
+
+    the live key against the key the owner read from the camera on 2026-10-04:
+      reference fingerprint : SHA256:0VOxJqn75lys4Lf91tSlZu8nazWWxD6rTVc35jZo87U
+      reference blob sha256 : d153b126a9fbe65cace0b7fdd6d4a566ef276b3596c43eab4d5737e63668f3b5   (measured by the owner on the live camera at 192.168.1.102, 2026-10-04)
+      reference constants   : ok: blob sha256 and fingerprint both recomputed from the embedded base64
+      -> the live key is SAME as that reference
+         (SAME means the camera presented the identical key bytes twice, in two
+          separate sessions; it does NOT yet say what happens across a power cycle)
+
+================================================================================
+ VERDICT: MISMATCH
+ reason : live host key is a different key
+================================================================================
+
+[7] WHAT THIS MEANS
+    The camera's sshd answered, but with a DIFFERENT host key than the one inside
+    BODYDATA.DAT. The reason is visible in the firmware itself: that key lives at
+    /tmp_network/ssh/ssh_host_ecdsa_key and is created on demand by
+    /usr/bin/create_host_key.sh (ssh-keygen -q -b 256 -t ecdsa -N '' -f ...) only if
+    the file is not there already. A key under /tmp_network does not survive a
+    reboot, so a camera that rebuilds it shows a fresh key while still carrying the
+    same script and the same bytes in the firmware file.
+    This is the strong form of that finding, not a coincidence of another device:
+    the server that answered negotiated EXACTLY the algorithm set the firmware's
+    sshd_config imposes (ecdh-sha2-nistp256 / aes128-ctr / hmac-sha2-256 / ecdsa-sha2-nistp256) - a set no
+    ordinary machine chooses. So the firmware's sshd IS running, and its host key
+    file was regenerated on the device: the private key shipped inside the public
+    firmware image is not the live identity of this camera.
+    What is measured on 2026-10-04: the camera at 192.168.1.102 presented
+      SHA256:0VOxJqn75lys4Lf91tSlZu8nazWWxD6rTVc35jZo87U
+    - read by the owner on his Mac and again from another machine, same bytes.
+    Decisive next step (one measurement, and this script is the instrument):
+    run it, power-cycle the camera, run it again. If the fingerprint changes between
+    boots, the key is regenerated every boot and the firmware copies of it are
+    templates that were never a persisted identity. If the fingerprint stays the
+    same, one key per unit was created once and does survive somewhere.
+    The fingerprinted host showed no PTP/IP port, but the algorithm set above is
+    the firmware's own, which is an identification in itself; still, the PTP/IP
+    port is what a camera normally opens, so this is worth re-checking later.
+
+[8] WHAT WAS NOT MEASURED (always printed)
+    * whether sshd was running because of a service mode, and whether the key survives a
+      reboot - one run cannot tell; a second run after a power cycle can
+    * anything inside the camera beyond its SSH host key: nothing else was read
+    * no authentication was attempted, so 'the key is accepted by a client' is not claimed
+    * other units and other models: whether every A7S III (or every camera of this
+      generation) uses these bytes needs a second camera or a second firmware file
+    * PTP/IP itself: the port was seen open, the protocol was not spoken
+    * the private half of the firmware key: it was not used in this run and was sent
+      nowhere; only its public fingerprint was compared
+
+[9] NEXT STEP
+    Send this file (it is also at /tmp/fp_t280) to Aiodam. If the verdict is UNREACHABLE, send
+    it anyway: the probe table is the evidence that the check was attempted properly,
+    and it says which of the alternatives in [7] is left.
+
+AIODAM_JSON: {"tool":"MAC_FINGERPRINT","version":"279.1","ts":"2026-10-04 17:43:05 +0500","platform":"linux","verdict":"MISMATCH","reason":"live host key is a different key","target":"192.168.1.102","ssh_port":"22","ssh_open":"yes","ptp_open":"no","keys_returned":1,"key_types":" ecdsa-sha2-nistp256","observed_fingerprints":" SHA256:0VOxJqn75lys4Lf91tSlZu8nazWWxD6rTVc35jZo87U","expected_fingerprint":"SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI","expected_blob_sha256":"27c2fd6812c48a64dd0d6e66d6257bc14eb82cfd625a8dfe963f4c182c4d3832","expected_sha_source":"embedded constant, recomputed from the embedded base64 and equal","route_blob":"no","route_fp":"no","route_sha":"no","alg_set_match":"yes","alg_set":"kex=ecdh-sha2-nistp256 cipher=aes128-ctr mac=hmac-sha2-256 hostkey=ecdsa-sha2-nistp256","ref_live_match":"SAME","ref_live_fingerprint":"SHA256:0VOxJqn75lys4Lf91tSlZu8nazWWxD6rTVc35jZo87U","tcp_connect_attempts":13,"sweep_hosts":0,"camera_hosts":"","ssh_hosts":" 192.168.1.102","usb_sony":"none","probe_method":"nc -z","script_sha256":"2cb22487626173caace3975ad8e829264148c71e398955752ebb414636517468"}

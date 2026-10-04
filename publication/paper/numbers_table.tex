@@ -1,0 +1,178 @@
+\begingroup\scriptsize
+\begin{longtable}{p{0.46\textwidth}p{0.50\textwidth}}
+\caption{The numbers of the paper, grouped by the artifact whose bytes each one is re-derived from. The sha256 prefix of every artifact is printed once, at the group it belongs to; the full values are in \code{numbers.json}.}\label{tab:numbers}\\
+\toprule
+number & what it is \\
+\midrule
+\endfirsthead
+\toprule
+number (continued) & what it is \\
+\midrule
+\endhead
+\midrule
+\multicolumn{2}{l}{\lcf{BODYDATA.DAT}\quad\textbf{sha256 dbdd8b02ed81d6f0}} \\
+\midrule
+\lcf{743 818 632} & size of the update file, bytes \\
+\lcf{dbdd8b02ed81\allowbreak d6f0e0a0d36b\allowbreak 55f5d12fa1bc\allowbreak f8682fbad139\allowbreak 3996f10d1494\allowbreak c9eb} & sha256 of the object \\
+\lcf{ae4d074dca26\allowbreak 8917cc969771\allowbreak 4f6baac0} & md5 of the object \\
+\lcf{03c83a6b616c\allowbreak 9f2164954373\allowbreak 59fac585db33\allowbreak 6b2f} & sha1 of the object \\
+\midrule
+\multicolumn{2}{l}{\lcf{-}\quad\textbf{sha256 -}} \\
+\midrule
+\lcf{709.4} & the same size in MiB \\
+\midrule
+\multicolumn{2}{l}{\lcf{BODYDATA.DAT}\quad\textbf{sha256 dbdd8b02ed81d6f0}} \\
+\midrule
+\lcf{8} & DATV block: offset \\
+\lcf{20} & PROV block \\
+\lcf{32} & UDID block \\
+\lcf{100} & FDAT block \\
+\lcf{743 818 512} & FDAT payload, bytes \\
+\lcf{743 818 620} & DEND block: offset (= length of the prefix the CRC covers) \\
+\lcf{0x1fafdcaa} & stored container CRC32 \\
+\lcf{7} & entries in the UDID table \\
+\lcf{0x03e2} & last descriptor: PID of the updater mode \\
+\lcf{108} & offset of the FDAT payload (= start of the body) \\
+\lcf{c4a9fc03} & frame of the first body block \\
+\lcf{UDTRFIRM} & body magic \\
+\lcf{0100} & format version \\
+\lcf{0x9eb4163d} & header CRC32 \\
+\lcf{5.01} & firmware version in the header \\
+\lcf{0x91030083} & model code in the header \\
+\lcf{0} & region \\
+\lcf{00000000} & the bytes H[508:512] that the CRC32 requires \\
+\lcf{512} & offset of file system U in the stream \\
+\lcf{1253376} & size of file system U \\
+\lcf{0} & size of slot P (empty) \\
+\lcf{1253888} & offset of the firmware area \\
+\lcf{739658240} & size of the firmware area \\
+\lcf{2} & number of file systems in the header \\
+\lcf{1} & runs of identical 16-byte ciphertext blocks (measured without the key) \\
+\lcf{6} & start of the run, 16-byte block index \\
+\lcf{96} & start of the run, bytes from the start of the ciphertext \\
+\lcf{26} & length of the run, 16-byte blocks \\
+\lcf{416} & length of the run, bytes \\
+\lcf{743818240} & length of the ciphertext, bytes \\
+\midrule
+\multicolumn{2}{l}{\lcf{out/stream.b\allowbreak in}\quad\textbf{sha256 11880291ae4bd08b}} \\
+\midrule
+\lcf{740912128} & unpacked stream, bytes \\
+\lcf{11880291ae4b\allowbreak d08b61c9d084\allowbreak 75ee8a33703b\allowbreak 1c8f08ad35cb\allowbreak cda3a4717410\allowbreak 1e66} & sha256 of the unpacked stream \\
+\midrule
+\multicolumn{2}{l}{\lcf{-}\quad\textbf{sha256 -}} \\
+\midrule
+\lcf{726385} & number of stream frames \\
+\lcf{0} & frames with a bad checksum \\
+\lcf{1020} & payload size of a frame \\
+\lcf{448} & payload size of the last frame \\
+\lcf{1} & frames carrying the end flag \\
+\lcf{572} & padding of the last frame, bytes \\
+\lcf{2906112} & frame overhead plus padding (= the former "unexplained" quantity) \\
+\lcf{0} & bytes beyond the declared components \\
+\midrule
+\multicolumn{2}{l}{\lcf{out/fs\_user.\allowbreak sqsh}\quad\textbf{sha256 62e86fad175e0326}} \\
+\midrule
+\lcf{62e86fad175e\allowbreak 0326969d5f1c\allowbreak ea29d780feb4\allowbreak 96ce8034acd2\allowbreak c9c3954320d8\allowbreak ccaa} & sha256 of the squashfs image \\
+\midrule
+\multicolumn{2}{l}{\lcf{out/fs\_root}\quad\textbf{sha256 tree:5cb85a8b2b2}} \\
+\midrule
+\lcf{58} & files in the unpacked updater image \\
+\lcf{3151747} & total size of the unpacked files, bytes \\
+\lcf{31} & of them ELF \\
+\lcf{21} & of them scripts \\
+\midrule
+\multicolumn{2}{l}{\lcf{out/fs\_root/\allowbreak bin/pformat.\allowbreak elf}\quad\textbf{sha256 3ce2a76f477e9373}} \\
+\midrule
+\lcf{1631008} & size of pformat.elf, bytes \\
+\midrule
+\multicolumn{2}{l}{\lcf{-}\quad\textbf{sha256 -}} \\
+\midrule
+\lcf{159} & members in the firmware tar \\
+\midrule
+\multicolumn{2}{l}{\lcf{out/stream.b\allowbreak in}\quad\textbf{sha256 11880291ae4bd08b}} \\
+\midrule
+\lcf{61} & occurrences of the string ILCE-7SM3 in the stream \\
+\lcf{2} & occurrences of the string ILCE-9 in the stream \\
+\lcf{172} & occurrences of the CERTIFICATE armor literal (literal count) \\
+\lcf{587628092} & offset of the private-key block in the stream \\
+\lcf{504} & size of the key block (BEGIN..END) \\
+\lcf{435} & base64 characters in the key body \\
+\lcf{ecdsa-sha2-n\allowbreak istp256} & key type \\
+\lcf{none/none} & cipher and KDF (none) \\
+\lcf{root@(none)} & comment inside the key \\
+\lcf{SHA256:J8L9a\allowbreak BLEimTdDW5m1\allowbreak iV7wU64LP1iW\allowbreak o3+lj9MGCxNO\allowbreak DI} & key fingerprint (ssh-keygen) \\
+\lcf{27c2fd6812c4\allowbreak 8a64dd0d6e66\allowbreak d6257bc14eb8\allowbreak 2cfd625a8dfe\allowbreak 963f4c182c4d\allowbreak 3832} & sha256 of the key public blob \\
+\lcf{5} & BEGIN OPENSSH PRIVATE KEY lines (one of them a real key) \\
+\lcf{10} & OPENSSH PRIVATE KEY literals (BEGIN+END) \\
+\lcf{8} & BEGIN PUBLIC KEY blocks (one is a literal with no body) \\
+\lcf{8} & SPKI blocks that parse as keys \\
+\lcf{6} & distinct RSA moduli \\
+\lcf{429029376} & offset of the 2048-bit key \\
+\lcf{740733952} & offset of the sshd\_config member in the tar table of contents \\
+\lcf{3094} & size of sshd\_config, bytes \\
+\midrule
+\multicolumn{2}{l}{\lcf{BODYDATA.DAT}\quad\textbf{sha256 dbdd8b02ed81d6f0}} \\
+\midrule
+\lcf{272} & body tail: total bytes \\
+\lcf{89a85276c720\allowbreak 8ea533a0e187\allowbreak fac4092c} & IV in the tail (in clear text) \\
+\lcf{256} & signature block, bytes (= the size of an RSA-2048 signature) \\
+\lcf{743818348} & offset of the tail in the file \\
+\lcf{497f} & first bytes after raising the tail to the power e (no v1.5 structure) \\
+\midrule
+\multicolumn{2}{l}{\lcf{publication/\allowbreak live\_witness\allowbreak /FINGERPRINT\allowbreak \_RESULT\_2026\allowbreak -10-04\_1743.\allowbreak txt}\quad\textbf{sha256 411ec1397eb43f4f}} \\
+\midrule
+\lcf{192.168.1.10\allowbreak 2} & camera address in the runs \\
+\lcf{MISMATCH} & verdict of the host-key comparison \\
+\lcf{SHA256:0VOxJ\allowbreak qn75lys4Lf91\allowbreak tSlZu8nazWWx\allowbreak D6rTVc35jZo8\allowbreak 7U} & fingerprint of the camera live key \\
+\lcf{d153b126a9fb\allowbreak e65cace0b7fd\allowbreak d6d4a566ef27\allowbreak 6b3596c43eab\allowbreak 4d5737e63668\allowbreak f3b5} & sha256 of the live key blob \\
+\midrule
+\multicolumn{2}{l}{\lcf{publication/\allowbreak live\_witness\allowbreak /live\_probe\_\allowbreak log.txt}\quad\textbf{sha256 4cbdc8c67c01054c}} \\
+\midrule
+\lcf{22} & probes that found port 22 open \\
+\midrule
+\multicolumn{2}{l}{\lcf{-}\quad\textbf{sha256 -}} \\
+\midrule
+\lcf{22} & camera sshd port \\
+\midrule
+\multicolumn{2}{l}{\lcf{publication/\allowbreak live\_witness\allowbreak /FINGERPRINT\allowbreak \_RESULT\_2026\allowbreak -10-04\_1743.\allowbreak txt}\quad\textbf{sha256 411ec1397eb43f4f}} \\
+\midrule
+\lcf{SHA256:J8L9a\allowbreak BLEimTdDW5m1\allowbreak iV7wU64LP1iW\allowbreak o3+lj9MGCxNO\allowbreak DI} & fingerprint of the firmware key it was compared against \\
+\midrule
+\multicolumn{2}{l}{\lcf{-}\quad\textbf{sha256 -}} \\
+\midrule
+\lcf{64} & of the 66 bytes of the key point differ (external measurement) \\
+\lcf{66} & length of a P-256 point, bytes \\
+\lcf{15740} & PTP/IP port (closed in the measured state) \\
+\midrule
+\multicolumn{2}{l}{\lcf{publication/\allowbreak verification\allowbreak \_runs/checks\allowbreak .txt}\quad\textbf{sha256 41efd26400c45698}} \\
+\midrule
+\lcf{15} & checks.py: green \\
+\lcf{3} & checks.py: controls \\
+\midrule
+\multicolumn{2}{l}{\lcf{publication/\allowbreak verification\allowbreak \_runs/round2\allowbreak 77.txt}\quad\textbf{sha256 385c3674d0bff57f}} \\
+\midrule
+\lcf{13} & round277\_check.py: green \\
+\lcf{5} & round277\_check.py: controls red \\
+\midrule
+\multicolumn{2}{l}{\lcf{publication/\allowbreak verification\allowbreak \_runs/round2\allowbreak 78.txt}\quad\textbf{sha256 78d1932d25d8911b}} \\
+\midrule
+\lcf{17} & round278\_check.py: green \\
+\lcf{5} & round278\_check.py: controls red \\
+\midrule
+\multicolumn{2}{l}{\lcf{publication/\allowbreak verification\allowbreak \_runs/round2\allowbreak 79.txt}\quad\textbf{sha256 0a665fe918405af3}} \\
+\midrule
+\lcf{28} & round279\_check.py: green \\
+\lcf{29} & round279\_check.py: total \\
+\midrule
+\multicolumn{2}{l}{\lcf{publication/\allowbreak verification\allowbreak \_runs/verify\allowbreak \_findings.tx\allowbreak t}\quad\textbf{sha256 30af8e4f5c111ad5}} \\
+\midrule
+\lcf{47} & verify\_findings.py: green \\
+\lcf{5} & verify\_findings.py: controls red \\
+\midrule
+\multicolumn{2}{l}{\lcf{-}\quad\textbf{sha256 -}} \\
+\midrule
+\lcf{4} & number of corrections to numbers recorded earlier \\
+\lcf{27} & instrument errors across the work (F140-F166) \\
+\bottomrule
+\end{longtable}
+\endgroup

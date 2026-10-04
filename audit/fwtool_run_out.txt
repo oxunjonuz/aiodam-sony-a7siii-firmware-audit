@@ -1,0 +1,23 @@
+/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/dat.py:60: SyntaxWarning: invalid escape sequence '\.'
+  return [path for path in paths if re.search('/FirmwareData_([^/]+)\.dat$', path)][0]
+/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/fdat.py:312: SyntaxWarning: invalid escape sequence '\d'
+  version = re.match('^(\d)\.(\d{2})$', fdat.version)
+/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/msfirm.py:70: SyntaxWarning: invalid escape sequence '\['
+  hm = re.match('^\[(.+)\]$', l)
+/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/msfirm.py:206: SyntaxWarning: invalid escape sequence '\d'
+  version = re.match('^(\d)\.(\d{2})$', msfirm.version)
+Decrypting firmware image
+Traceback (most recent call last):
+  File "/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool.py", line 345, in <module>
+    main()
+  File "/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool.py", line 335, in main
+    unpackCommand(args.inFile, args.outDir)
+  File "/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool.py", line 219, in unpackCommand
+    datConf = unpackDat(file, fdatFile)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool.py", line 113, in unpackDat
+    crypterName, data = fdat.decryptFdat(datContents.firmwareData)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/fdat.py", line 248, in decryptFdat
+    raise Exception('No decrypter found')
+Exception: No decrypter found

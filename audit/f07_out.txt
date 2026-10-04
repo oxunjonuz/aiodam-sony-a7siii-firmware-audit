@@ -1,0 +1,107 @@
+/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/fdat.py:312: SyntaxWarning: invalid escape sequence '\d'
+  version = re.match('^(\d)\.(\d{2})$', fdat.version)
+=== G1 geometry ===
+  model                  0x91030083
+  version                5.01
+  firmware_offset        1253888
+  firmware_size          739658240
+  firmware_end           740912128
+  cipher_len             743818240
+  f07_start_payload      740912128
+  f07_size               2906112
+  f07_start_file         740912236
+  f07_end_file           743818348
+  iv_file                743818348
+  f07_size_eq_2838_kib   True
+  fwsize_mod_1024        512
+  fwsize_mod_512         0
+  cipherlen_mod_1024     0
+  FS slots (non-empty): [{'i': 0, 'mode': 'U', 'offset': 512, 'size': 1253376}, {'i': 1, 'mode': 'P', 'offset': 512, 'size': 0}]
+  region size mod: {'512': 0, '1024': 0, '2048': 0, '4096': 2048, '8192': 6144, '16384': 6144, '65536': 22528, '131072': 22528}
+  first 64 B of the region: 768944d2d8bb4878d6dbfee92388abec0e1785c92f39c08160642456ac26f9c290f7b89c28e556a34dc13dd43a593206a0362c4b3d44a5268ca2ff0b88f008ad
+  64 B before the region: 754904a23f766166b2b778318834c2a2350de74bf6ec8c332d17f3cdb86677811b8c54807e897ad3f192313f840db2f13e4dfc366132187f034eeaaf482bf553
+  IV from the tail   : 89a85276c7208ea533a0e187fac4092c
+  first 64 B of tail : 0b02163cf6e4983c0b1b5926a0b5161daa43baf7af92a06967e859b8f4783c2fc435c6bcee3a28187b46db84fae910659b276ebec5be2bcf13c721d8205bbd07
+=== B boundaries ===
+  magics_found_in_first_512          []
+  magics_found_anywhere_in_region    []
+  zero_bytes_in_first_64             0
+  zero_bytes_in_first_512            0
+  zero_bytes_in_whole_region         11271
+  public_constants_inside_f07        {'key_aes': False, 'key_cxd90014': False, 'key_cxd90045': False, 'iv_from_tail': False}
+=== E entropy (bits/byte) ===
+  set                all        w4096min   w1024min   w256min    deflate  
+  body_fw_head       7.999945   7.941652   7.743655   6.953739   1.0003   
+  body_fw_mid        7.999939   7.935800   7.744698   6.963139   1.0003   
+  body_fw_tail       7.999934   7.939466   7.739627   6.940735   1.0003   
+  control_random     7.999938   7.940260   7.749390   6.938076   1.0003   
+  control_zeros      -0.000000  -0.000000  -0.000000  -0.000000  0.0010   
+  f07                7.999923   7.942314   7.749274   6.991983   1.0003   
+  f07 chi2/1024: {'n': 2838, 'min': 169.5, 'mean': 255.04439746300213, 'max': 338.0, 'below_200': 15, 'above_320': 7}
+  f07, the 10 lowest 4-KiB windows: [[2744320, 7.942313653035067], [1470464, 7.942447993097689], [1261568, 7.942554362731922], [1175552, 7.942996577028801], [2473984, 7.943395972745046], [2359296, 7.943608095015751], [1282048, 7.944114513597761], [151552, 7.9441254233617435], [1253376, 7.944219755261683], [1605632, 7.944445808601568]]
+=== C against the body ===
+  fw_head          {'ks_vs_f07': 0.02255109231853425, 'mean_entropy': 7.80823696470176, 'min_entropy': 7.743655029632398, 'chi2_bytes_total': 220.60394644115576, 'deflate_ratio': 1.0003083157152926, 'ascii_runs_5': 12891, 'ascii_runs_8': 673}
+  fw_mid           {'ks_vs_f07': 0.02043692741367162, 'mean_entropy': 7.80891548655692, 'min_entropy': 7.744698295320628, 'chi2_bytes_total': 246.06959126145173, 'deflate_ratio': 1.0003083157152926, 'ascii_runs_5': 12853, 'ascii_runs_8': 693}
+  fw_tail          {'ks_vs_f07': 0.021846370683580085, 'mean_entropy': 7.80885461481799, 'min_entropy': 7.739626731824498, 'chi2_bytes_total': 267.01286116983795, 'deflate_ratio': 1.0003083157152926, 'ascii_runs_5': 12840, 'ascii_runs_8': 669}
+  control_random   {'ks_vs_f07': 0.0098661028893587, 'mean_entropy': 7.808882677209127, 'min_entropy': 7.749389779000578, 'chi2_bytes_total': 248.74859055673008, 'deflate_ratio': 1.0003083157152926, 'ascii_runs_5': 12874, 'ascii_runs_8': 689}
+  f07_reference    {'mean_entropy': 7.808772422206419, 'min_entropy': 7.749273685408241, 'max_entropy': 7.877164403174202, 'n_windows_1024': 2838, 'chi2_bytes_total': 310.75616631430586, 'deflate_ratio': 1.0003083157152926, 'ascii_runs_5': 12727, 'ascii_runs_8': 668}
+=== D duplicates ===
+  f07_16                           {'blocks': 181632, 'duplicates': 0}
+  control_random_16                {'blocks': 181632, 'duplicates': 0}
+  body_fw_head_16                  {'blocks': 181632, 'duplicates': 0}
+  f07_32                           {'blocks': 90816, 'duplicates': 0}
+  control_random_32                {'blocks': 90816, 'duplicates': 0}
+  body_fw_head_32                  {'blocks': 90816, 'duplicates': 0}
+  f07_64                           {'blocks': 45408, 'duplicates': 0}
+  control_random_64                {'blocks': 45408, 'duplicates': 0}
+  body_fw_head_64                  {'blocks': 45408, 'duplicates': 0}
+  f07_1024                         {'blocks': 2838, 'duplicates': 0}
+  control_random_1024              {'blocks': 2838, 'duplicates': 0}
+  body_fw_head_1024                {'blocks': 2838, 'duplicates': 0}
+  shared_16B_blocks_f07_vs_body_head 0
+=== S strings ===
+  f07_ascii5_count                 12727
+  f07_ascii8_count                 668
+  f07_utf16_count                  0
+  control_random_ascii5_count      12874
+  control_text_ascii5_count        1
+  body_fw_head_ascii5_count        12891
+  sample: ['6,K=D', '2n0q>', 'm2nRjz', 'U"A6n', 'uLJ_K', '-/jZzn{r7', 'v/%,u', '~j%\\1', 'E?f*b', 'xEHa-']
+=== F the frame ===
+  f07_raw_ciphertext                   {'name': 'f07_raw', 'blocks': 2838, 'checksum_ok': 1, 'rate': 0.00035236081747709656, 'expected_random': 1.52587890625e-05, 'expected_random_blocks': 0.043304443359375}
+  f07_aes_ecb_key_aes                  {'name': 'f07_k1', 'blocks': 2838, 'checksum_ok': 0, 'rate': 0.0, 'expected_random': 1.52587890625e-05, 'expected_random_blocks': 0.043304443359375}
+  f07_double_aes_keyaes_x90014         {'name': 'f07_k2', 'blocks': 2838, 'checksum_ok': 0, 'rate': 0.0, 'expected_random': 1.52587890625e-05, 'expected_random_blocks': 0.043304443359375}
+  f07_cbc_key_cxd90045_chained         {'name': 'f07_cbc', 'blocks': 2838, 'checksum_ok': 0, 'rate': 0.0, 'expected_random': 1.52587890625e-05, 'expected_random_blocks': 0.043304443359375}
+  body_raw_ciphertext                  {'name': 'body_raw', 'blocks': 2838, 'checksum_ok': 0, 'rate': 0.0, 'expected_random': 1.52587890625e-05, 'expected_random_blocks': 0.043304443359375}
+  body_double_aes                      {'name': 'body_k2', 'blocks': 2838, 'checksum_ok': 0, 'rate': 0.0, 'expected_random': 1.52587890625e-05, 'expected_random_blocks': 0.043304443359375}
+  CONTROL_synthetic_framed             {'name': 'synth', 'blocks': 2838, 'checksum_ok': 2838, 'rate': 1.0, 'expected_random': 1.52587890625e-05, 'expected_random_blocks': 0.043304443359375}
+  CONTROL_synthetic_framed_one_flip    {'name': 'synth1', 'blocks': 2838, 'checksum_ok': 2837, 'rate': 0.9996476391825229, 'expected_random': 1.52587890625e-05, 'expected_random_blocks': 0.043304443359375}
+  control_zeros                        {'name': 'zeros', 'blocks': 2838, 'checksum_ok': 2838, 'rate': 1.0, 'expected_random': 1.52587890625e-05, 'expected_random_blocks': 0.043304443359375}
+  control_random                       {'name': 'random', 'blocks': 2838, 'checksum_ok': 0, 'rate': 0.0, 'expected_random': 1.52587890625e-05, 'expected_random_blocks': 0.043304443359375}
+  after decryption: {'entropy_raw': 7.9999228821389625, 'entropy_key_aes': 7.99994351465633, 'entropy_double_aes': 7.999939149932857, 'entropy_cbc_90045': 7.9999379800883945, 'ascii5_raw': 12727, 'ascii5_key_aes': 12969, 'ascii5_double_aes': 13060, 'ascii5_cbc_90045': 12839}
+=== H search ===
+  patterns: 58 with no hits: 55
+  hits: {'firmware/crc32': [508141790], 'tail_272/crc32': [502918635], 'const/iv_from_tail': [743818348]}
+  control: {'pattern': 'header_512/sha256', 'found_at': 1000, 'expected_at': 1000, 'searched_where': 'copy of the f07 region only'}
+=== M factorization ===
+   {'2': 11, '3': 1, '11': 1, '43': 1} = 2838 KiB
+   KiB divisors: [1, 2, 3, 6, 11, 22, 33, 43, 66, 86, 129, 258, 473, 946, 1419, 2838]
+   F07/1024           2838.0
+   F07/2048           1419.0
+   F07/4096           709.5
+   F07/512            5676.0
+   F07/16             181632.0
+   F07/256            11352.0
+   firmware/N         254.51814658210006
+   cipherlen/N        255.9496124031008
+   N/fsuser           2.3186274509803924
+   N/header512        5676.0
+   N/473              6144.0
+   N/1419             2048.0
+   N/2838             1024.0
+   N/256_rsa          11352.0
+   fwsize/2048        361161.25
+   cipherlen/2048     363192.5
+   cipherlen/2838     262092.4031007752
+   mods: {'1024': 0, '2048': 0, '4096': 2048, '8192': 6144, '16384': 6144, '65536': 22528, '131072': 22528, '1048576': 808960}
+written: /work/SONY_A7SIII_UPDATE/audit/f07.json

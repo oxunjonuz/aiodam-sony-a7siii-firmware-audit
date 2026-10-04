@@ -1,0 +1,13 @@
+========================================================================================
+      OK   report: every number of the EVIDENCE block is present in evidence.json and matches
+         all lines matched
+      OK   evidence.json is reproduced by the instrument (checks.py, exit=0, the same numbers)
+         checks.py exit=0
+CTRL OK   CONTROL (must go red): a corrupted number in the report text goes unnoticed
+         mismatches: ['fdat_header.model: report=0x91030084 evidence=0x91030083']
+CTRL OK   CONTROL (must go red): a corrupted value in evidence.json goes unnoticed
+         mismatches: ['fdat_header.firmware_size: report=739658240 evidence=739658241']
+CTRL OK   CONTROL (must go red): deleting a key named in the report goes unnoticed
+         mismatches: ['repeat_run_measured.count: not in evidence.json']
+========================================================================================
+result: ALL MATCHED

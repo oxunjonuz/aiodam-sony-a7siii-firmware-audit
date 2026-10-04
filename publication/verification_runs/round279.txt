@@ -1,0 +1,696 @@
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+Exception (server): Incompatible ssh peer (no acceptable host key)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+Traceback (most recent call last):
+Exception (server): Incompatible ssh peer (no acceptable host key)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    raise IncompatiblePeer(
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+Exception (server): Error reading SSH protocol banner
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf += self._read_timeout(timeout)
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+EOFError
+Traceback (most recent call last):
+
+During handling of the above exception, another exception occurred:
+
+Exception (server): Incompatible ssh peer (no acceptable host key)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+Exception (server): Incompatible ssh peer (no acceptable host key)
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+    self._check_banner()
+    self._handler_table[ptype](m)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+    self._handler_table[ptype](m)
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Exception (server): Incompatible ssh peer (no acceptable host key)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+Exception (server): Incompatible ssh peer (no acceptable host key)
+
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._handler_table[ptype](m)
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+    raise IncompatiblePeer(
+
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+Exception (server): Incompatible ssh peer (no acceptable host key)
+
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+Traceback (most recent call last):
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (server): Error reading SSH protocol banner
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+Traceback (most recent call last):
+    buf = self.packetizer.readline(timeout)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    buf += self._read_timeout(timeout)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+    raise EOFError()
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+EOFError
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+Exception (server): Incompatible ssh peer (no acceptable host key)
+
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+Exception (server): Incompatible ssh peer (no acceptable host key)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2080, in run
+    self._handler_table[ptype](m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2200, in _negotiate_keys
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    self._parse_kex_init(m)
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2451, in _parse_kex_init
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+    raise IncompatiblePeer(
+paramiko.ssh_exception.IncompatiblePeer: Incompatible ssh peer (no acceptable host key)
+
+Exception (server): Error reading SSH protocol banner
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2213, in _check_banner
+    buf = self.packetizer.readline(timeout)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 395, in readline
+    buf += self._read_timeout(timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.12/site-packages/paramiko/packet.py", line 665, in _read_timeout
+    raise EOFError()
+EOFError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2029, in run
+    self._check_banner()
+  File "/usr/local/lib/python3.12/site-packages/paramiko/transport.py", line 2217, in _check_banner
+    raise SSHException(
+paramiko.ssh_exception.SSHException: Error reading SSH protocol banner
+
+==============================================================================
+ROUND 279 CHECKS - MAC_FINGERPRINT.sh
+==============================================================================
+PASS  C0 bash -n syntax clean
+PASS  C1 selftest path: script starts (exit code recorded)   [rc=0]
+PASS  C2 --selftest exit 0   [rc=0]
+PASS  C3 --selftest says SELF_TEST_OK   [SELFTEST: 8/8 passed, 0 skipped]
+note  SSH server on 127.0.0.1:45551, host key = out/key_wbi_nflasha5.pem, not attempted
+PASS  C4 independent route (harness ssh-keyscan) sees the firmware fingerprint   [SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI]
+PASS  C5 independent route: blob is byte-identical to the firmware blob   [140 chars]
+PASS  C6 script over a real SSH handshake -> MATCH   [verdict=MATCH]
+PASS  C7 script reports the same fingerprint the harness computed   [SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI]
+PASS  C8 AIODAM_JSON parses and agrees with the text verdict   [MATCH]
+PASS  C9 all three comparison routes available and saying yes   [blob=yes fp=yes sha=yes]
+PASS  C10 report file was written where --out/AIODAM_OUT said   [out_134061050.txt]
+PASS  C11 read-only: the server saw ZERO auth attempts and ZERO channel requests   [auth=[] chan=[]]
+note  kex restriction actually applied to the live handshake: mimic-camera: kex, ciphers, macs
+PASS  C11b the live handshake negotiated the camera's own kex (ecdh-sha2-nistp256)   [from the verbatim ssh-keyscan stderr]
+note  saved a full MATCH report to out/round279_match_report.txt
+PASS  C12 a different host key -> MISMATCH   [verdict=MISMATCH]
+PASS  C13 and the JSON records the observed (different) fingerprint, not the expected one   [ SHA256:+SUhnqoaNUzLNyOXXi/n/eTYoq6IpKf0x3QdKCmuJB8]
+PASS  C13b an alg-mimicking server is identified as the firmware's own sshd_config   [alg_set_match=yes alg_set=kex=ecdh-sha2-nistp256 cipher=aes128-ctr mac=hmac-sha2-256 hostkey=ecdsa-sha2-nistp256]
+PASS  C13c control: a server with default algorithms is NOT identified as such   [alg_set_match=no]
+PASS  C13d the reference-key comparison reports SAME for the firmware-key server only when that key is also the reference (here it is not)   [ref_live_match=DIFFERENT]
+PASS  C14 control: expectation retargeted to the other key -> MATCH (sanity of the swap)   [verdict=MATCH]
+PASS  C15 control: real firmware key vs that expectation -> MISMATCH, not MATCH   [verdict=MISMATCH]
+PASS  C16 control: one route yes, one route no -> INCONCLUSIVE_CONTRADICTION   [verdict=INCONCLUSIVE_CONTRADICTION]
+PASS  C16b control: one character changed in the embedded blob -> not MATCH   [verdict=INCONCLUSIVE_CONTRADICTION]
+PASS  C16c and the sha256 expectation followed the changed base64 (routes cannot drift apart)   [sha_expect=3fc9d1e1b497 route_sha=no]
+PASS  C17 closed port -> UNREACHABLE   [verdict=UNREACHABLE reason=no_host_no_sshd]
+PASS  C18 port open but not SSH -> INCONCLUSIVE_NO_KEY   [verdict=INCONCLUSIVE_NO_KEY]
+PASS  C19 and in that case the report still contains the raw ssh-keyscan stderr
+PASS  C20 camera signature present, sshd closed -> UNREACHABLE/camera_found_but_sshd_not_listening   [UNREACHABLE/camera_found_but_sshd_not_listening]
+PASS  C21 and the report names the PTP port as the evidence the camera is there
+SKIP  C22 live camera 192.168.1.102:22 not reachable from this container - the live half of this suite did not run (a skip is not a pass)
+------------------------------------------------------------------------------
+ROUND279 28/29 passed; controls that must go red: 2/2
+wrote audit/round279_checks.json

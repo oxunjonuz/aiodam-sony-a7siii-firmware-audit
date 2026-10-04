@@ -1,0 +1,1406 @@
+{
+ "schema": 1,
+ "root": "/work/SONY_A7SIII_UPDATE",
+ "artifacts": {
+  "BODYDATA.DAT": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+  "out/stream.bin": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+  "out/fs_user.sqsh": "62e86fad175e0326969d5f1cea29d780feb496ce8034acd2c9c3954320d8ccaa",
+  "out/fs_root": "tree:5cb85a8b2b2523bdd8c6fbe9843319e868494cfef1bf0b2d2a9ceb9a7d0b61f7",
+  "out/fs_root/bin/pformat.elf": "3ce2a76f477e937369f8e5b6dde2cdcb838645b53492b9a184ee16bbed389e21",
+  "publication/live_witness/FINGERPRINT_RESULT_2026-10-04_1743.txt": "411ec1397eb43f4f8387963e08cee4a655ae72645c046508e3f62a249296043f",
+  "publication/live_witness/live_probe_log.txt": "4cbdc8c67c01054c1e7eedb6f7b6d1a817dfb5079198d6bc0b286b8e4f438680",
+  "publication/verification_runs/checks.txt": "41efd26400c4569866f66fefde4c895d75170335a5498c85550a8c1c3b82797b",
+  "publication/verification_runs/round277.txt": "385c3674d0bff57ffadb6892c8f58ad64a3415c48717c2364d12174e283e7842",
+  "publication/verification_runs/round278.txt": "78d1932d25d8911b708d66b3bf67bdfd0b272b6cdd173fac56f5e931b58e3399",
+  "publication/verification_runs/round279.txt": "0a665fe918405af3968a91020ee70403fb53f58507669f8dbe36d99354ac1d54",
+  "publication/verification_runs/verify_findings.txt": "30af8e4f5c111ad565910430a68568c7635b74dbb4e183512b3fb0b74f39b822"
+ },
+ "numbers": {
+  "file.size": {
+   "value": 743818632,
+   "print": "743 818 632",
+   "tex_form": "743 818 632",
+   "rule": {
+    "kind": "size",
+    "path": "BODYDATA.DAT"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "size of the update file, bytes",
+   "source": "numrules rule: size"
+  },
+  "file.sha256": {
+   "value": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "print": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "tex_form": "dbdd8b02\\ldots c9eb",
+   "rule": {
+    "kind": "hash",
+    "path": "BODYDATA.DAT",
+    "algo": "sha256"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "sha256 of the object",
+   "source": "numrules rule: hash"
+  },
+  "file.md5": {
+   "value": "ae4d074dca268917cc9697714f6baac0",
+   "print": "ae4d074dca268917cc9697714f6baac0",
+   "tex_form": "ae4d074d\\ldots baac0",
+   "rule": {
+    "kind": "hash",
+    "path": "BODYDATA.DAT",
+    "algo": "md5"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "md5 of the object",
+   "source": "numrules rule: hash"
+  },
+  "file.sha1": {
+   "value": "03c83a6b616c9f216495437359fac585db336b2f",
+   "print": "03c83a6b616c9f216495437359fac585db336b2f",
+   "tex_form": "03c83a6b\\ldots 36b2f",
+   "rule": {
+    "kind": "hash",
+    "path": "BODYDATA.DAT",
+    "algo": "sha1"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "sha1 of the object",
+   "source": "numrules rule: hash"
+  },
+  "file.mib": {
+   "value": 709.4,
+   "print": "709.4",
+   "tex_form": "709.4",
+   "rule": {
+    "kind": "expr",
+    "expr": "round(size/1048576.0, 1)",
+    "vars": {
+     "size": "file.size"
+    }
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "the same size in MiB",
+   "source": "numrules rule: expr"
+  },
+  "container.datv_off": {
+   "value": 8,
+   "print": "8",
+   "tex_form": "8",
+   "rule": {
+    "kind": "find",
+    "path": "BODYDATA.DAT",
+    "needle": "DATV",
+    "delta": -4
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "DATV block: offset",
+   "source": "numrules rule: find"
+  },
+  "container.prov_off": {
+   "value": 20,
+   "print": "20",
+   "tex_form": "20",
+   "rule": {
+    "kind": "find",
+    "path": "BODYDATA.DAT",
+    "needle": "PROV",
+    "delta": -4
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "PROV block",
+   "source": "numrules rule: find"
+  },
+  "container.udid_off": {
+   "value": 32,
+   "print": "32",
+   "tex_form": "32",
+   "rule": {
+    "kind": "find",
+    "path": "BODYDATA.DAT",
+    "needle": "UDID",
+    "delta": -4
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "UDID block",
+   "source": "numrules rule: find"
+  },
+  "container.fdat_off": {
+   "value": 100,
+   "print": "100",
+   "tex_form": "100",
+   "rule": {
+    "kind": "find",
+    "path": "BODYDATA.DAT",
+    "needle": "FDAT",
+    "delta": -4
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "FDAT block",
+   "source": "numrules rule: find"
+  },
+  "container.fdat_size": {
+   "value": 743818512,
+   "print": "743 818 512",
+   "tex_form": "743 818 512",
+   "rule": {
+    "kind": "u32",
+    "path": "BODYDATA.DAT",
+    "off": 100
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "FDAT payload, bytes",
+   "source": "numrules rule: u32"
+  },
+  "container.dend_off": {
+   "value": 743818620,
+   "print": "743 818 620",
+   "tex_form": "743 818 620",
+   "rule": {
+    "kind": "dend",
+    "path": "BODYDATA.DAT",
+    "field": "offset"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "DEND block: offset (= length of the prefix the CRC covers)",
+   "source": "numrules rule: dend"
+  },
+  "container.dend_crc": {
+   "value": "0x1fafdcaa",
+   "print": "0x1fafdcaa",
+   "tex_form": "0x1fafdcaa",
+   "rule": {
+    "kind": "dend",
+    "path": "BODYDATA.DAT",
+    "field": "stored"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "stored container CRC32",
+   "source": "numrules rule: dend"
+  },
+  "udid.count": {
+   "value": 7,
+   "print": 7,
+   "tex_form": 7,
+   "rule": {
+    "kind": "udid",
+    "path": "BODYDATA.DAT",
+    "field": "count"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "entries in the UDID table",
+   "source": "numrules rule: udid"
+  },
+  "udid.updater_pid": {
+   "value": "0x03e2",
+   "print": "0x03e2",
+   "tex_form": "03e2",
+   "rule": {
+    "kind": "udid",
+    "path": "BODYDATA.DAT",
+    "field": "updater_pid"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "last descriptor: PID of the updater mode",
+   "source": "numrules rule: udid"
+  },
+  "fdat.payload_off": {
+   "value": 108,
+   "print": 108,
+   "tex_form": 108,
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "payload_off"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "offset of the FDAT payload (= start of the body)",
+   "source": "numrules rule: header"
+  },
+  "fdat.frame_hex": {
+   "value": "c4a9fc03",
+   "print": "c4a9fc03",
+   "tex_form": "c4a9fc03",
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "frame_hex"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "frame of the first body block",
+   "source": "numrules rule: header"
+  },
+  "fdat.magic": {
+   "value": "UDTRFIRM",
+   "print": "UDTRFIRM",
+   "tex_form": "UDTRFIRM",
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "magic"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "body magic",
+   "source": "numrules rule: header"
+  },
+  "fdat.fmt_version": {
+   "value": "0100",
+   "print": "0100",
+   "tex_form": "0100",
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "fmt_version"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "format version",
+   "source": "numrules rule: header"
+  },
+  "fdat.checksum": {
+   "value": "0x9eb4163d",
+   "print": "0x9eb4163d",
+   "tex_form": "0x9eb4163d",
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "checksum"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "header CRC32",
+   "source": "numrules rule: header"
+  },
+  "fdat.version": {
+   "value": "5.01",
+   "print": "5.01",
+   "tex_form": "5.01",
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "version"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "firmware version in the header",
+   "source": "numrules rule: header"
+  },
+  "fdat.model": {
+   "value": "0x91030083",
+   "print": "0x91030083",
+   "tex_form": "0x91030083",
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "model"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "model code in the header",
+   "source": "numrules rule: header"
+  },
+  "fdat.region": {
+   "value": 0,
+   "print": 0,
+   "tex_form": 0,
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "region"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "region",
+   "source": "numrules rule: header"
+  },
+  "fdat.known_suffix_hex": {
+   "value": "00000000",
+   "print": "00000000",
+   "tex_form": "00000000",
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "known_suffix_hex"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "the bytes H[508:512] that the CRC32 requires",
+   "source": "numrules rule: header"
+  },
+  "fdat.fs_u_off": {
+   "value": 512,
+   "print": 512,
+   "tex_form": 512,
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "fs_u_off"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "offset of file system U in the stream",
+   "source": "numrules rule: header"
+  },
+  "fdat.fs_u_size": {
+   "value": 1253376,
+   "print": 1253376,
+   "tex_form": 1253376,
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "fs_u_size"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "size of file system U",
+   "source": "numrules rule: header"
+  },
+  "fdat.fs_p_size": {
+   "value": 0,
+   "print": 0,
+   "tex_form": 0,
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "fs_p_size"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "size of slot P (empty)",
+   "source": "numrules rule: header"
+  },
+  "fdat.fw_off": {
+   "value": 1253888,
+   "print": 1253888,
+   "tex_form": 1253888,
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "fw_off"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "offset of the firmware area",
+   "source": "numrules rule: header"
+  },
+  "fdat.fw_size": {
+   "value": 739658240,
+   "print": 739658240,
+   "tex_form": 739658240,
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "fw_size"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "size of the firmware area",
+   "source": "numrules rule: header"
+  },
+  "fdat.num_fs": {
+   "value": 2,
+   "print": 2,
+   "tex_form": 2,
+   "rule": {
+    "kind": "header",
+    "path": "BODYDATA.DAT",
+    "field": "num_fs"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "number of file systems in the header",
+   "source": "numrules rule: header"
+  },
+  "ecb.runs": {
+   "value": 1,
+   "print": 1,
+   "tex_form": 1,
+   "rule": {
+    "kind": "ecb",
+    "path": "BODYDATA.DAT",
+    "field": "runs"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "runs of identical 16-byte ciphertext blocks (measured without the key)",
+   "source": "numrules rule: ecb"
+  },
+  "ecb.start": {
+   "value": 6,
+   "print": 6,
+   "tex_form": 6,
+   "rule": {
+    "kind": "ecb",
+    "path": "BODYDATA.DAT",
+    "field": "start"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "start of the run, 16-byte block index",
+   "source": "numrules rule: ecb"
+  },
+  "ecb.start_byte": {
+   "value": 96,
+   "print": 96,
+   "tex_form": 96,
+   "rule": {
+    "kind": "ecb",
+    "path": "BODYDATA.DAT",
+    "field": "start_byte"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "start of the run, bytes from the start of the ciphertext",
+   "source": "numrules rule: ecb"
+  },
+  "ecb.length": {
+   "value": 26,
+   "print": 26,
+   "tex_form": 26,
+   "rule": {
+    "kind": "ecb",
+    "path": "BODYDATA.DAT",
+    "field": "length"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "length of the run, 16-byte blocks",
+   "source": "numrules rule: ecb"
+  },
+  "ecb.length_bytes": {
+   "value": 416,
+   "print": 416,
+   "tex_form": 416,
+   "rule": {
+    "kind": "ecb",
+    "path": "BODYDATA.DAT",
+    "field": "length_bytes"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "length of the run, bytes",
+   "source": "numrules rule: ecb"
+  },
+  "ecb.cipher_bytes": {
+   "value": 743818240,
+   "print": 743818240,
+   "tex_form": 743818240,
+   "rule": {
+    "kind": "ecb",
+    "path": "BODYDATA.DAT",
+    "field": "cipher_bytes"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "length of the ciphertext, bytes",
+   "source": "numrules rule: ecb"
+  },
+  "stream.size": {
+   "value": 740912128,
+   "print": 740912128,
+   "tex_form": 740912128,
+   "rule": {
+    "kind": "size",
+    "path": "out/stream.bin"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "unpacked stream, bytes",
+   "source": "numrules rule: size"
+  },
+  "stream.sha256": {
+   "value": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "print": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "tex_form": "11880291\\ldots 1e66",
+   "rule": {
+    "kind": "hash",
+    "path": "out/stream.bin",
+    "algo": "sha256"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "sha256 of the unpacked stream",
+   "source": "numrules rule: hash"
+  },
+  "frames.count": {
+   "value": 726385,
+   "print": 726385,
+   "tex_form": 726385,
+   "rule": {
+    "kind": "const",
+    "value": 726385
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "number of stream frames",
+   "source": "audit/verify_findings.json — the instrument that read all 726 385 frames"
+  },
+  "frames.bad": {
+   "value": 0,
+   "print": 0,
+   "tex_form": 0,
+   "rule": {
+    "kind": "const",
+    "value": 0
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "frames with a bad checksum",
+   "source": "same file (0 frames with a bad checksum)"
+  },
+  "frames.size_payload": {
+   "value": 1020,
+   "print": 1020,
+   "tex_form": 1020,
+   "rule": {
+    "kind": "const",
+    "value": 1020
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "payload size of a frame",
+   "source": "same file (1020)"
+  },
+  "frames.size_last": {
+   "value": 448,
+   "print": 448,
+   "tex_form": 448,
+   "rule": {
+    "kind": "const",
+    "value": 448
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "payload size of the last frame",
+   "source": "same file (448)"
+  },
+  "frames.endflags": {
+   "value": 1,
+   "print": 1,
+   "tex_form": 1,
+   "rule": {
+    "kind": "const",
+    "value": 1
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "frames carrying the end flag",
+   "source": "same file (1)"
+  },
+  "frames.pad": {
+   "value": 572,
+   "print": 572,
+   "tex_form": 572,
+   "rule": {
+    "kind": "const",
+    "value": 572
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "padding of the last frame, bytes",
+   "source": "same file (572 bytes, all 0xff)"
+  },
+  "frames.overhead": {
+   "value": 2906112,
+   "print": 2906112,
+   "tex_form": 2906112,
+   "rule": {
+    "kind": "expr",
+    "expr": "4*count+pad",
+    "vars": {
+     "count": "frames.count",
+     "pad": "frames.pad"
+    }
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "frame overhead plus padding (= the former \"unexplained\" quantity)",
+   "source": "numrules rule: expr"
+  },
+  "stream.unaccounted": {
+   "value": 0,
+   "print": 0,
+   "tex_form": 0,
+   "rule": {
+    "kind": "expr",
+    "expr": "stream - (512+fsu+fws)",
+    "vars": {
+     "stream": "stream.size",
+     "fsu": "fdat.fs_u_size",
+     "fws": "fdat.fw_size"
+    }
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "bytes beyond the declared components",
+   "source": "numrules rule: expr"
+  },
+  "fs.sha256": {
+   "value": "62e86fad175e0326969d5f1cea29d780feb496ce8034acd2c9c3954320d8ccaa",
+   "print": "62e86fad175e0326969d5f1cea29d780feb496ce8034acd2c9c3954320d8ccaa",
+   "tex_form": "62e86fad\\ldots d8ccaa",
+   "rule": {
+    "kind": "hash",
+    "path": "out/fs_user.sqsh",
+    "algo": "sha256"
+   },
+   "artifact": "out/fs_user.sqsh",
+   "artifact_sha256": "62e86fad175e0326969d5f1cea29d780feb496ce8034acd2c9c3954320d8ccaa",
+   "what": "sha256 of the squashfs image",
+   "source": "numrules rule: hash"
+  },
+  "fs.files": {
+   "value": 58,
+   "print": 58,
+   "tex_form": 58,
+   "rule": {
+    "kind": "squashfs",
+    "root": "out/fs_root",
+    "field": "files"
+   },
+   "artifact": "out/fs_root",
+   "artifact_sha256": "tree:5cb85a8b2b2523bdd8c6fbe9843319e868494cfef1bf0b2d2a9ceb9a7d0b61f7",
+   "what": "files in the unpacked updater image",
+   "source": "numrules rule: squashfs"
+  },
+  "fs.bytes": {
+   "value": 3151747,
+   "print": 3151747,
+   "tex_form": 3151747,
+   "rule": {
+    "kind": "squashfs",
+    "root": "out/fs_root",
+    "field": "bytes"
+   },
+   "artifact": "out/fs_root",
+   "artifact_sha256": "tree:5cb85a8b2b2523bdd8c6fbe9843319e868494cfef1bf0b2d2a9ceb9a7d0b61f7",
+   "what": "total size of the unpacked files, bytes",
+   "source": "numrules rule: squashfs"
+  },
+  "fs.elf": {
+   "value": 31,
+   "print": 31,
+   "tex_form": 31,
+   "rule": {
+    "kind": "squashfs",
+    "root": "out/fs_root",
+    "field": "elf"
+   },
+   "artifact": "out/fs_root",
+   "artifact_sha256": "tree:5cb85a8b2b2523bdd8c6fbe9843319e868494cfef1bf0b2d2a9ceb9a7d0b61f7",
+   "what": "of them ELF",
+   "source": "numrules rule: squashfs"
+  },
+  "fs.scripts": {
+   "value": 21,
+   "print": 21,
+   "tex_form": 21,
+   "rule": {
+    "kind": "squashfs",
+    "root": "out/fs_root",
+    "field": "scripts"
+   },
+   "artifact": "out/fs_root",
+   "artifact_sha256": "tree:5cb85a8b2b2523bdd8c6fbe9843319e868494cfef1bf0b2d2a9ceb9a7d0b61f7",
+   "what": "of them scripts",
+   "source": "numrules rule: squashfs"
+  },
+  "fs.pformat_bytes": {
+   "value": 1631008,
+   "print": 1631008,
+   "tex_form": 1631008,
+   "rule": {
+    "kind": "size",
+    "path": "out/fs_root/bin/pformat.elf"
+   },
+   "artifact": "out/fs_root/bin/pformat.elf",
+   "artifact_sha256": "3ce2a76f477e937369f8e5b6dde2cdcb838645b53492b9a184ee16bbed389e21",
+   "what": "size of pformat.elf, bytes",
+   "source": "numrules rule: size"
+  },
+  "tar.members": {
+   "value": 159,
+   "print": 159,
+   "tex_form": 159,
+   "rule": {
+    "kind": "const",
+    "value": 159
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "members in the firmware tar",
+   "source": "audit/round277_check.py: its own ustar parse gives 159 members"
+  },
+  "model.occurrences": {
+   "value": 61,
+   "print": 61,
+   "tex_form": 61,
+   "rule": {
+    "kind": "count",
+    "path": "out/stream.bin",
+    "needle": "ILCE-7SM3"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "occurrences of the string ILCE-7SM3 in the stream",
+   "source": "numrules rule: count"
+  },
+  "model.ilce9": {
+   "value": 2,
+   "print": 2,
+   "tex_form": 2,
+   "rule": {
+    "kind": "count",
+    "path": "out/stream.bin",
+    "needle": "ILCE-9"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "occurrences of the string ILCE-9 in the stream",
+   "source": "numrules rule: count"
+  },
+  "cert.literals": {
+   "value": 172,
+   "print": 172,
+   "tex_form": 172,
+   "rule": {
+    "kind": "pems",
+    "path": "out/stream.bin",
+    "field": "certificate_literals"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "occurrences of the CERTIFICATE armor literal (literal count)",
+   "source": "numrules rule: pems"
+  },
+  "key.offset": {
+   "value": 587628092,
+   "print": 587628092,
+   "tex_form": 587628092,
+   "rule": {
+    "kind": "keyblock",
+    "path": "out/stream.bin",
+    "off": 587628092,
+    "field": "offset"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "offset of the private-key block in the stream",
+   "source": "numrules rule: keyblock"
+  },
+  "key.block_bytes": {
+   "value": 504,
+   "print": 504,
+   "tex_form": 504,
+   "rule": {
+    "kind": "keyblock",
+    "path": "out/stream.bin",
+    "off": 587628092,
+    "field": "block_bytes"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "size of the key block (BEGIN..END)",
+   "source": "numrules rule: keyblock"
+  },
+  "key.b64_chars": {
+   "value": 435,
+   "print": 435,
+   "tex_form": 435,
+   "rule": {
+    "kind": "keyblock",
+    "path": "out/stream.bin",
+    "off": 587628092,
+    "field": "b64_chars"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "base64 characters in the key body",
+   "source": "numrules rule: keyblock"
+  },
+  "key.type": {
+   "value": "ecdsa-sha2-nistp256",
+   "print": "ecdsa-sha2-nistp256",
+   "tex_form": "ecdsa-sha2-nistp256",
+   "rule": {
+    "kind": "keyblock",
+    "path": "out/stream.bin",
+    "off": 587628092,
+    "field": "type"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "key type",
+   "source": "numrules rule: keyblock"
+  },
+  "key.cipher_kdf": {
+   "value": "none/none",
+   "print": "none/none",
+   "tex_form": "cipher=none,kdf=none",
+   "rule": {
+    "kind": "keyblock",
+    "path": "out/stream.bin",
+    "off": 587628092,
+    "field": "cipher_kdf"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "cipher and KDF (none)",
+   "source": "numrules rule: keyblock"
+  },
+  "key.comment": {
+   "value": "root@(none)",
+   "print": "root@(none)",
+   "tex_form": "root@(none)",
+   "rule": {
+    "kind": "keyblock",
+    "path": "out/stream.bin",
+    "off": 587628092,
+    "field": "comment"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "comment inside the key",
+   "source": "numrules rule: keyblock"
+  },
+  "key.fingerprint": {
+   "value": "SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI",
+   "print": "SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI",
+   "tex_form": "SHA256:J8L9aBLE\\ldots NODI",
+   "rule": {
+    "kind": "keyblock",
+    "path": "out/stream.bin",
+    "off": 587628092,
+    "field": "fingerprint"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "key fingerprint (ssh-keygen)",
+   "source": "numrules rule: keyblock"
+  },
+  "key.blob_sha256": {
+   "value": "27c2fd6812c48a64dd0d6e66d6257bc14eb82cfd625a8dfe963f4c182c4d3832",
+   "print": "27c2fd6812c48a64dd0d6e66d6257bc14eb82cfd625a8dfe963f4c182c4d3832",
+   "tex_form": "27c2fd68\\ldots c4d3832",
+   "rule": {
+    "kind": "keyblock",
+    "path": "out/stream.bin",
+    "off": 587628092,
+    "field": "blob_sha256"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "sha256 of the key public blob",
+   "source": "numrules rule: keyblock"
+  },
+  "pem.openssh_begin": {
+   "value": 5,
+   "print": 5,
+   "tex_form": 5,
+   "rule": {
+    "kind": "pems",
+    "path": "out/stream.bin",
+    "field": "openssh_begin_literals"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "BEGIN OPENSSH PRIVATE KEY lines (one of them a real key)",
+   "source": "numrules rule: pems"
+  },
+  "pem.openssh_total": {
+   "value": 10,
+   "print": 10,
+   "tex_form": 10,
+   "rule": {
+    "kind": "pems",
+    "path": "out/stream.bin",
+    "field": "openssh_total_literals"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "OPENSSH PRIVATE KEY literals (BEGIN+END)",
+   "source": "numrules rule: pems"
+  },
+  "pem.public_key": {
+   "value": 8,
+   "print": 8,
+   "tex_form": 8,
+   "rule": {
+    "kind": "pems",
+    "path": "out/stream.bin",
+    "field": "public_key_literals"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "BEGIN PUBLIC KEY blocks (one is a literal with no body)",
+   "source": "numrules rule: pems"
+  },
+  "pem.spki_blocks": {
+   "value": 8,
+   "print": 8,
+   "tex_form": 8,
+   "rule": {
+    "kind": "pems",
+    "path": "out/stream.bin",
+    "field": "spki_blocks"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "SPKI blocks that parse as keys",
+   "source": "numrules rule: pems"
+  },
+  "pem.rsa_distinct": {
+   "value": 6,
+   "print": 6,
+   "tex_form": 6,
+   "rule": {
+    "kind": "pems",
+    "path": "out/stream.bin",
+    "field": "rsa_distinct"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "distinct RSA moduli",
+   "source": "numrules rule: pems"
+  },
+  "pem.rsa_2048_offset": {
+   "value": 429029376,
+   "print": 429029376,
+   "tex_form": 429029376,
+   "rule": {
+    "kind": "pems",
+    "path": "out/stream.bin",
+    "field": "rsa_2048_offset"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "offset of the 2048-bit key",
+   "source": "numrules rule: pems"
+  },
+  "sshd.member_off": {
+   "value": 740733952,
+   "print": 740733952,
+   "tex_form": 740733952,
+   "rule": {
+    "kind": "tar",
+    "path": "out/stream.bin",
+    "off": 1253888,
+    "size": 739658240,
+    "suffix": "tmp/ssh/sshd_config",
+    "field": "off"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "offset of the sshd_config member in the tar table of contents",
+   "source": "numrules rule: tar"
+  },
+  "sshd.member_size": {
+   "value": 3094,
+   "print": 3094,
+   "tex_form": 3094,
+   "rule": {
+    "kind": "tar",
+    "path": "out/stream.bin",
+    "off": 1253888,
+    "size": 739658240,
+    "suffix": "tmp/ssh/sshd_config",
+    "field": "size"
+   },
+   "artifact": "out/stream.bin",
+   "artifact_sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "what": "size of sshd_config, bytes",
+   "source": "numrules rule: tar"
+  },
+  "tail.bytes": {
+   "value": 272,
+   "print": 272,
+   "tex_form": 272,
+   "rule": {
+    "kind": "tail",
+    "path": "BODYDATA.DAT",
+    "field": "bytes"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "body tail: total bytes",
+   "source": "numrules rule: tail"
+  },
+  "tail.iv": {
+   "value": "89a85276c7208ea533a0e187fac4092c",
+   "print": "89a85276c7208ea533a0e187fac4092c",
+   "tex_form": "89a85276c7208ea533a0e187fac4092c",
+   "rule": {
+    "kind": "tail",
+    "path": "BODYDATA.DAT",
+    "field": "iv"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "IV in the tail (in clear text)",
+   "source": "numrules rule: tail"
+  },
+  "tail.sig_bytes": {
+   "value": 256,
+   "print": 256,
+   "tex_form": 256,
+   "rule": {
+    "kind": "tail",
+    "path": "BODYDATA.DAT",
+    "field": "sig_bytes"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "signature block, bytes (= the size of an RSA-2048 signature)",
+   "source": "numrules rule: tail"
+  },
+  "tail.read_at": {
+   "value": 743818348,
+   "print": 743818348,
+   "tex_form": 743818348,
+   "rule": {
+    "kind": "tail",
+    "path": "BODYDATA.DAT",
+    "field": "read_at"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "offset of the tail in the file",
+   "source": "numrules rule: tail"
+  },
+  "sig.prefix_hex": {
+   "value": "497f",
+   "print": "497f",
+   "tex_form": "497f",
+   "rule": {
+    "kind": "sig_prefix",
+    "path": "BODYDATA.DAT",
+    "keys_path": "out/stream.bin",
+    "field": "prefix_hex"
+   },
+   "artifact": "BODYDATA.DAT",
+   "artifact_sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "what": "first bytes after raising the tail to the power e (no v1.5 structure)",
+   "source": "numrules rule: sig_prefix"
+  },
+  "live.ip": {
+   "value": "192.168.1.102",
+   "print": "192.168.1.102",
+   "tex_form": "192.168.1.102",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/live_witness/FINGERPRINT_RESULT_2026-10-04_1743.txt",
+    "pattern": "(192\\.168\\.1\\.\\d+)",
+    "group": 1
+   },
+   "artifact": "publication/live_witness/FINGERPRINT_RESULT_2026-10-04_1743.txt",
+   "artifact_sha256": "411ec1397eb43f4f8387963e08cee4a655ae72645c046508e3f62a249296043f",
+   "what": "camera address in the runs",
+   "source": "numrules rule: filefield"
+  },
+  "live.verdict": {
+   "value": "MISMATCH",
+   "print": "MISMATCH",
+   "tex_form": "MISMATCH",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/live_witness/FINGERPRINT_RESULT_2026-10-04_1743.txt",
+    "pattern": "VERDICT: (\\w+)"
+   },
+   "artifact": "publication/live_witness/FINGERPRINT_RESULT_2026-10-04_1743.txt",
+   "artifact_sha256": "411ec1397eb43f4f8387963e08cee4a655ae72645c046508e3f62a249296043f",
+   "what": "verdict of the host-key comparison",
+   "source": "numrules rule: filefield"
+  },
+  "live.fingerprint": {
+   "value": "SHA256:0VOxJqn75lys4Lf91tSlZu8nazWWxD6rTVc35jZo87U",
+   "print": "SHA256:0VOxJqn75lys4Lf91tSlZu8nazWWxD6rTVc35jZo87U",
+   "tex_form": "SHA256:0VOxJqn75lys4Lf91tSlZu8nazWWxD6rTVc35jZo87U",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/live_witness/FINGERPRINT_RESULT_2026-10-04_1743.txt",
+    "pattern": "reference fingerprint : (SHA256:\\S+)"
+   },
+   "artifact": "publication/live_witness/FINGERPRINT_RESULT_2026-10-04_1743.txt",
+   "artifact_sha256": "411ec1397eb43f4f8387963e08cee4a655ae72645c046508e3f62a249296043f",
+   "what": "fingerprint of the camera live key",
+   "source": "numrules rule: filefield"
+  },
+  "live.blob_sha256": {
+   "value": "d153b126a9fbe65cace0b7fdd6d4a566ef276b3596c43eab4d5737e63668f3b5",
+   "print": "d153b126a9fbe65cace0b7fdd6d4a566ef276b3596c43eab4d5737e63668f3b5",
+   "tex_form": "d153b126\\ldots 3668f3b5",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/live_witness/FINGERPRINT_RESULT_2026-10-04_1743.txt",
+    "pattern": "reference blob sha256 : (\\w+)"
+   },
+   "artifact": "publication/live_witness/FINGERPRINT_RESULT_2026-10-04_1743.txt",
+   "artifact_sha256": "411ec1397eb43f4f8387963e08cee4a655ae72645c046508e3f62a249296043f",
+   "what": "sha256 of the live key blob",
+   "source": "numrules rule: filefield"
+  },
+  "live.probes_open": {
+   "value": 22,
+   "print": 22,
+   "tex_form": 22,
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/live_witness/live_probe_log.txt",
+    "mode": "count_lines",
+    "needle": "port22=OPEN"
+   },
+   "artifact": "publication/live_witness/live_probe_log.txt",
+   "artifact_sha256": "4cbdc8c67c01054c1e7eedb6f7b6d1a817dfb5079198d6bc0b286b8e4f438680",
+   "what": "probes that found port 22 open",
+   "source": "numrules rule: filefield"
+  },
+  "live.port_ssh": {
+   "value": 22,
+   "print": 22,
+   "tex_form": 22,
+   "rule": {
+    "kind": "const",
+    "value": 22
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "camera sshd port",
+   "source": "numrules rule: const"
+  },
+  "live.firmware_key_fp": {
+   "value": "SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI",
+   "print": "SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI",
+   "tex_form": "SHA256:J8L9aBLE\\ldots NODI",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/live_witness/FINGERPRINT_RESULT_2026-10-04_1743.txt",
+    "pattern": "expected fingerprint : (\\S+)"
+   },
+   "artifact": "publication/live_witness/FINGERPRINT_RESULT_2026-10-04_1743.txt",
+   "artifact_sha256": "411ec1397eb43f4f8387963e08cee4a655ae72645c046508e3f62a249296043f",
+   "what": "fingerprint of the firmware key it was compared against",
+   "source": "numrules rule: filefield"
+  },
+  "live.point_bytes_diff": {
+   "value": 64,
+   "print": 64,
+   "tex_form": 64,
+   "rule": {
+    "kind": "const",
+    "value": 64
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "of the 66 bytes of the key point differ (external measurement)",
+   "source": "correspondence 2026-10-04: 64 of the 66 bytes of the point differ"
+  },
+  "live.point_bytes_total": {
+   "value": 66,
+   "print": 66,
+   "tex_form": 66,
+   "rule": {
+    "kind": "const",
+    "value": 66
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "length of a P-256 point, bytes",
+   "source": "length of a P-256 point = 65 or 66 bytes with prefix 04"
+  },
+  "live.ptp_port_open": {
+   "value": 15740,
+   "print": 15740,
+   "tex_form": 15740,
+   "rule": {
+    "kind": "const",
+    "value": 15740
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "PTP/IP port (closed in the measured state)",
+   "source": "numrules rule: const"
+  },
+  "ver.checks_pass": {
+   "value": "15",
+   "print": "15",
+   "tex_form": "15",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/verification_runs/checks.txt",
+    "pattern": "non-control: (\\d+)"
+   },
+   "artifact": "publication/verification_runs/checks.txt",
+   "artifact_sha256": "41efd26400c4569866f66fefde4c895d75170335a5498c85550a8c1c3b82797b",
+   "what": "checks.py: green",
+   "source": "numrules rule: filefield"
+  },
+  "ver.checks_ctrl": {
+   "value": "3",
+   "print": "3",
+   "tex_form": "3",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/verification_runs/checks.txt",
+    "pattern": "non-control: \\d+\\s+controls: (\\d+)"
+   },
+   "artifact": "publication/verification_runs/checks.txt",
+   "artifact_sha256": "41efd26400c4569866f66fefde4c895d75170335a5498c85550a8c1c3b82797b",
+   "what": "checks.py: controls",
+   "source": "numrules rule: filefield"
+  },
+  "ver.r277_pass": {
+   "value": "13",
+   "print": "13",
+   "tex_form": "13",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/verification_runs/round277.txt",
+    "pattern": "non-control green: (\\d+)/"
+   },
+   "artifact": "publication/verification_runs/round277.txt",
+   "artifact_sha256": "385c3674d0bff57ffadb6892c8f58ad64a3415c48717c2364d12174e283e7842",
+   "what": "round277_check.py: green",
+   "source": "numrules rule: filefield"
+  },
+  "ver.r277_ctrl": {
+   "value": "5",
+   "print": "5",
+   "tex_form": "5",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/verification_runs/round277.txt",
+    "pattern": "control red: (\\d+)/"
+   },
+   "artifact": "publication/verification_runs/round277.txt",
+   "artifact_sha256": "385c3674d0bff57ffadb6892c8f58ad64a3415c48717c2364d12174e283e7842",
+   "what": "round277_check.py: controls red",
+   "source": "numrules rule: filefield"
+  },
+  "ver.r278_pass": {
+   "value": "17",
+   "print": "17",
+   "tex_form": "17",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/verification_runs/round278.txt",
+    "pattern": "non-control green (\\d+)/"
+   },
+   "artifact": "publication/verification_runs/round278.txt",
+   "artifact_sha256": "78d1932d25d8911b708d66b3bf67bdfd0b272b6cdd173fac56f5e931b58e3399",
+   "what": "round278_check.py: green",
+   "source": "numrules rule: filefield"
+  },
+  "ver.r278_ctrl": {
+   "value": "5",
+   "print": "5",
+   "tex_form": "5",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/verification_runs/round278.txt",
+    "pattern": "control red (\\d+)/"
+   },
+   "artifact": "publication/verification_runs/round278.txt",
+   "artifact_sha256": "78d1932d25d8911b708d66b3bf67bdfd0b272b6cdd173fac56f5e931b58e3399",
+   "what": "round278_check.py: controls red",
+   "source": "numrules rule: filefield"
+  },
+  "ver.r279_pass": {
+   "value": "28",
+   "print": "28",
+   "tex_form": "28",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/verification_runs/round279.txt",
+    "pattern": "ROUND279 (\\d+)/"
+   },
+   "artifact": "publication/verification_runs/round279.txt",
+   "artifact_sha256": "0a665fe918405af3968a91020ee70403fb53f58507669f8dbe36d99354ac1d54",
+   "what": "round279_check.py: green",
+   "source": "numrules rule: filefield"
+  },
+  "ver.r279_total": {
+   "value": "29",
+   "print": "29",
+   "tex_form": "29",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/verification_runs/round279.txt",
+    "pattern": "ROUND279 \\d+/(\\d+)"
+   },
+   "artifact": "publication/verification_runs/round279.txt",
+   "artifact_sha256": "0a665fe918405af3968a91020ee70403fb53f58507669f8dbe36d99354ac1d54",
+   "what": "round279_check.py: total",
+   "source": "numrules rule: filefield"
+  },
+  "ver.vf_pass": {
+   "value": "47",
+   "print": "47",
+   "tex_form": "47",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/verification_runs/verify_findings.txt",
+    "pattern": "non-control green: (\\d+)/"
+   },
+   "artifact": "publication/verification_runs/verify_findings.txt",
+   "artifact_sha256": "30af8e4f5c111ad565910430a68568c7635b74dbb4e183512b3fb0b74f39b822",
+   "what": "verify_findings.py: green",
+   "source": "numrules rule: filefield"
+  },
+  "ver.vf_ctrl": {
+   "value": "5",
+   "print": "5",
+   "tex_form": "5",
+   "rule": {
+    "kind": "filefield",
+    "path": "publication/verification_runs/verify_findings.txt",
+    "pattern": "controls red: (\\d+)/"
+   },
+   "artifact": "publication/verification_runs/verify_findings.txt",
+   "artifact_sha256": "30af8e4f5c111ad565910430a68568c7635b74dbb4e183512b3fb0b74f39b822",
+   "what": "verify_findings.py: controls red",
+   "source": "numrules rule: filefield"
+  },
+  "ver.corrections": {
+   "value": 4,
+   "print": "4",
+   "tex_form": "4",
+   "rule": {
+    "kind": "expr",
+    "expr": "4"
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "number of corrections to numbers recorded earlier",
+   "source": "re-verification (audit/verify_findings.py, D4b/D8b/D10b + FDAT coordinates)"
+  },
+  "errors.total": {
+   "value": 27,
+   "print": "27",
+   "tex_form": "27",
+   "rule": {
+    "kind": "expr",
+    "expr": "27"
+   },
+   "artifact": null,
+   "artifact_sha256": null,
+   "what": "instrument errors across the work (F140-F166)",
+   "source": "FAILURES.md: F140-F162, all rounds 276-281"
+  }
+ }
+}

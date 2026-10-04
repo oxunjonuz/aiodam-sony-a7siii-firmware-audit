@@ -1,0 +1,42 @@
+{
+ "path_b": {
+  "crypter": "CXD90057_k8",
+  "bytes": 740912128,
+  "sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66"
+ },
+ "path_a": {
+  "bytes": 740912128,
+  "sha256": "11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66"
+ },
+ "identical": true,
+ "reference_readFdat": {
+  "ok": true,
+  "model": "0x91030083",
+  "version": "5.01"
+ },
+ "manual_header": {
+  "magic": "UDTRFIRM",
+  "version": "5.01",
+  "model": "0x91030083",
+  "firmware_offset": 1253888,
+  "firmware_size": 739658240,
+  "region": 0,
+  "num_fs": 2,
+  "crc_ok_500": true,
+  "crc_ok_388": false
+ },
+ "reference_readFdat_patched_crc": {
+  "ok": true,
+  "model": "0x91030083",
+  "version": "5.01",
+  "firmware_size": 739658240,
+  "fs_size": 1253376
+ },
+ "CONTROL_tampered": {
+  "result": "rejected-other",
+  "error": "Exception: Wrong checksum"
+ },
+ "CONTROL_wrong_key": {
+  "result": "accepted"
+ }
+}

@@ -1,0 +1,8 @@
+/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/fdat.py:312: SyntaxWarning: invalid escape sequence '\d'
+  version = re.match('^(\d)\.(\d{2})$', fdat.version)
+offset beyond the file, CRC repaired     -> ACCEPTED; firmware.offset=4294963200 size=1048576; the read returned 0 B
+offset beyond the file, CRC broken       -> REJECTED: Exception: Wrong checksum
+normal offset 4096, CRC repaired         -> ACCEPTED; firmware.offset=4096 size=1048576; the read returned 4608 B
+
+Conclusion: the header internal CRC32 is checked, but it is not keyed —
+an invariant that offsets stay inside the file is absent from both the format and the parser.

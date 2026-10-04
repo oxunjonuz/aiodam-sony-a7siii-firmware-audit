@@ -1,0 +1,1426 @@
+[
+  {
+    "path": "publication/ARTIFACTS.md",
+    "sha256": "c842fc793d1d20a910e57057af05a483526b901455b3e1ce46d91200f2c040dd"
+  },
+  {
+    "path": "publication/FAILURES_281.md",
+    "sha256": "47313ce51e881f99399779159e72c5f0e04036f026eab8df3708c39b9196613a"
+  },
+  {
+    "path": "publication/FAILURES_282.md",
+    "sha256": "02db029fe2e9b5358421ed60064ac41b6f80986a94d5b85e43ba88af204f9496"
+  },
+  {
+    "path": "publication/FAILURES_283.md",
+    "sha256": "4c4870a0c8af659307981149c4d1dc2c6acbcd4fc1ae167daa0c8baf5667b052"
+  },
+  {
+    "path": "publication/FAILURES_284.md",
+    "sha256": "4c0ff2fae7a8fd223adc3c7377d898a4512abeb8309172130defb1980a63f6f2"
+  },
+  {
+    "path": "publication/FINDINGS_283.md",
+    "sha256": "a4d70dbaab95be884b5045e90a8186b0315ae7b77fbf07b13ef76e67a4f153c3"
+  },
+  {
+    "path": "publication/MANIFEST.sha256",
+    "sha256": "f876373426fbe781b6e6fcf7cfa74fc3c968662a158c9bd9d383d8b5ec7337f8"
+  },
+  {
+    "path": "publication/README.md",
+    "sha256": "139cefc9fa1bf08815d69a174e6c2f0d510057a19c8ef016491e5dbe219f2e3c"
+  },
+  {
+    "path": "publication/VERIFICATION.md",
+    "sha256": "8310606cf1185713bd331317761e10aeb5fcd08e4989aa563835d9ab15e1e061"
+  },
+  {
+    "path": "publication/appendix_density.py",
+    "sha256": "a81029bd94b507295c4fe886d8c72099ec7a6c54aaba9cc9e92250d82c5b6f33"
+  },
+  {
+    "path": "publication/artifacts.json",
+    "sha256": "4c3ba52fd2388711c745e49b1beb61faaafdf454f95c97098be302aadad19524"
+  },
+  {
+    "path": "publication/f158_check.py",
+    "sha256": "4ed715d92315aef71f1113b86e1032db9e1771ce0b512d0ef8d66b6ea54ea33f"
+  },
+  {
+    "path": "publication/f158_classify.py",
+    "sha256": "f31c1099aacbd2824ecfe4d6f6e1b545d3dbf03b6dda76ca9c511cb06d33f7d1"
+  },
+  {
+    "path": "publication/f158_list.py",
+    "sha256": "3fc9d209460c955a028bcc746b8be9fd70bc1383b52c6feab169f3afdeb449ba"
+  },
+  {
+    "path": "publication/f158_pkg.py",
+    "sha256": "0a61b99d23874e26610856c695d65324111c5196755968ed4563a7b251edfada"
+  },
+  {
+    "path": "publication/f158_result.json",
+    "sha256": "d7319cb97826209bf78abdbd79a3c97e9450770ace69a04405e0ecfac06ede19"
+  },
+  {
+    "path": "publication/f158_tokens.py",
+    "sha256": "29adb8fa6cb9af8a87669ff12275879149c82eb64141ce5a9bbac38f5f7e8cc7"
+  },
+  {
+    "path": "publication/layout_check.json",
+    "sha256": "6d5246c3c4568718cd8e553eeca8942dc76e3c22b7512e43c9ec1c029fdbc6c7"
+  },
+  {
+    "path": "publication/layout_check.py",
+    "sha256": "862c958853be4a628043fb0fbeb2827f9bc6334f168bcc106df9d4495abdea73"
+  },
+  {
+    "path": "publication/live_witness/FINGERPRINT_RESULT_2026-10-04_1743.txt",
+    "sha256": "411ec1397eb43f4f8387963e08cee4a655ae72645c046508e3f62a249296043f"
+  },
+  {
+    "path": "publication/live_witness/live_probe_log.txt",
+    "sha256": "4cbdc8c67c01054c1e7eedb6f7b6d1a817dfb5079198d6bc0b286b8e4f438680"
+  },
+  {
+    "path": "publication/make_manifest.py",
+    "sha256": "b55912fcfd726059243585205d06e0c377f62c346f53e25c976c699cee14c4aa"
+  },
+  {
+    "path": "publication/make_numbers.py",
+    "sha256": "efbadbb8e7b03a51f52299667e5f0311c885695d03d6bc121f5314715cfe6358"
+  },
+  {
+    "path": "publication/numbers.json",
+    "sha256": "ddf61618010b7853e0b590150d51426050a857e6cf8904e231d718923579bee6"
+  },
+  {
+    "path": "publication/numrules.py",
+    "sha256": "c382242604cb3a5fa20fa537c8349acabbec47a169e654901ae75f629fdb6fb1"
+  },
+  {
+    "path": "publication/paper/main.pdf",
+    "sha256": "99ede4c33c39968a8ad40f4652db5cbe9f3022cc755d4021cb3a33c6b9b1fedc"
+  },
+  {
+    "path": "publication/paper/main.tex",
+    "sha256": "212323d2e46f778c74cc0bd708a2d6183980a059e4e29550bc968a1b6f73b082"
+  },
+  {
+    "path": "publication/paper/numbers_table.tex",
+    "sha256": "8b055e02eb33f9a07c19053ea42a5cc1a3ad8e2e7ef241d75dfe84481955c59a"
+  },
+  {
+    "path": "publication/paper_check.json",
+    "sha256": "ff612bc545e6b6bd323068dff659572012a0d8d1e02c202ee882587f0313ca11"
+  },
+  {
+    "path": "publication/paper_check.py",
+    "sha256": "20a245164de22987d4f0bc78d6692e435b822460ae2c52b8d0e17f66ebeccd74"
+  },
+  {
+    "path": "publication/run_all.sh",
+    "sha256": "fe2754f886c7962e5820b3ffdcba76c8a55a546da94ad228c979dc417ef353af"
+  },
+  {
+    "path": "publication/scan_cyrillic.py",
+    "sha256": "68c98c23a859d4a0e52b4e5f2a66d0a47626d6316cb62c28fd024e956ba6b1a2"
+  },
+  {
+    "path": "publication/selftest_layout.py",
+    "sha256": "395e746c4a1a943ea14c943bde927410ed860c555818a322f057b43ba504713b"
+  },
+  {
+    "path": "publication/selftest_paper.json",
+    "sha256": "96c6b6183c7f3fff230f7d4b93af3f109e3941e6827ac931d295624d9dcb3873"
+  },
+  {
+    "path": "publication/selftest_paper.py",
+    "sha256": "106b98d31125444c173edfec6ba45e06a1fbad1462cda4b05ac72ee0ae0f9fd0"
+  },
+  {
+    "path": "publication/selftest_string.py",
+    "sha256": "fa0e07da447195e8ef8c77c55a0f4edecaf4f3133e17f940bd4ba642ee43e18a"
+  },
+  {
+    "path": "publication/string_check.py",
+    "sha256": "4414e83c4b2c8bc36527d479536a1617ec90aea6defeb0ea8a1da1c3b982fb27"
+  },
+  {
+    "path": "publication/verification_runs/checks.txt",
+    "sha256": "41efd26400c4569866f66fefde4c895d75170335a5498c85550a8c1c3b82797b"
+  },
+  {
+    "path": "publication/verification_runs/report_check.txt",
+    "sha256": "efb336caa789b189d5672b3391cad99696b1bd457e9ae8d03ecaec7fcbfb2b8b"
+  },
+  {
+    "path": "publication/verification_runs/round277.txt",
+    "sha256": "385c3674d0bff57ffadb6892c8f58ad64a3415c48717c2364d12174e283e7842"
+  },
+  {
+    "path": "publication/verification_runs/round278.txt",
+    "sha256": "78d1932d25d8911b708d66b3bf67bdfd0b272b6cdd173fac56f5e931b58e3399"
+  },
+  {
+    "path": "publication/verification_runs/round279.txt",
+    "sha256": "0a665fe918405af3968a91020ee70403fb53f58507669f8dbe36d99354ac1d54"
+  },
+  {
+    "path": "publication/verification_runs/verify_findings.txt",
+    "sha256": "30af8e4f5c111ad565910430a68568c7635b74dbb4e183512b3fb0b74f39b822"
+  },
+  {
+    "path": "audit/allkeys_sig.json",
+    "sha256": "6bcf3ae8aea12272c56b8ec0eaea1735fde6d2fbddaba05d4503d2d1bb97c668"
+  },
+  {
+    "path": "audit/allkeys_sig.py",
+    "sha256": "b8bfa5956f8dc88e4e516b852bb5ebeffefd0875b5f6e06e80491b32077ae038"
+  },
+  {
+    "path": "audit/checks.py",
+    "sha256": "3ce0b9e1073f20d902f11e0b13d3b3479750084e41541b4c786ef9eec8fb7c0c"
+  },
+  {
+    "path": "audit/checks_out.txt",
+    "sha256": "41efd26400c4569866f66fefde4c895d75170335a5498c85550a8c1c3b82797b"
+  },
+  {
+    "path": "audit/checksum_search.py",
+    "sha256": "574a220b69c4582d10fb9969f8f678fcfea2096213e877a6e2e12c959961560a"
+  },
+  {
+    "path": "audit/crc_dend.py",
+    "sha256": "e09ddeb804e39c8d021f68d7072a739a31aa67364a6ffd6155148edf3201f9b5"
+  },
+  {
+    "path": "audit/crypter_matrix.py",
+    "sha256": "12ffb1b8c20c9f1741d0fdecdfaa40a50d5cebde24951f040eb53f9f1c000e82"
+  },
+  {
+    "path": "audit/cryptertest.py",
+    "sha256": "48fc7832fd4d0b0bb73fd58895a6b0b0184ca9a5437ef0540e6a3d6be6245b63"
+  },
+  {
+    "path": "audit/ecb.py",
+    "sha256": "00fbd87078d97c6c95eda5cf55f0d4b0a719adebdf289df6320783e66d14ab59"
+  },
+  {
+    "path": "audit/ecb2.py",
+    "sha256": "b72765fdbdeb943c40e26cddb685d74f1363a29d0e5d208582e304a550f3b2aa"
+  },
+  {
+    "path": "audit/entropy.py",
+    "sha256": "4a037e1b894a39a530b243453748c80de32c620572f6510f520113ef50132ff9"
+  },
+  {
+    "path": "audit/entropy_profile.py",
+    "sha256": "bfab5ddfc94ee4ad2fdf4b5cc7999360168788067884e76cd1ede06bac9c1e59"
+  },
+  {
+    "path": "audit/entropy_windows.npy",
+    "sha256": "253a50e1f15e7031ad9cf2ee9045c76350f030f11ee2b5814c43deb41cfed5ed"
+  },
+  {
+    "path": "audit/evidence.json",
+    "sha256": "c92093a53f8c6f1749bf9e67a554ea21cece9c3a66b5b4553b7420f4d56e1f26"
+  },
+  {
+    "path": "audit/f07.json",
+    "sha256": "3cf3b0e75d48f13b62f5f2e24dd9c4e80ca3a16c10f1d91ef61d52562a739bd9"
+  },
+  {
+    "path": "audit/f07.py",
+    "sha256": "345a3e4b87986d856d73ae08438ba98e13c22dfb49eb2d8b16d1197249e09430"
+  },
+  {
+    "path": "audit/f07_out.txt",
+    "sha256": "526d4c5a974201de02003d93aa4e3c659adcfe347554a006add57cfc6c0faebd"
+  },
+  {
+    "path": "audit/frame_probe.json",
+    "sha256": "501aad556dc4d073883818e451f005948f0a5da35c620040e1a5317d33cece88"
+  },
+  {
+    "path": "audit/frame_probe.py",
+    "sha256": "a3fb0d51a74a8093b2b6d3d47a0bc5dd02fbdffc707997f88efc6a22aeb58643"
+  },
+  {
+    "path": "audit/frame_probe_out.txt",
+    "sha256": "ca566a4d930bab93f3da95a668dbc679244101bf9a8a03e100f621e2767af64c"
+  },
+  {
+    "path": "audit/fs_inventory.py",
+    "sha256": "edba4707104a15a33577cc92fb638e2e555d416be9c3b8aac8c314180369f5f8"
+  },
+  {
+    "path": "audit/fwtool_run_out.txt",
+    "sha256": "85cb1ea1b540c81ff1d1293a4cb9c60d1aecd64f5cd6b441ebba09cede2fbe59"
+  },
+  {
+    "path": "audit/header_plain.txt",
+    "sha256": "709cf7189e429dd1fd916fcaf0cbcc60a8bd8b3a331ccaebb3915903577c9aea"
+  },
+  {
+    "path": "audit/keys_and_sig.json",
+    "sha256": "469c79d8d8fcb6cc146826e8b256fad38c19db5382d85388b32410e60395904c"
+  },
+  {
+    "path": "audit/keys_and_sig.py",
+    "sha256": "8d29f6c895ed38a3a91363d2a85bbe56504316ae159191df53054d93746abe2a"
+  },
+  {
+    "path": "audit/make_277_delivery.py",
+    "sha256": "24bce22c2810e6926420afcbd81064371e9814f747403bfa1c90ad888b1dd484"
+  },
+  {
+    "path": "audit/make_278_delivery.py",
+    "sha256": "a71c3ce13886f72ac10477fa61bad431480b4d92ed26d18f023310ed7055675a"
+  },
+  {
+    "path": "audit/make_279_delivery.py",
+    "sha256": "0b2ce2a5dbc66556a7354d753deff5e441de0bcb6fc63370144c737a29ce558b"
+  },
+  {
+    "path": "audit/make_282_delivery.py",
+    "sha256": "5edd42c489d7b01d1100a88cd4134a115d12519e173537fbbbc2696e39c838eb"
+  },
+  {
+    "path": "audit/make_284_delivery.py",
+    "sha256": "09ebf273947d2c3171e310b5bd6b048327ee358a8729510fa6964ea2feacb46c"
+  },
+  {
+    "path": "audit/newkeys_probe.json",
+    "sha256": "7a14dc75a5a89c0f5b128e07f3d5d81d8e1b5a62e3bfe4be5462ffe1808210a8"
+  },
+  {
+    "path": "audit/newkeys_probe.py",
+    "sha256": "5abc8f3b96cc667745e2e1622d1b7986edf8978e7c5ea5cae559a3c718d08dd6"
+  },
+  {
+    "path": "audit/parse.py",
+    "sha256": "394a1009c66ed527e157cff9f4e234fd61bbda4181c60119e2ab1ef736379d5a"
+  },
+  {
+    "path": "audit/parser_bounds.py",
+    "sha256": "0d2766f4fa764d34e72e211d37d80f8914650637cf9c7ab51a566692208066df"
+  },
+  {
+    "path": "audit/parser_bounds_out.txt",
+    "sha256": "f3562b1e8bc22e078983bec08da03250c83a01e199b462ba8ff8ff9fecf2b1aa"
+  },
+  {
+    "path": "audit/report_check.py",
+    "sha256": "270347ec99a5ac1d96c47bdb90cc25ae0a9e1cd8da5b1ee03ddf53a773e7f418"
+  },
+  {
+    "path": "audit/report_check_out.txt",
+    "sha256": "efb336caa789b189d5672b3391cad99696b1bd457e9ae8d03ecaec7fcbfb2b8b"
+  },
+  {
+    "path": "audit/round277_check.py",
+    "sha256": "37395aa70c5da97195540bd95739a56054ce1511e6ce733cfb9f007ce2a5254a"
+  },
+  {
+    "path": "audit/round277_checks.json",
+    "sha256": "8936aef247bf94b24c9ebb46f4d51dfddc90ce32c2002ac7460ae22294287cae"
+  },
+  {
+    "path": "audit/round278_check.py",
+    "sha256": "53d851c5689fa611ccd5a1390f629bdc2b2925acb5d086397f08e80c67ccb189"
+  },
+  {
+    "path": "audit/round278_checks.json",
+    "sha256": "fa95473097d5f30027a7c580c8f44c2d3c9ab88260cad2b785d8dd7e601fc444"
+  },
+  {
+    "path": "audit/round279_check.py",
+    "sha256": "8002406d5df4ff08030f99d1c80e7624149241933ae39638260ac39310199010"
+  },
+  {
+    "path": "audit/round279_checks.json",
+    "sha256": "86bb2ef742b385606b8059487dde1449f270ed58fcd9335f7d0c550ae5c03dc2"
+  },
+  {
+    "path": "audit/solve_crc.py",
+    "sha256": "b41961ae9058d89cccdf6ba8a25a7dc15c8b618090491b88ea5a9e1bb7365f04"
+  },
+  {
+    "path": "audit/stream_analysis.json",
+    "sha256": "b04cb8f256c713e4efaaa1aded8219185d8ad2fe6ac22263e590c5b5a7c96c9b"
+  },
+  {
+    "path": "audit/stream_analysis.py",
+    "sha256": "e4f939befed5ba255b968801d351ae555b7651783ed2cacbc4d1f2ecb5b92bf0"
+  },
+  {
+    "path": "audit/stream_analysis_out.txt",
+    "sha256": "b13cac7c3b0354ee5fd84b1252c04e5ee400813750b611638cdacccff3f18f1d"
+  },
+  {
+    "path": "audit/tail_rsa.json",
+    "sha256": "a930205c7e2de925eabb1727dececc3f9999d69e0bc91b44dc09b47a477b3d4f"
+  },
+  {
+    "path": "audit/tail_rsa.py",
+    "sha256": "f0784bff5a196f28237590ddfa34b08b2e0119b1a9ec1f9fd17ae99d23df359d"
+  },
+  {
+    "path": "audit/tail_rsa_out.txt",
+    "sha256": "2fbc048eec8058fc350cf828da09d8eba546df9715899cdcd03448c969768d81"
+  },
+  {
+    "path": "audit/tamper_test.py",
+    "sha256": "a93cd698815b40d382bdffbcf07bc5f79d5ae9b3bc11b42e4b22edf35b3d03bd"
+  },
+  {
+    "path": "audit/unpack_full.json",
+    "sha256": "601982d21f50a064fcf386869e41bfa1b5db16a6f9b33b87e0ce1d1f8e1664fb"
+  },
+  {
+    "path": "audit/unpack_full.py",
+    "sha256": "35e9e496c511e3920dd04e8e3364e4b3ef598800089cc53a20039e8ee303aede"
+  },
+  {
+    "path": "audit/verify_findings.json",
+    "sha256": "3c10b3776fa1317c0a167aeb00743ee1498401e0837f714c40afd5f1ca8aff75"
+  },
+  {
+    "path": "audit/verify_findings.py",
+    "sha256": "d03d9abfc53096b4183a9e8fb48267895994fca39ea82cf4bd96ac3f8829ddef"
+  },
+  {
+    "path": "audit/verify_stream.json",
+    "sha256": "db36f246e2d2083cea64f73811b5020a8647309be2f2e0c8243139dcf300856e"
+  },
+  {
+    "path": "audit/verify_stream.py",
+    "sha256": "80e636a0e8f27596bfe4f6a5ce2e5ec230fbc108168c1ba4ac8db1449aadb7dd"
+  },
+  {
+    "path": "audit/window_probe.py",
+    "sha256": "07d49e5888511210936a45a9ca17c19873383fc05a6ae3443225f6dfce675058"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/.gitattributes",
+    "sha256": "0f227d2d73ea9da8c5dd2189329369e243b0eb48c4bc7c5f26cc9a7decda3b28"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/.github/workflows/build.yml",
+    "sha256": "1e49a49c781ef0bdcf7f4aed1eb6beb490e326ac1d6e38ed3e31995d23d5a2b8"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/.gitignore",
+    "sha256": "af5d1054cb02e1908b3f957382c794714a1f51dc8f02f7c895e20ba2451bb675"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/.gitmodules",
+    "sha256": "1d0f42df307eb688f9fe4abb6ea1ed3936072b330b6634a5df13e04a2ac7efee"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/.travis.yml",
+    "sha256": "436dda760fcefb5bdc7a70e7491054a999a72260f0ddd1391bf65568543c4540"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/LICENSE.txt",
+    "sha256": "a485f27d0b22eb7fd9b9419795695d0a1750ea32c961d11c1dd8ddade564dedf"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/README.md",
+    "sha256": "779f36d8cf20c878ff8245d2d69fab1fcf0f77c2c5a58f00dddbb99c44379fa3"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/appveyor.yml",
+    "sha256": "b75b5ac7c7bbaef00fcd74f42cfbd0dc4887eece61b5d19c6206689b0c93acfc"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/build.spec",
+    "sha256": "900fe7272a128bca47b57230595ee9a1da17b6733676f1cf805519f6d28b9ae2"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/config.py",
+    "sha256": "bf55099f534fe9bdb3eed30fe7bc28023e891a08a6ed36472cef10cdb1991649"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/docs/AppInstallation.md",
+    "sha256": "9e05dd87ab533c3a29446e908f27aa2354075b72818922460ebe4089e2e6c5cb"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/apk/__init__.py",
+    "sha256": "05164483f30fae765e14fde3e6c9e416cd7e10d8e11aad59d1c59f819c585fde"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/appstore/__init__.py",
+    "sha256": "6406c31716489cbf9c710927904c58f378508494aa4642a33a9f9903493a2cc9"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/appstore/github.py",
+    "sha256": "94ce10dc07be9434d6872f90dbd3a1c7cae5bfab750853c25e91a0b7318e8f00"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/backup/__init__.py",
+    "sha256": "ea09b9650ecd306e5dd4a6c7f1b57dd4b5763c0aa2e5d8509a364bdf7deeba61"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/commands/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/commands/backup.py",
+    "sha256": "778555e41b73a5d7b59f29671fad9f5ac044b8ce643dbab9119db269b9acdbbf"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/commands/market.py",
+    "sha256": "3739fcf2deded15c0f7e213cab97c75b52c421f778096338acf2859bb07be043"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/commands/usb.py",
+    "sha256": "44783d222548598dab97d4813abbd35c3f20540686a579949dbf54e5ab1a5673"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/firmware/__init__.py",
+    "sha256": "11e1852d10966b202be64486003b1b57bdc8c801a02bb873a47254d4c20d3fda"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/installer/__init__.py",
+    "sha256": "7406af791c028f3f98b7a6d9e7f3ce7d5fb29add190a310c5b17c8c2d4057667"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/io/__init__.py",
+    "sha256": "d694377d860d05544550965635ac440da70ad7b0d9ac8a43361896c58c631e93"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/marketclient/__init__.py",
+    "sha256": "748193e54ed11cf4a580752660cddaa930e4bdbf112dc12c1fd384919235b642"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/marketclient/constants.py",
+    "sha256": "e78ee5ed175f3e0baa74ba7a49ab9ecbb99c34808c8bec40f6e5f599f5b5a0f4"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/marketserver/__init__.py",
+    "sha256": "136ccce89bfff0fd914168ff63b63dbc8820360b39cd192a887f5ef1ff5b866a"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/marketserver/constants.py",
+    "sha256": "4b9c1be25b100bd18ac0f270ce7222e4f4e199b6b44ecc785f94328d0d8522b5"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/marketserver/server.py",
+    "sha256": "242b1d8043f61f71ee4b4b4075b235d6cc5a69aa43978e2d776f86ceb4ccfdc2"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/platform/__init__.py",
+    "sha256": "475680b361c21b54d7f41c4993657f4976177b1a2175ddcd43cde94793d59b6c"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/platform/android.py",
+    "sha256": "0ca1f6ce2b958a5000106623504a03b419d2410d71b74ac7506d73a90960a1b9"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/platform/backend/__init__.py",
+    "sha256": "fd169d1ef7c86ec19e8ec60e72c57f2e697ff80b4386e3b6025aaa956117d605"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/platform/backend/senser.py",
+    "sha256": "ec48232de062781fa05d7f0edd81626ab9c07fe2d3a1c3379e30fc24a776f0e1"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/platform/backend/usb/__init__.py",
+    "sha256": "9d3b2156bfd4ca628db4839baa7a96a0f1997e00c88322bc6d1a6f1146c4337f"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/platform/backend/usb/transfer.py",
+    "sha256": "69f6f9f76d5444b8450004686285fafaeecb6ae59976877687a4a64de340f8bb"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/platform/backup.py",
+    "sha256": "8614ee80f2fe15cd406bbefc06a56ca72427bebefedbef776a525bbe36d8696f"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/platform/properties.py",
+    "sha256": "34c519b5817780d355d96550f5b68c0ae88723d03a2378a32057df88b8542044"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/platform/tweaks.py",
+    "sha256": "12b214a1a713a58ab298bcdf9c992d8e6ee908c53f15a9406f26c485cfc0bba9"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/shell/__init__.py",
+    "sha256": "a740dd0089974a0e34a9258c01319be70920adebc0c4b9bee9f1becd749da788"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/shell/interactive.py",
+    "sha256": "fb1748cda16120e7bf036f8e7f963841d807ef18dc0a93a9425b2d60480c797d"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/shell/parser.py",
+    "sha256": "4a9605a52b273dc3428ce5cd59ecfa239dbc3d6fccd153818f88acb5d892caf1"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/spk/__init__.py",
+    "sha256": "93182960381de224f05de2dd47b90efc03aeba013b19d48d2f56acfdfccffc55"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/spk/constants.py",
+    "sha256": "a598f88a2b4a69e7925ba62c57287006725db107c0478f5820724f566fbe0a2b"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/spk/util.py",
+    "sha256": "de1dd0226eb24e310aab7ee4be5d705ceaee69b00368d0c5386e486c087c7bdf"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/ui/__init__.py",
+    "sha256": "0f67882d857b076ed4b0af7fb387e5b5be0ce27b9f03fb6d3c870d1207d0b6e4"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/__init__.py",
+    "sha256": "db2fd3d0dfa2e6f315a14291be8951a5092875e8e5858183cabf2cec46a0fcda"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/constants.py",
+    "sha256": "94bf081d3c1a51a60cf8fc214dce25a491413d4d786716460fde3fba832eb692"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/crypto.py",
+    "sha256": "74660a42235f7efac6f47f38e2151049647bd0bc61ed6eb0763538815b2b6886"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/driver/__init__.py",
+    "sha256": "dd7d53720a5a12bf87954e687f939fc71d9b1f30428faea4ba7eb217a0e788a4"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/driver/generic/__init__.py",
+    "sha256": "24cda5b97dcd7e5ff4c6af0e0a8d66900688ef2ba09dc0fb53c42ab6b8c69123"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/driver/generic/libusb.py",
+    "sha256": "1c80cfaa0692cf308bd086edc9a9bad3691804b50182993c1dd960c932daa1df"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/driver/generic/qemu.py",
+    "sha256": "5fc54074687e1d4cf036f23d622d139226bb2ddcdf2066be4ec19905091d72c4"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/driver/osx.py",
+    "sha256": "796efcbb46ca6a8690f127e7fbfb243165dafd7a5658256ff1eb4a3ee9594b91"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/driver/windows/__init__.py",
+    "sha256": "72203fbedbb4b858f47b1da976ed096775d372f1352ca7b5e8c21dfaaad81eea"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/driver/windows/driverless.py",
+    "sha256": "f73806bac9bdce55e2c1aa76ba6d63926e409b50eced9b1d808ee200e56f5d62"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/driver/windows/msc.py",
+    "sha256": "ab35dbe0f216116060ddadb8477f10fa6bf5b1b43eb67caaad6b2fa3b8860ed2"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/driver/windows/setupapi.py",
+    "sha256": "044a682e1842c5876424b9dedaf882c1a633fa24acdc2b29640fd2fd51afe4f4"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/driver/windows/wpd.py",
+    "sha256": "16335ea608d43bb50bc27721e55d7c154fe4b5fbd80ffebcc001a55675195720"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/usb/sony.py",
+    "sha256": "53ffb4d9d49cb5146623fda2b66ecb137681a6fc9ab0c98d23a51e75128af97e"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/util/__init__.py",
+    "sha256": "1bf318b75faf450011123ce430becc87aec8a7a161765afe38c498cdd20cbacf"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/util/http.py",
+    "sha256": "61b66c4d0d3c8da6da30876e6b36af6a8a98dfbe1f8872b1ea1e32aaa7e4e5c2"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/xpd/__init__.py",
+    "sha256": "dd13b565717bdca8b7154bed1a9b5c7acd21619a4e98649cf357f45aaba713d6"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca/xpd/constants.py",
+    "sha256": "44cccc8ca1654cb1ab827ab74784bc12551cade32b3ec10c58b40bbb2292ac31"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca-console.py",
+    "sha256": "dc09ac08d80bca2af1dec78bab5cd983fde3cf0df51d989c03bc3ee8f1c5f67c"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca-console.spec",
+    "sha256": "01bd169dc801cedd41976738409b4b160022517e8b396b8dbe763032077826e4"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca-gui.py",
+    "sha256": "f83e4bed4ed9f8ba3b32ee2ccbf6cf6d2ca8479ba984eaa956607fb8a2ec8f58"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/pmca-gui.spec",
+    "sha256": "72b7912f29dfc7444c8237cf0781893bd3f031a346d6576956461838d82bcc2d"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/requirements.txt",
+    "sha256": "8215a3bab89cefadcfe6659817ac85c5a9cd72a14c7b39f8376ba5163aa55933"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/.gitignore",
+    "sha256": "5b46eb48d96e8571e8c93e4ef4f6ffbe6807b6d7350664a36a064e1167a32718"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/Makefile",
+    "sha256": "4ea991a9088cf5722c37266eebd8825d656cf7ac1240bab0c95f8b26decabd9b"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4105/DCR-SX31.hdr",
+    "sha256": "6b9905c7cb9dde02e54ad35f9ddac7b9e54b9a1f23f773018ef634e1c7e0544a"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4105/HDR-CX106.hdr",
+    "sha256": "60a94d632d28c74e8bb061fbe3c163ca449626cb489318e03786c9463ef3b96d"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4105.dat",
+    "sha256": "d4b5c912c72269c3406d9e9e9b1082ab30b8b9545e7bfc9fe95c0e2d31b8c2ec"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4115/DSC-HX5V.hdr",
+    "sha256": "7064fc49518f59a422d1efedf90ddc8546b1aac81b6084822c14cae880614045"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4115/DSC-TX5.hdr",
+    "sha256": "a54c7106d3687572e0fd66bd58a0a574e894d76ddfd3f041949318387c167d93"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4115/DSC-TX7.hdr",
+    "sha256": "02dfd95459ca3a1eb94cea5079f63611a7198134f013b3a49f8b6258677881ff"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4115/DSC-WX5.hdr",
+    "sha256": "02f82f67480af3820ca24afe0913b614e09fd2590580e77c7ba384584c799119"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4115.dat",
+    "sha256": "015da8b81d08109b5035e2c582c2b89751e37962c8f0f7959b6852acc7c16ec7"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4115_ilc/NEX-3.hdr",
+    "sha256": "9938c0c8494a4404610d41bd7dfb155739a928cf9394b1232a8e039c39f50097"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4115_ilc/NEX-5.hdr",
+    "sha256": "6be162c8daea8f1f96ab717e5c264658cce575911e76bb140bc8cffa2c2c2c24"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4115_ilc/NEX-C3.hdr",
+    "sha256": "8ccfa5dad7b621114cb0d83a979791eb4ddec3968279a871fd7ea283b9c6daa6"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4115_ilc/NEX-VG10.hdr",
+    "sha256": "62a9d43ed6b6ea5c75f820a8d5aa8fadbb91a72b933fc66c4182613fa65a8087"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4115_ilc/SLT-A33.hdr",
+    "sha256": "1d812882826cf047c4271a44341b3482a3e7e124183210f9b63b2da3b394c09b"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4115_ilc/SLT-A55.hdr",
+    "sha256": "1735e0ea252df92954c467436395c5e29ad945feb88647ab70949bb21e7e73f8"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4115_ilc.dat",
+    "sha256": "73722a39f0dbf3d18c89ddc2a66017b5ba03a164f8babc5e0767c8a99eeedc75"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4120/HDR-XR550.hdr",
+    "sha256": "321c789bdbf099f92776ebe91f7cb0b32562638f3ad34e745eebe275306ccc28"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4120.dat",
+    "sha256": "38ed9b4ef120653a20a9b2925b35819d8ecafa03e02ca6e1867861d539a140b4"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-HX100V.hdr",
+    "sha256": "ebc661b209313c159abb2dcbaec0aa5ef5a3aec63020dc118a7c3d5a906fb763"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-HX20.hdr",
+    "sha256": "8a837150d8528129abd01177f2be66e877f607f5f871972dcf05d9682d885b72"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-HX200V.hdr",
+    "sha256": "02e82383b0cc5499145641b3f0a8a0837610e6d64bc80a9fa03ee6a396081935"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-HX30.hdr",
+    "sha256": "8a837150d8528129abd01177f2be66e877f607f5f871972dcf05d9682d885b72"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-HX300.hdr",
+    "sha256": "4560fec595c53673f86c97918d6c2c80943419285e88c5193e2c6962c09f3860"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-HX50.hdr",
+    "sha256": "a3901f94d78fdcd75eecc3bcf7778346a470c9c25bba7e7b9932af7c43adb6dc"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-HX9V.hdr",
+    "sha256": "cd3087540cf3b4b19cba3b8f978530a7c0f1e0239601770e45f7602ddb13a3e2"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-QX10.hdr",
+    "sha256": "e49b0461be34321b6626d1e13a9f4f8ed30f35dbbb65a0c1262aa1fb68c425ff"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-QX100.hdr",
+    "sha256": "98a1429ae4cd1d6044537d9db871b12d3d7c0d338ed13c049b4a129661df361a"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-RX1.hdr",
+    "sha256": "aa73b6dfa99537a0d9d3c630bcd4b6b4b8ba38ee1740719a41113e0342ae5e70"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-RX100.hdr",
+    "sha256": "bf88d00dd4a06aa1eb6614fb13c4b6abdbce92e7b7c92c6df0cd49551a788a5a"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-RX100M2.hdr",
+    "sha256": "a087a26eeaa5b1d035a4e591b2bd19bfe1eeea6c50bd82c3a4f625140e1e414a"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-RX1R.hdr",
+    "sha256": "23c1ca4382489b802ce412e8dcc7ce3e0b9abf7668d3d504f785682006793956"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-WX100.hdr",
+    "sha256": "ef711303af568b4bbfc89484b5aad97bb1aa63c7fead7cd514ca5f5be92f51da"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-WX200.hdr",
+    "sha256": "f3cf485c9b3db81f4fab2d8f97ab506d5a8299b3127b2edf852875d848dd4d81"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-WX300.hdr",
+    "sha256": "b6b78d705e6fab91627e54117800bf587b989fc9286c225c529c2cc2bc724238"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-WX60.hdr",
+    "sha256": "8ac0acf1c4c0bdacb418049268d41adfd2b5f7ad16086da868a9b614bfb01fa8"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/DSC-WX80.hdr",
+    "sha256": "68cca06f3d632ccefbe0bd21881f5d53ab54b5ed60725758043123631ce7f5aa"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/HDR-AS10.hdr",
+    "sha256": "31613899a90d6b713be8129076f8e2ce6f7839690d1f0c8476f7aadb73b97300"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/HDR-AS15.hdr",
+    "sha256": "31613899a90d6b713be8129076f8e2ce6f7839690d1f0c8476f7aadb73b97300"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/HDR-AS30V.hdr",
+    "sha256": "7d56b52b68f4bbf34a401a5622b6a17ceac7feaf7a671f774f7c3651f2d3dc9b"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/HDR-CX560.hdr",
+    "sha256": "80a49ee8f5c03ec0fd8763064fb4fc82e1a661eca08850df423fa589a98df23b"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/HDR-CX700.hdr",
+    "sha256": "80a49ee8f5c03ec0fd8763064fb4fc82e1a661eca08850df423fa589a98df23b"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/HDR-MV1.hdr",
+    "sha256": "3ed216c9b42809aedf429293ec69b6bc885d8ee75ddaace3df429b1eb4b11a3f"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/HDR-PJ590V.hdr",
+    "sha256": "7c9f15fa17a1cf485e1949bb1cdc7da4e4ab3bb45105a9b79a2b1fd101a0da0f"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/HDR-PJ760V.hdr",
+    "sha256": "b522e6e6aceb2d97d1a8d297c7472b88516b7fd4b1365e0dcdf792344831f867"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/HDR-PJ790V.hdr",
+    "sha256": "b82aeb9a266198bbe2b56316a55cba5eef9e3dcddb00b0ee4d1bcc0dfa776674"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/HDR-TD10.hdr",
+    "sha256": "ef7ad9179e6d84febbef4b84649350a1b018f5a455e4b9b9c819e4d4d5b66adf"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/HDR-TD20.hdr",
+    "sha256": "6ffc687d86e8c9316419ca5722b458e726f057bfb82ad897fe8d85cc1592656e"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/NEX-3N.hdr",
+    "sha256": "0b5e9010eadb29796aef04730ba0274fb44d61c02f6531820cbba2f0df9584de"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/NEX-5N.hdr",
+    "sha256": "2daa08ff59792c6e58759d38aea2afe184ff152c483e0ce8e0046fa769749d00"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/NEX-5R.hdr",
+    "sha256": "260ad8487132f0fa42075b914e20d3dad533a30dedb6b78db70c00ba99bdca35"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/NEX-5T.hdr",
+    "sha256": "b625dfdc6907ce4af70059fdafc918ba57a3b54111c4d7c6021119eea16dd42e"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/NEX-6.hdr",
+    "sha256": "cde79be0f4311ed2e79d915c793cb8acccd28af70aaf366a858195afdf000e1f"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/NEX-7.hdr",
+    "sha256": "40692bb70a8db665efbd74c9828e23f62a75a93985cad3b3a4c5287f66f58a46"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/NEX-F3.hdr",
+    "sha256": "59bef1e10a6f481d45bfa2c6962a5b8adc3b503cab58544eb2be0e747e516f63"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/SLT-A37.hdr",
+    "sha256": "e8a68cff9edd0cce66a8f924cdab6326342d7a2e6c37d3e42346bef7be79ffe5"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/SLT-A57.hdr",
+    "sha256": "736d990c1c1a9cc6655166c102b7ea871007d5568e79a987fba5876c9c2cd2ec"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/SLT-A58.hdr",
+    "sha256": "003cb626e1eb186b340992cd5fca7423d2fa512b3c622eb1059d59af47381940"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/SLT-A65.hdr",
+    "sha256": "dfc7cb5db52bfc212132baedfa6b9974f49268b2eaf03fa79d383545c42846d3"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/SLT-A77.hdr",
+    "sha256": "1ce6ed7542da836ed8dc8adfd6a036c7cb9322d9b547d49962a3b4fc6f93e8ac"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132/SLT-A99.hdr",
+    "sha256": "d94335a44bd7998460661c406830d627ed17982ccfa874fe25fcfd3f571d0011"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD4132.dat",
+    "sha256": "f3b3f6e8bcc0cd0080df4d8c9a477a804a0d6e3f12dbc429a9d531279e2f33e5"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-HX350.hdr",
+    "sha256": "abe4bc11d40b3240f31f543330d7da7123d570a9a4b4fec582b1b0d0fe8a7399"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-HX400.hdr",
+    "sha256": "f9aefdc1d27b6300b936d4006aecd5b6aaa1f005b1f5744fb478bee2331a824b"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-HX60.hdr",
+    "sha256": "027783b45adec0975ea445546b1c6fcf65549a1b6f93e0c80ee906efb3de54ab"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-HX90.hdr",
+    "sha256": "4b56cae1a25613246042ab1f13bda10bcd92e423ab157a41b3d09cbe8ddb5e32"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-RX0.hdr",
+    "sha256": "d462ce8e6d2608f90be6750a166b7e79da621f2b9ebf42bd8d61cf8e73d3b532"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-RX10.hdr",
+    "sha256": "0c7e067492aae9074b55b582a69de1e1555054b020360b63d6f1f74cd40eec12"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-RX100M3.hdr",
+    "sha256": "3146ea38edddd57ff343350eda8b49d3fadc074e8f02dfb69599b781d15343f6"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-RX100M4.hdr",
+    "sha256": "72d5a72624f6c5634dc0b19bf3eca803f116a88a2f77eb1ae7433854e0706c84"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-RX100M5.hdr",
+    "sha256": "e2752119b85e4cfc9f4c28680f46f2c6d365a4b2f7f2bc7fd451fb0f5a4fc855"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-RX10M2.hdr",
+    "sha256": "3165c1c6386a35939d2746860597db74f2640968612b463a4a3da9d60f6567cb"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-RX10M3.hdr",
+    "sha256": "49ac1b1161233f381d8d2a1edf0818e5f1dadb60c22d0166ff418506d4183687"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-RX1RM2.hdr",
+    "sha256": "5eb0c2b579f792cc892d041d0aa5d088842938d2701074652998fdc19e37ff4b"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-WX220.hdr",
+    "sha256": "977cbd54158c8729299ef346e324d4d3fe3903c0eb8c2c184760fec3885cdda4"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-WX350.hdr",
+    "sha256": "3f205182a05547b58f50f8d55ab5ca3ba3e0dd8799cf7ab82ddebdc0ec7e1e7c"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/DSC-WX500.hdr",
+    "sha256": "20d0ae67338451a1d1cd2e9f5388d2db6d6093a733928723512e18e635d5ae7a"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-AX100.hdr",
+    "sha256": "fa665dfdd81721d85acfff6adc15deed7a545253a40f66b830d115a24586eaa4"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-AX30.hdr",
+    "sha256": "e52c7e7f02de4e36780ffc32676039269827c577b7bcfc073a03535e4705f650"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-AX33.hdr",
+    "sha256": "45cff3287c93f867e870859412e4b382763d1b800af5864c1097051a453e6487"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-AX40.hdr",
+    "sha256": "4e0f6f376bb72c168d954b7cfcc669917906dd51eb9a80b225b44cb62f65a19c"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-AX43.hdr",
+    "sha256": "3e4a112e717a05552fa24d9713ccbd3090e31b2f62bda890246139b9effa7f3f"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-AX45.hdr",
+    "sha256": "342aea714dd69a2d21bfa4a7475b53874fc57e28eba63218a1cca7a941a3a7ab"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-AX53.hdr",
+    "sha256": "9f6d8993d078aeb27ac1ff8653eacd79f635218736c824b4659bd6126ad46088"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-AX55.hdr",
+    "sha256": "4e0f6f376bb72c168d954b7cfcc669917906dd51eb9a80b225b44cb62f65a19c"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-AX60.hdr",
+    "sha256": "342aea714dd69a2d21bfa4a7475b53874fc57e28eba63218a1cca7a941a3a7ab"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-AXP33.hdr",
+    "sha256": "45cff3287c93f867e870859412e4b382763d1b800af5864c1097051a453e6487"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-AXP35.hdr",
+    "sha256": "e52c7e7f02de4e36780ffc32676039269827c577b7bcfc073a03535e4705f650"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-AXP55.hdr",
+    "sha256": "4e0f6f376bb72c168d954b7cfcc669917906dd51eb9a80b225b44cb62f65a19c"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-X1000V.hdr",
+    "sha256": "84aa810d1b2197683403af62b05c6585c98b8ae101a19f982e582f0dcc835b97"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/FDR-X3000.hdr",
+    "sha256": "00b2ffdf152f66d637c79820f23d8e22b938df7a6ddb69d9ef413a0bf048f9ce"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-AS100V.hdr",
+    "sha256": "1c045aa65cbdfc71bced87ac92184c554891208ebddbd39032cd65adef864a89"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-AS200V.hdr",
+    "sha256": "a2ca19af1e10566fab50365faf556bdbb8de2636f31cbdf20469daf07b44c49c"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-AS300.hdr",
+    "sha256": "c3221af6bc1125755b26860d03b8202bd40c2ec729949fbad32a422a39513b0b"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-AS50.hdr",
+    "sha256": "11f40010668a7b1eb27ce3bd3dfd71974166fc5e740669560f877aebfbe0357d"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-AZ1.hdr",
+    "sha256": "c603503710adeb9d08f9c0717f9b53e94793c9b282ac43b3c4fc8b8dc8fcc39f"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-CX240.hdr",
+    "sha256": "b2f7dfc30c7a8563022c3b1deb400367ed2c7f61409a0ad90f75027e330a5aaf"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-CX405.hdr",
+    "sha256": "8c3aed7e65e34b5df54230398661eb098232299176ea563e0ca2beed710000d0"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-CX450.hdr",
+    "sha256": "690386af5bc3d5879060cf75ae68fc4662cad7dccc88774d9d6d36c7f0f940e3"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-CX625.hdr",
+    "sha256": "6c3638bea0f53b1a6546764b04d54202b37b9299dabf6693d34ca1eeba2b4065"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-CX670.hdr",
+    "sha256": "85c8c8f6d2f748453f68b4329349a1ccc050fabf84410663b2ff64f214761008"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-CX675.hdr",
+    "sha256": "020758f7d2d80995288241541c6909d175c459f50d55ae8fe7e8be4d29accaae"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-CX680.hdr",
+    "sha256": "020758f7d2d80995288241541c6909d175c459f50d55ae8fe7e8be4d29accaae"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-CX900.hdr",
+    "sha256": "a25d61c6d00ea9166cf5d4a144fd65bcf52cc0b22d880e772dda7e159502ed28"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-PJ240.hdr",
+    "sha256": "b2f7dfc30c7a8563022c3b1deb400367ed2c7f61409a0ad90f75027e330a5aaf"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-PJ410.hdr",
+    "sha256": "8c3aed7e65e34b5df54230398661eb098232299176ea563e0ca2beed710000d0"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-PJ540.hdr",
+    "sha256": "363a523af04117871705d723607b576ec3764c70dd2fe2274da88cc91a574272"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-PJ670.hdr",
+    "sha256": "85c8c8f6d2f748453f68b4329349a1ccc050fabf84410663b2ff64f214761008"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-PJ675.hdr",
+    "sha256": "020758f7d2d80995288241541c6909d175c459f50d55ae8fe7e8be4d29accaae"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-PJ800.hdr",
+    "sha256": "74d05552d54f77fd77cb4a85c5b654dff4d072bb9a693834fb230c36fd4d97c0"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/HDR-PJ810.hdr",
+    "sha256": "74d05552d54f77fd77cb4a85c5b654dff4d072bb9a693834fb230c36fd4d97c0"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCA-77M2.hdr",
+    "sha256": "c2d3293a66502d62362706088938071f3e2357f1e7bfaa4a7342d0817979b50b"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCA-99M2.hdr",
+    "sha256": "a1f701ce95e02bcdc45b0489feaf9c0df6878ad7635fc971294bf1a02c8f7e09"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCE-5000.hdr",
+    "sha256": "8fe9bdc2d3e6099d271fd599324e7e9459a16b8c9f634650d754cb6a12164fa2"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCE-5100.hdr",
+    "sha256": "f3f98910a13607ff2553f0107a2df5a74535d94e4602ae7363632a82f57f2c00"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCE-6000.hdr",
+    "sha256": "d121d0e8be118015c30d6e652e5e26b0d8f04cd31c94fa1f81a6a2d66dc17f2c"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCE-6300.hdr",
+    "sha256": "f250c812c343af2996df26493475fe1392ea2f1b209332ff92aa63c68db1a908"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCE-6500.hdr",
+    "sha256": "319b7c476506eb3b83157cd09ca87bb71e85cad6c5b0a3ff54780724c40da6b1"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCE-7.hdr",
+    "sha256": "30ca171ed0450f1f8a43e90301462f8e6815e8b34fd567a693e4071f3c11ae1a"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCE-7M2.hdr",
+    "sha256": "adf1950c3289cabec479b3bd66a130f4a06684bb178bac7706523b6c0370334f"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCE-7R.hdr",
+    "sha256": "a28634bd68f15ee055aa99534b16b9a2c95fc8f83a36b4cf3b79abd04d5b0984"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCE-7RM2.hdr",
+    "sha256": "0f4c692daa06ae84bf997500099035def2136015e2648664c00494e34d5ccad5"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCE-7S.hdr",
+    "sha256": "c33499a68fc8cdb0d376aa8bc586a8249b4c58bcf678993ba0be769d476dd118"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCE-7SM2.hdr",
+    "sha256": "04f3e37b9d93be724e8049f767f4955b7e948f1ae31b3f21d3660cb8c8e93a14"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/ILCE-QX1.hdr",
+    "sha256": "c85cecd310a89d941fe7d190ce94bc2e45bc20c4d23292f39834a19e1307c3c1"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/RM-LVR1.hdr",
+    "sha256": "76f7df800a0cc40eaba5ed72bf8d4bf3544563629ff65e87d13edf7a6f825f40"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/RM-LVR2.hdr",
+    "sha256": "d0f50207316fa35264960e066f6f9fe0c248f2c677761fc2b89d77a98a24b89c"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014/RM-LVR3.hdr",
+    "sha256": "ffc186860bd26141a397084f398b064da64f9094e09a9fd03d8ff4f09108977f"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/fdat/CXD90014.dat",
+    "sha256": "4f475e3df7287fd429031bcf85cc7f91ddfa201e0976864b8a4d5619245902b3"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/mount.c",
+    "sha256": "64fcceff4c0f83097d1b2d0eb05c2f3bff2942fdb8a46f1413e3b155a7b7e52b"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/mount.h",
+    "sha256": "54e2cf2fce9d91ea07d1ccc6097d910f7cfdb1cd30dfb050509c23fa4382e0f7"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/pack.py",
+    "sha256": "15a37fe5d46147fa82ed7217ab47caf9804fe7779de64d8923b65f93ced00013"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/process.c",
+    "sha256": "cb8d4770f6406553281eb8ab56f9c27dd3d2c808292ba3bb29e0ea41f95f19e9"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/process.h",
+    "sha256": "ac018fb1b83a8cca02785e2d6eeeeee60d9108c3d51b4603c85687b69538bc84"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/updaterbody.cpp",
+    "sha256": "b14aed9f5024e03caccbd4dd6e8a4a78ac96ecfc5f8d6bf984556c13eada2ae9"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/updaterbody.hpp",
+    "sha256": "f418b611e90456377fd6a82f67a8dbf5c76382f663e206c03017ecdbae960586"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/usbshell.cpp",
+    "sha256": "728ec6aa321bbf040e332876d4a51c11908623479a82953a069ab0c1d5f485d2"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/usbshell.hpp",
+    "sha256": "ed8fac95364019b4d8c30e71f9eeb73c7af5647afe416d4cee687f62d56b9b52"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/usbtransfer.cpp",
+    "sha256": "80f7d5410246e95cdf186c49b102351d05f3f4f61270276675114a83642cc412"
+  },
+  {
+    "path": "tools/Sony-PMCA-RE-master/updatershell/usbtransfer.hpp",
+    "sha256": "9a8a7b57d01a86159946bb922756797c348481256166548131e6d87e983b69d7"
+  },
+  {
+    "path": "tools/fwtool.py-master/.github/workflows/build.yml",
+    "sha256": "6fe04568a474886c09eeef4d5cb56e7d783407509ef54e1c8cb25f422a08ce69"
+  },
+  {
+    "path": "tools/fwtool.py-master/.gitignore",
+    "sha256": "af5d1054cb02e1908b3f957382c794714a1f51dc8f02f7c895e20ba2451bb675"
+  },
+  {
+    "path": "tools/fwtool.py-master/.travis.yml",
+    "sha256": "0c27817a44c3de10ce687a92b6e63513e5e12dd8c661d1410928af9020275a84"
+  },
+  {
+    "path": "tools/fwtool.py-master/LICENSE.txt",
+    "sha256": "a485f27d0b22eb7fd9b9419795695d0a1750ea32c961d11c1dd8ddade564dedf"
+  },
+  {
+    "path": "tools/fwtool.py-master/README.md",
+    "sha256": "5cb33cc0eb8c8191159c33555c6ecb6a02a712614430e9d092b991371466ef8d"
+  },
+  {
+    "path": "tools/fwtool.py-master/appveyor.yml",
+    "sha256": "51c6cf88936448b05de76b9d67c062ebaac6cb7dbf9e869462cc3199a4cbbb5a"
+  },
+  {
+    "path": "tools/fwtool.py-master/devices.yml",
+    "sha256": "6bdcf3b5d5c6ca2d93318a8dd39aa3a9382ea3e480fe9164884ad1cfdd86bb19"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/archive/__init__.py",
+    "sha256": "01e99b6b3e86184e397c1328d92a38b53db6058721819d64a62cb0d45ece526a"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/archive/axfs.py",
+    "sha256": "a87616bd803f1ee145f37cbaf117e81e463ba38359e4f009bc7f882c78240920"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/archive/cpio.py",
+    "sha256": "22b97142da05d6d23520deaefa370d5cae4cb5304e2e733aca07941f0db66c25"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/archive/cramfs.py",
+    "sha256": "0dccfc895ab0635b7ebbd134fb38f4ed5ab34580b27d0b17c4a51d3ce975affd"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/archive/ext2.py",
+    "sha256": "eff6223e786a260c6329db2c1aeeedbe80fe8ce96a012aa02dc6870ddd813591"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/archive/fat.py",
+    "sha256": "1430374a905ea2e55f2813b4c8c3b7a050798e1c03a0ecc95eb6d20228e84828"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/archive/gz.py",
+    "sha256": "aeb66c01e272a81cc5ca54b9e679359353430addc044170acfb2751c62263319"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/archive/lzpt.py",
+    "sha256": "771f6a8197f8b16c0a6fd2816ca4b8aae550a78d5a0c116e9097a26ba83a1f4b"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/archive/squashfs.py",
+    "sha256": "0b39db150ae4ce02191736b2dfaaa5e65e075136c308d7140922f5d1f5163324"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/archive/tar.py",
+    "sha256": "e42b1d2c1c996e5fa2b2242e62efdf080aa74bc3a1537f9dccb42093641c9318"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/io/__init__.py",
+    "sha256": "6981352a7a39e1427555468e11ef301b7e4bc3e40ae02b09e86e05a2d96e6963"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/lz77/__init__.py",
+    "sha256": "dc1407237c002545b08530b96d4efc1eadd24021ae6efc54688408850584c197"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/lzh/__init__.py",
+    "sha256": "8fb5a451128f7e8996a7d452b2eb846896c7c394638eec50e5add6a3077aa489"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/mbr/__init__.py",
+    "sha256": "565771758632031048768d2135976c2cd97b36799bd25bdc4f16901934c04a5f"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/pe/__init__.py",
+    "sha256": "1053d39910a1be15fb048cfedf913ec8498428fe81bce91d0d96ef2dc9edf7d0"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/sony/__init__.py",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/sony/ash.py",
+    "sha256": "20a6e6299e3512f7257a2b91a27d12ff33c5b6f33e51b7335f8ec011e2d2ef09"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/sony/bootloader.py",
+    "sha256": "161d9ccbd680d947c318a07e6706b3ce279f46c59a82d38bbbf5af38823c1504"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/sony/constants.py",
+    "sha256": "318ecfb52735696c0f824d41a9694ebc203ae4839b23f55bdc3d2a5eb38f1297"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/sony/dat.py",
+    "sha256": "5f5c1324649ee6c1719b14d5fc3b829741daf904c5f79da2ddcab10ef17f8d8e"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/sony/dslr.py",
+    "sha256": "67b3d70ab002cbf3e3297293e0023c380c238d9a35e22a861d57a361057b9e01"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/sony/fdat.py",
+    "sha256": "9f22c7a66b0d33f3accba26b417446b974d1251234462f1ca5c13ea6ee5b9910"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/sony/flash.py",
+    "sha256": "a1a8dd928091f4004995879ef897947bff010940a4c79c91e464c45f853d571c"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/sony/msfirm.py",
+    "sha256": "491a3693c69c7c85de0484ad07163a44536589ede00fa7b3c729879d85e9524e"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/sony/wbi.py",
+    "sha256": "21b672eafc5f6f71fd02e87b3e5444047c5df34971a951877c4b80b79f5c6dc1"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/sony/xor55.py",
+    "sha256": "de2436b832be580ff1955df9ad507b2e0c4bb96e6e93380ec0c90a0399962224"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/util/__init__.py",
+    "sha256": "befbfdb6f5a096f4cc33ca68a5cd5690dbc67b630aa0a56e007fec90f45596b6"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool/zip/__init__.py",
+    "sha256": "d6b0e01525654301adbf1668ef27b801761e7230f8753b09c2ca96c8b569c165"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool.py",
+    "sha256": "2840c297815dcff83ed75693a7b0c78769f54fef622cfcd54aa253c70b6d6808"
+  },
+  {
+    "path": "tools/fwtool.py-master/fwtool.spec",
+    "sha256": "99b02def9ac42aa1ab0a0a96c1b092885f3d11f5acb8b07d7f072f004c642ce3"
+  },
+  {
+    "path": "tools/fwtool.py-master/requirements.txt",
+    "sha256": "695864b34ea9a70a2fec2e4925b5ebd42afb2c0fdba83e9fca9358fd20b647f9"
+  },
+  {
+    "path": "AUDIT_REPORT.md",
+    "sha256": "d4f180f06fefe68af0eecf3a8acda1f76e06bc66cbe48f04f77dffd086334df4"
+  },
+  {
+    "path": "MAC_FINGERPRINT.sh",
+    "sha256": "2cb22487626173caace3975ad8e829264148c71e398955752ebb414636517468"
+  },
+  {
+    "path": "research_README.md",
+    "sha256": "841cb18001758569a20a455e389aebe3a07dce3fbdcd1c7774386f4370fa95ff"
+  },
+  {
+    "path": "ROUND_277.md",
+    "sha256": "6d224a2cd3102c5f4424cc5892fff343c0eb9099d549053b3ebc61e32285eebf"
+  },
+  {
+    "path": "ROUND_278.md",
+    "sha256": "42e96406a8864068a5acae97e52f9c2935f910c183d45a326c44d0c5d53e9e44"
+  },
+  {
+    "path": "ROUND_279.md",
+    "sha256": "c2197c9bdbcc37aea83491ce4ecd9817462a851bca7b115dfecd105975f7224d"
+  },
+  {
+    "path": "ROUND_282.md",
+    "sha256": "5edefb4a26f9e17a59c8bb0c57ab505d871dbc0d575e991f0e6129fc3f59b70d"
+  },
+  {
+    "path": "ROUND_284.md",
+    "sha256": "46d3e4b1b77813d7ff2c5fc7e04adcef9f5a6b2b439cc61bd8b3a9af9d218236"
+  },
+  {
+    "path": "TZ_SONY_ADUDIT.md",
+    "sha256": "9761cd2850dcd3c625bb27e89e9cbca49feee260dd7b3bea5315d5d8613217d8"
+  }
+]

@@ -1,0 +1,26 @@
+stream sha256 = 11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66  size=740912128
+[OK ] check   N1 squashfs: sha256 of the image cut out of the stream: 62e86fad175e0326969d5f1cea29d780feb496ce8034acd2c9c3954320d8ccaa
+[OK ] check   N2 squashfs unpacked: 58 files, 3 151 747 B, the names match the 7z listing: files=58 bytes=3151747 list_match=True
+[OK ] check   N3 every ELF in the squashfs is AArch64 (e_machine=183): elfs=31 non-aarch64=[]
+[OK ] check   N4 10 occurrences of the literal "OPENSSH PRIVATE KEY" in the stream: 5 BEGIN and 5 END: hits=10 begins=[69454712, 186092096, 294356432, 558669176, 587628092]
+[OK ] check   N5 the BEGIN->END discriminator: 4 string tables (<=64 B) and 1 real block (>400 B): adjacent=[40, 40, 40, 40] real=[471]
+[OK ] check   N6 the block parses as an unencrypted openssh-key-v1 (cipher=none, kdf=none, 1 key): cipher=b'none' kdf=b'none' comment=b'root@(none)' pad=4
+[OK ] check   N7 independent arithmetic: d*G == the point from the key (that is, the key works): d*G matched the embedded point
+[OK ] check   N8 the public blob I assembled matches the embedded one and the expected base64: AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYA…
+[OK ] check   N9 the public part occurs in the stream EXACTLY ONCE (inside the key itself): hits=[587628343] (the full base64 line does not occur: the key body is wrapped at 70 characters)
+[OK ] check   N10 ssh-keygen (OpenSSH) on the raw bytes gives the same fingerprint: 256 SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI root@(none) (ECDSA)
+[OK ] check   N11 the TEXT of create_host_key.sh was found — the exact command that creates this key: owner=0700_part_image/dev/nflasha15 hits=[395581615]
+[OK ] check   N12 the TEXT of get_finger_print.sh was found (it takes the fingerprint of the same path): owner=0700_part_image/dev/nflasha15 hits=[395382813, 553149981]
+[OK ] check   N13 the key lies inside the member 0700_part_image/dev/nflasha5: 0700_part_image/dev/nflasha5
+[OK ] check   N14 there are no other private keys: RSA/EC/PKCS8/DSA = 0, and the single "ENCRYPTED PRIVATE KEY" is a glib string table: {"-----BEGIN RSA PRIVATE KEY-----": 0, "-----BEGIN EC PRIVATE KEY-----": 0, "-----BEGIN PRIVATE KEY-----": 0, "-----BEGIN ENCRYPTED PRIVATE KEY-----": 1, "-----BEGIN DSA PRIVATE KEY-----": 0}
+[OK ] check   N15 sshd_config: exactly one HostKey = /tmp_network/ssh/ssh_host_ecdsa_key: ['HostKey /tmp_network/ssh/ssh_host_ecdsa_key']
+[OK ] check   N16 sshd_config: public-key login is off, root is off, only forwards to localhost:15740 / localhost:60152 are allowed: missing=[]
+[OK ] check   N17 the PAM hooks ssh_account_lock_recorder and ssh_session_monitoring really are in the image: {"ssh_account_lock_recorder": 8, "ssh_session_monitoring": 7}
+[OK ] CONTROL C1 corrupting one bit of the scalar breaks d*G == Q: the control fired: a substituted scalar does not give the embedded point
+[OK ] CONTROL C2 a "key" made from a binary string table does NOT parse: len=73, the parse failed
+[OK ] CONTROL C3 the search is not vacuous: the corrupted blob = 0 hits, the real one = 1: tweaked=0 real=1
+[OK ] CONTROL C4 the earlier "three blocks" does not hold: 5 literals, 1 real block: the count "3" is false under any criterion
+[OK ] CONTROL C5 the unpacking did something: the image and the unpacked file are not the same thing: chkfirm.sh is there, pformat.elf = 1 631 008 B
+
+RESULT: non-control green 17/17; control red 5/5
+written: /work/SONY_A7SIII_UPDATE/audit/round278_checks.json

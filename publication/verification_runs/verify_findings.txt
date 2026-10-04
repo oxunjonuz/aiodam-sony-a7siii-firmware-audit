@@ -1,0 +1,184 @@
+/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/fdat.py:312: SyntaxWarning: invalid escape sequence '\d'
+  version = re.match('^(\d)\.(\d{2})$', fdat.version)
+/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/dat.py:60: SyntaxWarning: invalid escape sequence '\.'
+  return [path for path in paths if re.search('/FirmwareData_([^/]+)\.dat$', path)][0]
+============================================================================================
+A. THE OBJECT ITSELF
+============================================================================================
+PASS      A1        size of the object, bytes
+            expected  : 743818632
+            measured  : 743818632
+PASS      A2        sha256 of the object
+            expected  : dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb
+            measured  : dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb
+PASS      A3        md5 and sha1 of the object (step 1 of the terms of reference: pin the hash sums)
+            expected  : both sums pinned
+            measured  : md5=ae4d074dca268917cc9697714f6baac0
+                          sha1=03c83a6b616c9f216495437359fac585db336b2f
+PASS      A4        TLV container: a block = [u32 length][4-byte tag][payload]
+            expected  : [('DATV',8,4),('PROV',20,4),('UDID',32,60),('FDAT',100,743818512)]; DEND size=4 tag=b'DEND'
+            measured  : [('DATV', 8, 4), ('PROV', 20, 4), ('UDID', 32, 60), ('FDAT', 100, 743818512)] ; DEND: size=4 tag=b'DEND' crc=1fafdcaa
+PASS      A5        DEND.crc == crc32(the first size-12 bytes)
+            expected  : both 0x1fafdcaa
+            measured  : calc=0x1fafdcaa stored=0x1fafdcaa
+PASS      A6        the UDID table: 7 entries (PID, VID, flags), all Sony 054c — including the updater-mode descriptor right inside the file
+            expected  : count=7; six 054c:0448|047d|0d15|0d16|0d19|0d1a with flag 1 and 054c:03e2 with flag 2
+            measured  : count=7 entries=['054c:0448 f=1', '054c:047d f=1', '054c:0d15 f=1', '054c:0d16 f=1', '054c:0d19 f=1', '054c:0d1a f=1', '054c:03e2 f=2']
+============================================================================================
+B. THE FDAT HEADER: readable with a public key; coordinates; the ECB leak
+============================================================================================
+PASS      B1        the first 512 bytes of FDAT decrypted with the PUBLIC key_aes (ECB): a 4-byte frame + magic
+            expected  : frame c4a9fc03; magic UDTRFIRM at 4; format version 0100; mode U; flag N
+            measured  : raw[0:4]=c4a9fc03 magic@4=b'UDTRFIRM' ver=b'0100' mode=b'U' luw=b'N'
+PASS      B2        model, version and region from the header
+            expected  : model=0x91030083 version=5.01 region=0
+            measured  : model=0x91030083 version=5.01 region=0
+PASS      B3        component layout: fsU, the empty slot P, the firmware area
+            expected  : fsU=(U,512,1253376) fsP=(P,512,0) fw=(1253888,739658240) numFS=2
+            measured  : fsU=('U', 512, 1253376) fsP=('P', 512, 0) fw=(1253888,739658240) numFS=2
+PASS      B4        the header crc32 is invertible: the 4 bytes H[508:512] are DETERMINED by it and are zero
+            expected  : required=00000000, checksum matches
+            measured  : required bytes=00000000 checksum=0x9eb4163d
+PASS      B5        ECB leak: a run of identical CIPHERTEXT blocks (no key) agrees with the prediction from the decrypted header
+            expected  : one run: start=6 length=26, the prediction matched
+            measured  : measured: runs=1 start=6 length=26 ; predicted: start=6 length=26
+============================================================================================
+C. THE BODY: opened with a public key, its frames, the fate of the "2 906 112 bytes"
+============================================================================================
+PASS      C1        a fresh unpacking of the body with the public key gives a stream of the expected length and hash
+            expected  : bytes=740912128 sha256=11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66
+            measured  : bytes=740912128
+                          sha256=11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66
+PASS      C2        two independent implementations (my block-wise code and the fwtool library) produced one file
+            expected  : all lengths and sha256 match the fresh computation
+            measured  : stream.bin=740912128/11880291ae4bd08b… ; stream_fwtool.bin=740912128/11880291ae4bd08b…
+PASS      C3        the stream starts with the UDTRFIRM magic (stream coordinates, not ciphertext)
+            expected  : the magic is in the first 8 bytes
+            measured  : stream[0:16]=554454524649524d3d16b49e30313030
+PASS      C4        every block frame matches its 16-bit sum; the number of blocks
+            expected  : blocks=726385 bad=0
+            measured  : blocks=726385 bad=0
+PASS      C5        payload size: 1020 in all but the last frame (448); the end flag only on that one
+            expected  : last=448 endflags=1
+            measured  : last=448 endflags=1 distinct=[448, 1020]
+PASS      C6        the padding of the last frame is 572 bytes, all 0xff
+            expected  : len=572 all_ff=True
+            measured  : len=572 all_ff=True
+PASS      C7        F-07 does not exist: 4*726 385 + 572 = 2 906 112
+            expected  : 2 906 112 ; 740 912 128 ; 740 912 128
+            measured  : 4*726385+572=2906112 ; sum of frames=740912128 ; 512+1253376+739658240=740912128
+PASS      C8        there are no bytes beyond the declared components (unaccounted = 0)
+            expected  : 0
+            measured  : unaccounted=0
+============================================================================================
+D. WHAT IS INSIDE: images, strings, the private key, the tail, .sum
+============================================================================================
+PASS      D1        fs_user is squashfs (hsqs) and its sha256
+            expected  : magic=b'hsqs' sha256=62e86fad...d8ccaa
+            measured  : magic=b'hsqs' sha256=62e86fad175e0326969d5f1cea29d780feb496ce8034acd2c9c3954320d8ccaa
+PASS      D2        firmware is a tar (ustar); the member count and the offset of the sshd_config member, in my own pass
+            expected  : members=159, mount.conf present
+            measured  : members=159 ; mount.conf: True ; first='0100_config/'
+PASS      D3:ILCE-7SM3 occurrences of the string 'ILCE-7SM3' in the stream
+            expected  : 61
+            measured  : 61
+PASS      D3:ILCE-9 occurrences of the string 'ILCE-9' in the stream
+            expected  : 2
+            measured  : 2
+PASS      D3:myftm  occurrences of the string 'myftm' in the stream
+            expected  : 44
+            measured  : 44
+PASS      D3:crypter.elf occurrences of the string 'crypter.elf' in the stream
+            expected  : 14
+            measured  : 14
+PASS      D3:libnss_ssh occurrences of the string 'libnss_ssh' in the stream
+            expected  : 6
+            measured  : 6
+PASS      D3:OPENSSH PRIVATE KEY occurrences of the string 'OPENSSH PRIVATE KEY' in the stream
+            expected  : 10
+            measured  : 10
+PASS      D3:ssh_account_lock_recorder occurrences of the string 'ssh_account_lock_recorder' in the stream
+            expected  : 8
+            measured  : 8
+PASS      D3:ssh_session_monitoring occurrences of the string 'ssh_session_monitoring' in the stream
+            expected  : 7
+            measured  : 7
+PASS      D4        the private key: offset, block size (BEGIN..END inclusive), base64 characters
+            expected  : offset=587628092 len(block)=504 body_b64=435
+            measured  : offset=587628092 len(block)=504 body_b64=435
+PASS      D4b       CORRECTION to the 277/278 reports: the recorded "501 B" and "471 base64 characters" do not reproduce (471 is the offset of the END line, not the body length)
+            expected  : the discrepancy is recorded, not hushed up
+            measured  : measured now: block=504 B, body=435 characters (the reports said 501 and 471)
+PASS      D5        parse of the key container: openssh-key-v1, cipher=none, kdf=none, 1 key, P-256, root@(none)
+            expected  : none / none / 1 / ecdsa-sha2-nistp256 / nistp256 / root@(none) / matched
+            measured  : cipher=b'none' kdf=b'none' nkeys=1 type=b'ecdsa-sha2-nistp256' curve=b'nistp256' comment=b'root@(none)' checkint matched=True
+PASS      D6        the key works: the public point from the private scalar (own P-256 arithmetic) == the embedded point
+            expected  : True
+            measured  : d*G == Q : True
+PASS      D7        key fingerprint: the third-party OpenSSH tool agrees with the recorded one
+            expected  : fp=SHA256:J8L9aBLE…NODI ; blob sha256=27c2fd68…3832
+            measured  : ssh-keygen: 256 SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI no comment (ECDSA)  ; blob sha256=27c2fd6812c48a64dd0d6e66d6257bc14eb82cfd625a8dfe963f4c182c4d3832
+PASS      D8        sshd_config (found through the tar table of contents): exactly one HostKey and exactly the algorithm set of the live camera
+            expected  : one HostKey line /tmp_network/ssh/ssh_host_ecdsa_key + 4/4 set lines
+            measured  : member=0800_appli/tmp/ssh/sshd_config off=740733952 size=3094 ; HostKey lines=1 b'HostKey /tmp_network/ssh/ssh_host_ecdsa_key' ; set lines=4/4
+PASS      D8b       CORRECTION: the sshd_config offset named in the reports (740736525) is not the start of the file; the start from the tar table of contents is 740733952, and the text begins there
+            expected  : start 740733952
+            measured  : start by the tar=740733952, the text begins with b'# Package generated configur' ; the reports said 740736525 (that is +2573 inside)
+PASS      D9        the text of the script that creates this key lies in the image in full
+            expected  : ssh-keygen -q -b 256 -t ecdsa -N '' -f /tmp_network/ssh/ssh_host_ecdsa_key
+            measured  : b'ssh-keygen -q -b 256 -t ecdsa -N \'\' -f /tmp_network/ssh/ssh_host_ecdsa_key\n\nif [ "$?" == "0" ]; then\n  RES="0"\nfi\n\nexit "$RES"\n\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+PASS      D10       inventory of armor blocks in the stream and distinct RSA moduli (own SPKI parse)
+            expected  : PUBLIC KEY=8, OPENSSH PRIVATE KEY=5, distinct moduli=6 (3071x2, 3072x3, 2048x1)
+            measured  : literals={'CERTIFICATE': 172, 'OPENSSH PRIVATE KEY': 5, 'PUBLIC KEY': 8, 'ENCRYPTED PRIVATE KEY': 1} ; SPKI blocks=8 ; distinct moduli=6: [(2048, 'a8c8b16d', 429029376), (3071, '6fb15e12', 201950416), (3071, 'b70cc011', 201949144), (3072, '58b11719', 732636160), (3072, '88ae078d', 732631040), (3072, 'e66fea75', 429028352)]
+PASS      D10b      CORRECTION: the "4 PUBLIC KEY blocks" of report 278 does not reproduce (there are 8, one of them a literal with no body); six distinct RSA keys, not five
+            expected  : the discrepancy is recorded
+            measured  : PUBLIC KEY literals=8, distinct moduli=6
+PASS      D11       the body tail: 272 = 16 (IV) + 256; the IV matches the one the stream was opened with
+            expected  : iv=89a85276c7208ea533a0e187fac4092c sig_len=256 iv==iv_payload:True
+            measured  : iv=89a85276c7208ea533a0e187fac4092c sig_len=256 iv==iv_payload:True (the tail is read at 743818348 inside FDAT)
+PASS      D12       no key in the file confirms the tail: the 2048-bit key yields no PKCS#1 v1.5 structure
+            expected  : 497f..., no structure
+            measured  : m[:4]=497ff58c pkcs1_structure=False
+PASS      D13       the internal integrity of the image is a CRC32 in .sum, and it matches on the member bytes themselves
+            expected  : all matched
+            measured  : 2/2 ['mount.conf:ok', 'big_backup.conf:ok']
+============================================================================================
+E. SQUASHFS: what was unpacked
+============================================================================================
+PASS      E1        the unpacked squashfs: files, ELF, scripts, total size, architecture
+            expected  : files=58 elf=31 scripts=21 bytes=3151747 arch=[183]
+            measured  : files=58 elf=31 scripts=21 bytes=3151747 arch=[183]
+PASS      E2        config/chassis and config/body_version inside the updater image
+            expected  : chassis=b'CXD90057+CXD90058' body_version=b'700.104.039'
+            measured  : chassis=b'CXD90057+CXD90058' body_version=b'700.104.039'
+PASS      E3        pformat.elf: its size and the OpenSSL encryption found in its strings
+            expected  : bytes=1631008 symbols=5/5
+            measured  : bytes=1631008 symbols=['AES_encrypt', 'SM4_encrypt', 'Camellia_cbc_encrypt', 'd2i_PKCS8_PRIV_KEY_INFO', 'CMS_EncryptedData_it']
+PASS      E4        the pipeline: CRC32 yes, signature no; MODE_SERVICE=2; the loader md5 is commented out
+            expected  : crc32=True sign=False MODE_SERVICE=2=True md5=True
+            measured  : config.xml: crc32=True sign=False ; common.src MODE_SERVICE=2=True ; loader_writer.sh md5=True
+============================================================================================
+K. CONTROLS: the instrument must be able to say "no"
+============================================================================================
+CTRL-RED  K1        CONTROL: "find" a string that is certainly absent from the stream — must go red
+            expected  : 0
+            measured  : occurrences found: 0
+CTRL-RED  K2        CONTROL: a prefix corrupted by one bit still demands zeros — must go red
+            expected  : not 00000000
+            measured  : required bytes=f635cdf7
+CTRL-RED  K3        CONTROL: a corrupted scalar still gives the point Q — must go red
+            expected  : False
+            measured  : match=False
+PASS      K4a       the frame of the second block matches on the correct ciphertext (the positive half)
+            expected  : True
+            measured  : matches=True
+CTRL-RED  K4        CONTROL: the frame of a corrupted block still matches — must go red
+            expected  : False
+            measured  : matches=False
+CTRL-RED  K5        CONTROL: reading past the end of the stream returns data — must go red
+            expected  : b''
+            measured  : b''
+--------------------------------------------------------------------------------------------
+non-control green: 47/47 ; controls red: 5/5
+RESULT: ALL MATCHED
+written: /work/SONY_A7SIII_UPDATE/audit/verify_findings.json

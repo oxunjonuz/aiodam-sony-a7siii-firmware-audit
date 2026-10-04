@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.DS_Store
+/BODYDATA.DAT
+/out/
+/out_fwtool/
+/env/
+/tmpwork/

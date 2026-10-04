@@ -1,0 +1,43 @@
+/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/fdat.py:312: SyntaxWarning: invalid escape sequence '\d'
+  version = re.match('^(\d)\.(\d{2})$', fdat.version)
+/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/dat.py:60: SyntaxWarning: invalid escape sequence '\.'
+  return [path for path in paths if re.search('/FirmwareData_([^/]+)\.dat$', path)][0]
+      OK     N1 the unpacked stream equals exactly the sum of the declared components
+            bytes=740912128 sha256=11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66
+      OK     N2a all 726 385 block frames match their 16-bit sum
+            blocks=726385 bad=0
+      OK     N2b sizes: 1020 in all but the last (448), and the end flag only on that one
+            last=448 endflags=1
+      OK     N2c the padding of the last block is 572 bytes of 0xff, and 4*726385+572 = 2 906 112
+            pad=572 all_ff=True sum=2906112
+      OK     N2d the same measure on an intact block matches (the instrument can say "ok")
+            calc=a9c4 stored=a9c4
+CTRL  RED    C1 CONTROL (must go red): the frame sum matches on corrupted ciphertext
+            calc=8724 stored=a9c4
+      OK     N3 the header: the crc32 of [12:512) matches, model 0x91030083, version 5.01
+            crc=True model=0x91030083 ver=5.01
+CTRL  RED    C2 CONTROL (must go red): corrupting a byte in the crc area breaks the match
+            crc after corruption=15399078 stored=9eb4163d
+      OK     N4 the model name: ILCE-7SM3 61 times in the image, including the string "ILCE-7SM3 v5.01", the only other name is ILCE-9 (2 times)
+            hits=61 in_fw=61 pair=True others=['ILCE-9']
+CTRL  RED    C3 CONTROL (must go red): the search does NOT find a planted name
+            planted at 1000, the search returned 1000
+      OK     N5a the public key CXD90057_k8 (PR #52) opens the body, the reference parse succeeds
+            crypter=CXD90057_k8 model=0x91030083 ver=5.01 fs=1253376 fw=739658240
+      OK     N5b the other public keys do NOT open the body
+            {"CXD90057_k0": "BlockCryptException", "CXD90045": "BlockCryptException", "CXD90014": "BlockCryptException"}
+      OK     N6a the 2048-bit key lying IN THE FILE itself yields no signature structure on the tail
+            2048-bit keys=1, produced a structure=[]
+      OK     N6b the published Sony-PMCA-RE key yields no structure either
+            m[:2]=51bb
+CTRL  RED    C4 CONTROL (must go red): the structural test does NOT accept a genuine signature
+            structure on a signature of my own: 00 01
+      OK     N7 the internal integrity of the image is CRC32 in *.sum files, and it matches
+            matched 12, mismatches 0: ['mount.conf:ok', 'big_backup.conf:ok', 'fw2_normal_cfg.cyacd:ok', 'fw2_normal_app.cyacd:ok', 'partinf.conf:ok', 'darwin_core.bin:ok', 'loader_nor.tar:ok', 'dev:not-in-tar']
+CTRL  RED    C5 CONTROL (must go red): a modified file still matches the OLD CRC32
+            was 62c45caa now f3c0a4dc
+      OK     N8 the images: fs_user = squashfs (hsqs), firmware = tar (159 members)
+            fs_magic=b'hsqs' members=159
+========================================================================================
+non-control green: 13/13 ; control red: 5/5
+RESULT: ALL MATCHED

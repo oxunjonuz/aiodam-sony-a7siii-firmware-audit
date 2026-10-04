@@ -1,0 +1,172 @@
+{
+ "results": [
+  {
+   "name": "A1 all 17 lost fragments: in the Russian manuscript, absent from the English source and from the English body of the printed PDF",
+   "ok": true,
+   "detail": "17/17",
+   "control": false
+  },
+  {
+   "name": "A-red control: 6 fragments from the same twelve sentences are FOUND in source and body",
+   "ok": true,
+   "detail": "shd_config,HostKey,PubkeyAuthentication,MaxSessions 0,audit/round278_check.py,RootLogin",
+   "control": false
+  },
+  {
+   "name": "A-red2 control: a fabricated name is found nowhere",
+   "ok": true,
+   "detail": "fabricated name absent from both sources and the PDF",
+   "control": false
+  },
+  {
+   "name": "B1 every wrapped \\lc token of source length < 49 is present and every one >= 49 is gone",
+   "ok": true,
+   "detail": "threshold measured between 48 and 49",
+   "control": false
+  },
+  {
+   "name": "B-red control: at threshold 40 the same rule is contradicted",
+   "ok": true,
+   "detail": "19 contradictions at 40, so 48/49 is measured",
+   "control": true
+  },
+  {
+   "name": "B-red2 control: the same bound applied to \\hx/\\hl is contradicted",
+   "ok": true,
+   "detail": "2 of 2 long \\hx/\\hl tokens survived: the bound is macro-specific",
+   "control": true
+  },
+  {
+   "name": "B2 every kept wrapped token is byte-identical between the two files, allowbreaks and all",
+   "ok": true,
+   "detail": "19/19 identical",
+   "control": false
+  },
+  {
+   "name": "C1 two rebuilds of the same .tex give the same PDF text",
+   "ok": true,
+   "detail": "31032 vs 31032 characters",
+   "control": false
+  },
+  {
+   "name": "C2 the holes reproduce in the rebuilt PDF, English part (17/17 gone, 6/6 kept present)",
+   "ok": true,
+   "detail": "the build neither creates nor removes them",
+   "control": false
+  },
+  {
+   "name": "C-red control: the same fragment typed back into the .tex appears in the rebuilt PDF",
+   "ok": true,
+   "detail": "the rebuild route can see a presence as well as an absence",
+   "control": true
+  },
+  {
+   "name": "D1 no Runaway/Missing/LaTeX-Error line in the round-281 build log: the loss was silent",
+   "ok": true,
+   "detail": "0 matching lines",
+   "control": false
+  },
+  {
+   "name": "D-red control: an artificially unclosed argument does put an error in the log",
+   "ok": true,
+   "detail": "the search is sensitive to a real LaTeX error",
+   "control": true
+  },
+  {
+   "name": "E1 the 3 still-absent fragments really are absent from the round-282 source",
+   "ok": true,
+   "detail": "3/3",
+   "control": false
+  },
+  {
+   "name": "E-red control: one of the restored forms is genuinely found in the 282 source",
+   "ok": true,
+   "detail": "a positive result is possible on the same route",
+   "control": true
+  },
+  {
+   "name": "E2 the 3 fragments that were missing are back in the edition rebuilt in round 284",
+   "ok": true,
+   "detail": "3/3 found in /work/SONY_A7SIII_UPDATE/publication/paper/main.tex",
+   "control": false
+  }
+ ],
+ "lost": [
+  "BEGIN OPENSSH PRIVATE KEY",
+  "0700_part_image/dev/nflasha5",
+  "0800_appli/tmp/ssh/sshd_config",
+  "/tmp_network/ssh/ssh_host_ecdsa_key",
+  "/usr/bin/create_host_key.sh",
+  "ssh-keygen -q -b 256 -t ecdsa -N '' -f/tmp_network/ssh/ssh_host_ecdsa_key",
+  "PasswordAuthentication no",
+  "d2i_PKCS8_PRIV_KEY_INFO",
+  "audit/verify_findings.py",
+  "BEGIN ENCRYPTED PRIVATE KEY",
+  "publication/paper_check.py",
+  "publication/selftest_paper.py",
+  "kex: host key algorithm: (no match)",
+  "env/venv/bin/python3 audit/checks.py",
+  "python3 audit/round279_check.py",
+  "./MAC_FINGERPRINT.sh --ip <\u0430\u0434\u0440\u0435\u0441 \u043a\u0430\u043c",
+  "sh publication/run_all.sh"
+ ],
+ "present": [
+  "shd_config",
+  "HostKey",
+  "PubkeyAuthentication",
+  "MaxSessions 0",
+  "audit/round278_check.py",
+  "RootLogin"
+ ],
+ "pdf": {
+  "english_body_chars": 23650,
+  "appendix_chars": 7382,
+  "cyrillic_pages": 4
+ },
+ "rule": {
+  "kept_max_source_len": 48,
+  "gone_min_source_len": 49,
+  "kept": [
+   "audit/ro\\allowbreak und277\\_c\\allowbreak heck.py",
+   "audit/ro\\allowbreak und278\\_c\\allowbreak heck.py",
+   "audit/ro\\allowbreak und279\\_c\\allowbreak heck.py",
+   "audit/ro\\allowbreak und277\\_c\\allowbreak heck.py",
+   "audit/ro\\allowbreak und278\\_c\\allowbreak heck.py",
+   "PubkeyAu\\allowbreak thentica\\allowbreak tion no",
+   "audit/pa\\allowbreak rser\\_bou\\allowbreak nds.py",
+   "Camellia\\allowbreak \\_cbc\\_enc\\allowbreak rypt",
+   "nor\\_load\\allowbreak er\\_write\\allowbreak r.sh",
+   "audit/re\\allowbreak port\\_che\\allowbreak ck.py",
+   "sha256su\\allowbreak m BODYDA\\allowbreak TA.DAT",
+   "audit/re\\allowbreak port\\_che\\allowbreak ck.py",
+   "mlkem768\\allowbreak x25519-s\\allowbreak ha256",
+   "config/b\\allowbreak ody\\_vers\\allowbreak ion",
+   "ecdsa-sh\\allowbreak a2-nistp\\allowbreak 256",
+   "ecdsa-sh\\allowbreak a2-nistp\\allowbreak 256",
+   "OPENSSH \\allowbreak PRIVATE \\allowbreak KEY",
+   "ecdh-sha\\allowbreak 2-nistp2\\allowbreak 56",
+   "PermitRo\\allowbreak otLogin \\allowbreak no"
+  ],
+  "gone": [
+   "ssh-keyg\\allowbreak en -q -b\\allowbreak  256 -t \\allowbreak ecdsa -N\\allowbreak  '' -f/t\\allowbreak mp\\_netwo\\allowbreak rk/ssh/s\\allowbreak sh\\_host\\_\\allowbreak ecdsa\\_ke\\allowbreak y",
+   "./MAC\\_FI\\allowbreak NGERPRIN\\allowbreak T.sh --i\\allowbreak p <\u0430\u0434\u0440\u0435\u0441\\allowbreak  \u043a\u0430\u043c\u0435\u0440\u044b>",
+   "/tmp\\_net\\allowbreak work/ssh\\allowbreak /ssh\\_hos\\allowbreak t\\_ecdsa\\_\\allowbreak key",
+   "env/venv\\allowbreak /bin/pyt\\allowbreak hon3 aud\\allowbreak it/check\\allowbreak s.py",
+   "kex: hos\\allowbreak t key al\\allowbreak gorithm:\\allowbreak  (no mat\\allowbreak ch)",
+   "0800\\_app\\allowbreak li/tmp/s\\allowbreak sh/sshd\\_\\allowbreak config",
+   "python3 \\allowbreak audit/ro\\allowbreak und279\\_c\\allowbreak heck.py",
+   "0700\\_par\\allowbreak t\\_image/\\allowbreak dev/nfla\\allowbreak sha5",
+   "publicat\\allowbreak ion/self\\allowbreak test\\_pap\\allowbreak er.py",
+   "/usr/bin\\allowbreak /create\\_\\allowbreak host\\_key\\allowbreak .sh",
+   "BEGIN EN\\allowbreak CRYPTED \\allowbreak PRIVATE \\allowbreak KEY",
+   "publicat\\allowbreak ion/pape\\allowbreak r\\_check.\\allowbreak py",
+   "sh publi\\allowbreak cation/r\\allowbreak un\\_all.s\\allowbreak h",
+   "BEGIN OP\\allowbreak ENSSH PR\\allowbreak IVATE KE\\allowbreak Y",
+   "Password\\allowbreak Authenti\\allowbreak cation n\\allowbreak o",
+   "d2i\\_PKCS\\allowbreak 8\\_PRIV\\_K\\allowbreak EY\\_INFO",
+   "audit/ve\\allowbreak rify\\_fin\\allowbreak dings.py",
+   "audit/ve\\allowbreak rify\\_fin\\allowbreak dings.py",
+   "audit/ve\\allowbreak rify\\_fin\\allowbreak dings.py"
+  ]
+ }
+}

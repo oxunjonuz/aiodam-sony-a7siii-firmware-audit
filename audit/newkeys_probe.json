@@ -1,0 +1,49 @@
+{
+ "CONTROL_roundtrip": {
+  "bytes_in": 3159040,
+  "bytes_out": 3145728,
+  "error": null,
+  "magic_ok": true
+ },
+ "candidates": {
+  "CXD4132": {
+   "bytes_unpacked": 0,
+   "is_fdat": null,
+   "payload_size": 743818512,
+   "seconds": 0.0,
+   "stopped_with": "BlockCryptException: Wrong checksum"
+  },
+  "CXD90014": {
+   "bytes_unpacked": 0,
+   "is_fdat": null,
+   "payload_size": 743818512,
+   "seconds": 0.0,
+   "stopped_with": "BlockCryptException: Wrong checksum"
+  },
+  "CXD90045": {
+   "bytes_unpacked": 0,
+   "is_fdat": null,
+   "payload_size": 743818512,
+   "seconds": 0.0,
+   "stopped_with": "BlockCryptException: Wrong checksum"
+  },
+  "CXD90057_k0": {
+   "bytes_unpacked": 0,
+   "is_fdat": null,
+   "payload_size": 743818512,
+   "seconds": 0.0,
+   "stopped_with": "BlockCryptException: Wrong checksum"
+  },
+  "CXD90057_k8": {
+   "bytes_unpacked": 210763776,
+   "head_hex": "554454524649524d3d16b49e30313030550000004e0000000000000000000000",
+   "is_fdat": true,
+   "magic_at_0": true,
+   "magic_at_4": false,
+   "payload_size": 743818512,
+   "seconds": 27.1,
+   "stopped_with": null
+  }
+ },
+ "payload_size": 743818512
+}

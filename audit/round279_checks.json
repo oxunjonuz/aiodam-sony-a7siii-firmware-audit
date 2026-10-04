@@ -1,0 +1,185 @@
+{
+ "passed": 28,
+ "total": 29,
+ "results": [
+  {
+   "id": "C0",
+   "name": "bash -n syntax clean",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "C1",
+   "name": "selftest path: script starts (exit code recorded)",
+   "ok": true,
+   "detail": "rc=0"
+  },
+  {
+   "id": "C2",
+   "name": "--selftest exit 0",
+   "ok": true,
+   "detail": "rc=0"
+  },
+  {
+   "id": "C3",
+   "name": "--selftest says SELF_TEST_OK",
+   "ok": true,
+   "detail": "SELFTEST: 8/8 passed, 0 skipped"
+  },
+  {
+   "id": "C4",
+   "name": "independent route (harness ssh-keyscan) sees the firmware fingerprint",
+   "ok": true,
+   "detail": "SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI"
+  },
+  {
+   "id": "C5",
+   "name": "independent route: blob is byte-identical to the firmware blob",
+   "ok": true,
+   "detail": "140 chars"
+  },
+  {
+   "id": "C6",
+   "name": "script over a real SSH handshake -> MATCH",
+   "ok": true,
+   "detail": "verdict=MATCH"
+  },
+  {
+   "id": "C7",
+   "name": "script reports the same fingerprint the harness computed",
+   "ok": true,
+   "detail": "SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI"
+  },
+  {
+   "id": "C8",
+   "name": "AIODAM_JSON parses and agrees with the text verdict",
+   "ok": true,
+   "detail": "MATCH"
+  },
+  {
+   "id": "C9",
+   "name": "all three comparison routes available and saying yes",
+   "ok": true,
+   "detail": "blob=yes fp=yes sha=yes"
+  },
+  {
+   "id": "C10",
+   "name": "report file was written where --out/AIODAM_OUT said",
+   "ok": true,
+   "detail": "out_134061050.txt"
+  },
+  {
+   "id": "C11",
+   "name": "read-only: the server saw ZERO auth attempts and ZERO channel requests",
+   "ok": true,
+   "detail": "auth=[] chan=[]"
+  },
+  {
+   "id": "C11b",
+   "name": "the live handshake negotiated the camera's own kex (ecdh-sha2-nistp256)",
+   "ok": true,
+   "detail": "from the verbatim ssh-keyscan stderr"
+  },
+  {
+   "id": "C12",
+   "name": "a different host key -> MISMATCH",
+   "ok": true,
+   "detail": "verdict=MISMATCH"
+  },
+  {
+   "id": "C13",
+   "name": "and the JSON records the observed (different) fingerprint, not the expected one",
+   "ok": true,
+   "detail": " SHA256:+SUhnqoaNUzLNyOXXi/n/eTYoq6IpKf0x3QdKCmuJB8"
+  },
+  {
+   "id": "C13b",
+   "name": "an alg-mimicking server is identified as the firmware's own sshd_config",
+   "ok": true,
+   "detail": "alg_set_match=yes alg_set=kex=ecdh-sha2-nistp256 cipher=aes128-ctr mac=hmac-sha2-256 hostkey=ecdsa-sha2-nistp256"
+  },
+  {
+   "id": "C13c",
+   "name": "control: a server with default algorithms is NOT identified as such",
+   "ok": true,
+   "detail": "alg_set_match=no"
+  },
+  {
+   "id": "C13d",
+   "name": "the reference-key comparison reports SAME for the firmware-key server only when that key is also the reference (here it is not)",
+   "ok": true,
+   "detail": "ref_live_match=DIFFERENT"
+  },
+  {
+   "id": "C14",
+   "name": "control: expectation retargeted to the other key -> MATCH (sanity of the swap)",
+   "ok": true,
+   "detail": "verdict=MATCH"
+  },
+  {
+   "id": "C15",
+   "name": "control: real firmware key vs that expectation -> MISMATCH, not MATCH",
+   "ok": true,
+   "detail": "verdict=MISMATCH"
+  },
+  {
+   "id": "C16",
+   "name": "control: one route yes, one route no -> INCONCLUSIVE_CONTRADICTION",
+   "ok": true,
+   "detail": "verdict=INCONCLUSIVE_CONTRADICTION"
+  },
+  {
+   "id": "C16b",
+   "name": "control: one character changed in the embedded blob -> not MATCH",
+   "ok": true,
+   "detail": "verdict=INCONCLUSIVE_CONTRADICTION"
+  },
+  {
+   "id": "C16c",
+   "name": "and the sha256 expectation followed the changed base64 (routes cannot drift apart)",
+   "ok": true,
+   "detail": "sha_expect=3fc9d1e1b497 route_sha=no"
+  },
+  {
+   "id": "C17",
+   "name": "closed port -> UNREACHABLE",
+   "ok": true,
+   "detail": "verdict=UNREACHABLE reason=no_host_no_sshd"
+  },
+  {
+   "id": "C18",
+   "name": "port open but not SSH -> INCONCLUSIVE_NO_KEY",
+   "ok": true,
+   "detail": "verdict=INCONCLUSIVE_NO_KEY"
+  },
+  {
+   "id": "C19",
+   "name": "and in that case the report still contains the raw ssh-keyscan stderr",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "C20",
+   "name": "camera signature present, sshd closed -> UNREACHABLE/camera_found_but_sshd_not_listening",
+   "ok": true,
+   "detail": "UNREACHABLE/camera_found_but_sshd_not_listening"
+  },
+  {
+   "id": "C21",
+   "name": "and the report names the PTP port as the evidence the camera is there",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "id": "C22",
+   "name": "live camera reachable",
+   "ok": null,
+   "detail": "192.168.1.102:22 not reachable from here - live checks SKIPPED"
+  }
+ ],
+ "notes": [
+  "SSH server on 127.0.0.1:45551, host key = out/key_wbi_nflasha5.pem, not attempted",
+  "kex restriction actually applied to the live handshake: mimic-camera: kex, ciphers, macs",
+  "saved a full MATCH report to out/round279_match_report.txt"
+ ]
+}

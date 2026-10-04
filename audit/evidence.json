@@ -1,0 +1,233 @@
+{
+ "checks": [
+  {
+   "control": false,
+   "detail": "items=[(8, 4, 'DATV'), (20, 4, 'PROV'), (32, 60, 'UDID'), (100, 743818512, 'FDAT'), (743818620, 4, 'DEND')] end=743818632",
+   "name": "C1  TLV parse of the container",
+   "reported": true
+  },
+  {
+   "control": false,
+   "detail": "calc=0x1fafdcaa stored=0x1fafdcaa",
+   "name": "C2  DEND.crc == crc32(file without the last 12 bytes)",
+   "reported": true
+  },
+  {
+   "control": false,
+   "detail": "firmwareData=743818512 normal=[('0x054c', '0x0448'), ('0x054c', '0x047d'), ('0x054c', '0x0d15'), ('0x054c', '0x0d16'), ('0x054c', '0x0d19'), ('0x054c', '0x0d1a')] updater=[('0x054c', '0x03e2')]",
+   "name": "C3  the independent fwtool implementation accepts the container and reads the same fields",
+   "reported": true
+  },
+  {
+   "control": false,
+   "detail": "magic=b'UDTRFIRM' version=b'0100' mode=b'U' luw=b'N'",
+   "name": "C4  the first 512 bytes of FDAT decrypt with the PUBLIC key_aes (ECB)",
+   "reported": true
+  },
+  {
+   "control": false,
+   "detail": "fsU=('U', 512, 1253376) fsP=('P', 512, 0) fwOff=1253888 fwSize=739658240 fwEnd=740912128 cipherLen=743818240 remainder=2906112 (divisible by 1024: True) numFS=2",
+   "name": "C5  the FDAT header fields are arithmetically consistent (the signature of a correct parse)",
+   "reported": true
+  },
+  {
+   "control": false,
+   "detail": "required bytes=00000000 crc=0x9eb4163d",
+   "name": "C6  the header crc32 determines H[508:512] uniquely (a bijection), and those bytes are zero",
+   "reported": true
+  },
+  {
+   "control": true,
+   "detail": "answer on the corrupted prefix=f635cdf7",
+   "name": "C6c CONTROL (phrased the wrong way round, must go red): corrupting one bit in the known part does not change the required 4 bytes",
+   "reported": false
+  },
+  {
+   "control": false,
+   "detail": "predicted blocks=6..31 ; measured: start=6 length=26 ; repeating groups in the whole file=1",
+   "name": "C7  a run of identical CIPHERTEXT blocks (measured without the key) was predicted from the decrypted header",
+   "reported": true
+  },
+  {
+   "control": true,
+   "detail": "zero blocks under the zero key=[]",
+   "name": "C7c CONTROL (must go red): with a wrong key the predicted run coincides with the measured one",
+   "reported": false
+  },
+  {
+   "control": false,
+   "detail": "a byte at offset 4204 was changed, the CRC recomputed in one pass without a key",
+   "name": "C8  a modified file with the container CRC32 recomputed (no key) passes the parser",
+   "reported": true
+  },
+  {
+   "control": true,
+   "detail": "the reference parser answers \"Wrong checksum\"",
+   "name": "C8c CONTROL (must go red): the same modified file passes the parser without recomputing the CRC",
+   "reported": false
+  },
+  {
+   "control": false,
+   "detail": "windows=710 min=7.999532 mean=7.999824 max=7.999871",
+   "name": "C9  entropy of the body: every 1-MiB window >= 7.9995 bits/byte (no plain-text stretches)",
+   "reported": true
+  },
+  {
+   "control": false,
+   "detail": "found: {'UDTRFIRM': 0, 'cramfs': 0, 'squashfs': 0, 'libupdaterbody': 0, 'ustar': 0, 'FirmwareData': 0}",
+   "name": "C10 plain-text markers of length >=5 bytes are entirely absent from the file",
+   "reported": true
+  },
+  {
+   "control": false,
+   "detail": "in the file: 4-byte {'\\x7fELF': 0, 'hsqs': 0} ; 3-byte 37 against an expectation of 44.3 ; control (256 MiB AES-CTR, deterministic): 25 against an expectation of 16.0",
+   "name": "C10b short magics: the 4-byte ones are practically absent, the 3-byte one appears at the frequency of random data (its presence proves nothing)",
+   "reported": true
+  },
+  {
+   "control": false,
+   "detail": "the UDTRFIRM magic is visible in all three attempts (shared header key); block sums: {'CXD4132 ecb(key_aes)': False, 'CXD90014 double-aes-ecb': False, 'CXD90045 ecb+CBC(IV)': False}",
+   "name": "C11 no published decrypter yields a valid FDAT block (the block checksum does not match)",
+   "reported": true
+  },
+  {
+   "control": false,
+   "detail": "No decrypter found",
+   "name": "C12 the reference tool refuses to decrypt the body",
+   "reported": true
+  },
+  {
+   "control": false,
+   "detail": "512 bytes of 743818512 = 0.000069 %",
+   "name": "C13 the share of the file readable from public knowledge",
+   "reported": true
+  },
+  {
+   "control": false,
+   "detail": "len % 1024 = 0x110 ; (len-0x110) % 1024 = 0 ; tail=272 B = 16 (IV) + 256",
+   "name": "C14 the tail geometry matches what the reference code expects (the IV at offset -0x110)",
+   "reported": true
+  }
+ ],
+ "container": {
+  "chunks": [
+   {
+    "length": 4,
+    "offset": 8,
+    "tag": "DATV"
+   },
+   {
+    "length": 4,
+    "offset": 20,
+    "tag": "PROV"
+   },
+   {
+    "length": 60,
+    "offset": 32,
+    "tag": "UDID"
+   },
+   {
+    "length": 743818512,
+    "offset": 100,
+    "tag": "FDAT"
+   },
+   {
+    "length": 4,
+    "offset": 743818620,
+    "tag": "DEND"
+   }
+  ],
+  "dend_crc_computed": "0x1fafdcaa",
+  "dend_crc_stored": "0x1fafdcaa",
+  "fdat_payload_length": 743818512,
+  "fdat_payload_offset": 108,
+  "magic": "895546550d0a1a0a"
+ },
+ "crypter_verdicts": {
+  "CXD4132 ecb(key_aes)": false,
+  "CXD90014 double-aes-ecb": false,
+  "CXD90045 ecb+CBC(IV)": false
+ },
+ "entropy_body_1mib": {
+  "max": 7.9998709873455365,
+  "mean": 7.999824447785408,
+  "min": 7.999531533179349,
+  "windows": 710
+ },
+ "fdat_header": {
+  "cipher_len": 743818240,
+  "firmware_offset": 1253888,
+  "firmware_size": 739658240,
+  "fs_prod": {
+   "mode": "P",
+   "offset": 512,
+   "size": 0
+  },
+  "fs_user": {
+   "mode": "U",
+   "offset": 512,
+   "size": 1253376
+  },
+  "header_checksum": "0x9eb4163d",
+  "key_used": "key_aes (public)",
+  "luw_flag": "N",
+  "magic": "UDTRFIRM",
+  "mode_type": "U",
+  "model": "0x91030083",
+  "num_file_systems": 2,
+  "region": 0,
+  "trailing_unaccounted_bytes": 2906112,
+  "version": "5.01",
+  "version_field": "0100"
+ },
+ "file": {
+  "path": "/work/SONY_A7SIII_UPDATE/BODYDATA.DAT",
+  "sha256": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+  "size_bytes": 743818632
+ },
+ "markers_long": {
+  "FirmwareData": 0,
+  "UDTRFIRM": 0,
+  "cramfs": 0,
+  "libupdaterbody": 0,
+  "squashfs": 0,
+  "ustar": 0
+ },
+ "markers_short_expected_3b": 44.34,
+ "markers_short_observed": {
+  "3b:\u001f\b": 37,
+  "4b:hsqs": 0,
+  "4b:ELF": 0
+ },
+ "readable_with_public_key_bytes": 512,
+ "readable_with_public_key_percent": 6.9e-05,
+ "repeat_run_measured": {
+  "count": 26,
+  "repeating_groups_in_file": 1,
+  "start_block": 6
+ },
+ "repeat_run_predicted_blocks": [
+  6,
+  31
+ ],
+ "repeat_run_predicted_count": 26,
+ "solved_plaintext_508_512": "00000000",
+ "tail": {
+  "flen_mod_1024": 272,
+  "footer_bytes": 272,
+  "iv_hex": "89a85276c7208ea533a0e187fac4092c"
+ },
+ "usb_descriptors": {
+  "normal": [
+   "054c:0448",
+   "054c:047d",
+   "054c:0d15",
+   "054c:0d16",
+   "054c:0d19",
+   "054c:0d1a"
+  ],
+  "updater": [
+   "054c:03e2"
+  ]
+ }
+}

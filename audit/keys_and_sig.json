@@ -1,0 +1,307 @@
+{
+ "CONTROL": {
+  "verify_accepts_true_signature": true,
+  "verify_rejects_wrong_message": true
+ },
+ "digest_search": {
+  "candidates": {},
+  "tried_messages": [
+   "whole_stream",
+   "stream_from_512",
+   "fs_image",
+   "firmware_tar",
+   "stream_without_tail_272",
+   "header_512",
+   "header_400",
+   "ciphertext_region",
+   "payload_minus_tail",
+   "whole_payload_with_tail"
+  ]
+ },
+ "direct_verification": {},
+ "keys": {
+  "public_key": {
+   "bits": 3072,
+   "e": 65537,
+   "n_head_hex": "0xb10bd31a0b8c95496030d7",
+   "n_sha256": "88ae078d7da8b5ce1720bc9b37202a29501cb9448478dcdd9497670ea8d5c3f2"
+  },
+  "verify_key": {
+   "bits": 3072,
+   "e": 65537,
+   "n_head_hex": "0xb0598d4f44f22ecaacd1d5",
+   "n_sha256": "58b11719b219c3cd34060623f289bc244a708dc0e8b1e0b77e908dc7cf3573a4"
+  }
+ },
+ "other_pem_offsets": [
+  201949149,
+  201950421,
+  429028357,
+  429029381,
+  438079405,
+  560701917,
+  732631045,
+  732636165
+ ],
+ "pem_files": {
+  "public_key.pem_text": "-----BEGIN PUBLIC KEY-----\nMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAsQvTGguMlUlgMNcAqJj4\nnxFoYEPO2YegH5dRTkHFwfBll4JrPSgdR56fc/92lasZXqpbPhQTEjzRrc2krX89\nIvZp9KG7N4d0Tk1QxbfUb/sRbpz0FYK2CYISxirRrMAwgW2bx6evtT+WooZDxGRe\n0UUYOuiAMOgiK9rSgPVpqSmpwC643bcl8Fj+J+Nv02nTybYe2xXvWGMJqwbq0SRI\nzQZlzhV9LXJSklziYgvoAmKsN/BOz6ey6wqZNFmnAo/vmq43nforLFKwzEhd7VVR\nUF8mVyp0fpgpSsCDajJUGSiZ39ou76ybpUoOr5HOg47NXi86Q4FMzY1D9awPg3bm\nhF2OJk5ibJ9L0wEQVov9mFNG1SdILilheXP+GqKlaABwTdbNS/zv3/PoyiXoEGzh\nNPc65a3EQHjVzAcMUoLzKbJNzfBOifJuiZQT0EiU0QZe7Rv7aZdxzCu6XDcgeGBD\n1RYsNCxxXSNz/ACqGL06mstTsJ+zkD+OyzsqlLZQMgrJAgMBAAE=\n-----END PUBLIC KEY-----",
+  "verify_key.pem_text": "-----BEGIN PUBLIC KEY-----\nMIIBojANBgkqhkiG9w0BAQEFAAOCAY8AMIIBigKCAYEAsFmNT0TyLsqs0dXtfS8v\n2LUi1EvrOt6v0No/yo2p4xKLVp5P9VDnbKXUqEmgGPHGZ0vzteZo9UhAbH96FhJp\nZdCniXPeWwP7Tjyxn5kZLNsQ/TrodnbPzXyppwvedHYsaL559VBO4auwK31L1Vag\n/cbXdPxVvRC+B/BznUEzReYIfz2RaEv3AwSB7pl2GXSBUpG98RJnAXMy8RKpjC69\n6bIYc7X6BZ1JslihvBRCS10o6Vp/qA3A4XVoacsbQysyAOHElH70Tzi9gkojEJjP\nwOWr5Fe8o+fXPH4LwCNTuCZLI/jAFqWgmMwCiQsd2ixqlubGUbBaX4dAIX/5MvDv\nxmim1fuCgJspq1TMF9kNDobNCAwYi/fHAdZrOYURY7A4AwMFRSUsgmvFz6XC+NWg\nufmlqd1diH/sB9Jl85K41yy8KfeGlsIU7gtHufKXunSDv5/xUx9qdRw7lPj4ZSnC\ner0+nAGLl+RLa99S6pb/UePHu/nm83TxdqGAOBg3nz6JAgMBAAE=\n-----END PUBLIC KEY-----"
+ },
+ "signature_structure": {
+  "public_key": {
+   "m_first32_hex": "00000a0cf7671b0c25970a339d9650eb4ff974e70fb1c83bc39c7d84870e2b8a",
+   "m_last32_hex": "10c24f49d53f6f4e7928f4b9638fc75bd747de0feb73208b7f2edc650531fa0c",
+   "pkcs1_v15_ok": false,
+   "pss_maybe": false
+  },
+  "verify_key": {
+   "m_first32_hex": "3c51668a8127572897f649a52d79a285636b2c9c8ffc2c1316a375123d01707b",
+   "m_last32_hex": "a75ecc55b4b395aa6352952762a1b478e02ed491e01ac9ac66fc64787f8290d2",
+   "pkcs1_v15_ok": false,
+   "pss_maybe": false
+  }
+ },
+ "tail": {
+  "iv_hex": "89a85276c7208ea533a0e187fac4092c",
+  "sig_hex": "0b02163cf6e4983c0b1b5926a0b5161daa43baf7af92a06967e859b8f4783c2fc435c6bcee3a28187b46db84fae910659b276ebec5be2bcf13c721d8205bbd07bdbacdf02b3751dd099ffe8292459250e9d3510976add1b09df366412e884a28ee721c6a587f8c325358fc246cc8166c6f92c59f8a47bf24355f5f948856beeb22f803a046486ea1cc17a86c417c687ba5a1ce8d01edd5c2dbafec6aec32d47fec7ebad569e55bbe9ad20237f88630c0c09fa148def5ff23c41a952f2f0eb5a9ead0ff2c8512594161c1c4e2f7793e8007d6981acfff8073f275ce5d4e93121e8403d63c975a9c0fce43226e8a8351e175f5ad3d6bb03921689673fee3a08f83",
+  "sig_lt_n": {
+   "public_key": true,
+   "verify_key": true
+  }
+ },
+ "tar_member_count": 159,
+ "tar_members": [
+  "0100_config/",
+  "0100_config/big_backup.conf",
+  "0100_config/mount.conf",
+  "0101_config_sum/",
+  "0101_config_sum/config.sum",
+  "0110_backup/",
+  "0110_backup/MainDest.txt",
+  "0110_backup/SYSIPSX-DSLR/",
+  "0110_backup/SYSIPSX-DSLR/OT/",
+  "0110_backup/SYSIPSX-DSLR/OT/CX85000_ALLLANG.bin",
+  "0110_backup/SYSIPSX-DSLR/OT/CX85000_E38.bin",
+  "0110_backup/SYSIPSX-DSLR/OT/CX85000_J1.bin",
+  "0110_backup/SYSIPSX-DSLR/OT/CX85000_KR2.bin",
+  "0110_backup/SYSIPSX-DSLR/OT/CX85000_UC2.bin",
+  "0110_backup/SYSIPSX-DSLR/OT/CX85001_AF1.bin",
+  "0110_backup/SYSIPSX-DSLR/OT/CX85001_ALLLANG.bin",
+  "0110_backup/SYSIPSX-DSLR/OT/CX85001_AP2.bin",
+  "0110_backup/SYSIPSX-DSLR/OT/CX85001_CEC.bin",
+  "0110_backup/SYSIPSX-DSLR/OT/CX85001_CN2.bin",
+  "0110_backup/SYSIPSX-DSLR/OT/CX85001_IN5.bin",
+  "0110_backup/SYSIPSX-DSLR/OT/CX85001_JE3.bin",
+  "0110_backup/SYSIPSX-DSLR/OT_HIBIKI2/",
+  "0110_backup/SYSIPSX-DSLR/OT_HIBIKI2/CH85000_ALLLANG.bin",
+  "0110_backup/SYSIPSX-DSLR/OT_HIBIKI2/CH85000_E38.bin",
+  "0110_backup/SYSIPSX-DSLR/OT_HIBIKI2/CH85000_J1.bin",
+  "0110_backup/SYSIPSX-DSLR/OT_HIBIKI2/CH85000_KR2.bin",
+  "0110_backup/SYSIPSX-DSLR/OT_HIBIKI2/CH85000_UC2.bin",
+  "0110_backup/SYSIPSX-DSLR/OT_HIBIKI2/CH85001_AF1.bin",
+  "0110_backup/SYSIPSX-DSLR/OT_HIBIKI2/CH85001_ALLLANG.bin",
+  "0110_backup/SYSIPSX-DSLR/OT_HIBIKI2/CH85001_AP2.bin",
+  "0110_backup/SYSIPSX-DSLR/OT_HIBIKI2/CH85001_CEC.bin",
+  "0110_backup/SYSIPSX-DSLR/OT_HIBIKI2/CH85001_CN2.bin",
+  "0110_backup/SYSIPSX-DSLR/OT_HIBIKI2/CH85001_IN5.bin",
+  "0110_backup/SYSIPSX-DSLR/OT_HIBIKI2/CH85001_JE3.bin",
+  "0111_backup_sum/",
+  "0111_backup_sum/backup.sum",
+  "0300_partconf/",
+  "0300_partconf/partinf.conf",
+  "0301_partconf_sum/",
+  "0301_partconf_sum/partconf.sum",
+  "0600_gps/",
+  "0601_gps_sum/",
+  "0630_ca/",
+  "0631_ca_sum/",
+  "0640_darwin/",
+  "0640_darwin/darwin_core.bin",
+  "0641_darwin_sum/",
+  "0641_darwin_sum/darwin.sum",
+  "0650_prfile/",
+  "0650_prfile/PMBP/",
+  "0650_prfile/PMBP/LICENSE/",
+  "0650_prfile/PMBP/LICENSE/BSD_ETC.txt",
+  "0650_prfile/PMBP/LICENSE/BTPROP.txt",
+  "0650_prfile/PMBP/LICENSE/CP_TOPRS.txt",
+  "0650_prfile/PMBP/LICENSE/EULA.pdf",
+  "0650_prfile/PMBP/LICENSE/GPL.txt",
+  "0650_prfile/PMBP/LICENSE/LGPL.txt",
+  "0650_prfile/PMBP/LICENSE/LGPLv2.txt",
+  "0650_prfile/PMBP/LICENSE/LGPLv2_1.txt",
+  "0650_prfile/PMBP/LICENSE/MPLv2.txt",
+  "0650_prfile/PMBP/LICENSE/WCNSSFLT.txt",
+  "0650_prfile/PMBP/LICENSE/WLDRVQCA.txt",
+  "0650_prfile/PMBP/LICENSE/awsiot.txt",
+  "0650_prfile/PMBP/LICENSE/coreMQTT.txt",
+  "0650_prfile/PMBP/LICENSE/curl.txt",
+  "0650_prfile/PMBP/LICENSE/dhcp.txt",
+  "0650_prfile/PMBP/LICENSE/expat.txt",
+  "0650_prfile/PMBP/LICENSE/glibc.txt",
+  "0650_prfile/PMBP/LICENSE/iw.txt",
+  "0650_prfile/PMBP/LICENSE/jemalloc.txt",
+  "0650_prfile/PMBP/LICENSE/jsmn.txt",
+  "0650_prfile/PMBP/LICENSE/jsoncpp.txt",
+  "0650_prfile/PMBP/LICENSE/kvspic.txt",
+  "0650_prfile/PMBP/LICENSE/libevent.txt",
+  "0650_prfile/PMBP/LICENSE/libffi.txt",
+  "0650_prfile/PMBP/LICENSE/libnl3.txt",
+  "0650_prfile/PMBP/LICENSE/libpcap.txt",
+  "0650_prfile/PMBP/LICENSE/libpng.txt",
+  "0650_prfile/PMBP/LICENSE/libssh2.txt",
+  "0650_prfile/PMBP/LICENSE/libtirpc.txt",
+  "0650_prfile/PMBP/LICENSE/libuuid.txt",
+  "0650_prfile/PMBP/LICENSE/ncurses.txt",
+  "0650_prfile/PMBP/LICENSE/openssh.txt",
+  "0650_prfile/PMBP/LICENSE/openssl.txt",
+  "0650_prfile/PMBP/LICENSE/opus.txt",
+  "0650_prfile/PMBP/LICENSE/pcre.txt",
+  "0650_prfile/PMBP/LICENSE/popt.txt",
+  "0650_prfile/PMBP/LICENSE/producer.txt",
+  "0650_prfile/PMBP/LICENSE/protobuf.txt",
+  "0650_prfile/PMBP/LICENSE/readme.txt",
+  "0650_prfile/PMBP/LICENSE/tcpdump.txt",
+  "0650_prfile/PMBP/LICENSE/usrsctp.txt",
+  "0650_prfile/PMBP/LICENSE/wbsocket.txt",
+  "0650_prfile/PMBP/LICENSE/webrtc.txt",
+  "0650_prfile/PMBP/LICENSE/wpasuppl.txt",
+  "0650_prfile/PMBP/LICENSE/zlib.txt",
+  "0651_prfile_sum/",
+  "0651_prfile_sum/prfile.sum",
+  "0700_part_image/",
+  "0700_part_image/dev/",
+  "0700_part_image/dev/nflasha15",
+  "0700_part_image/dev/nflasha3",
+  "0700_part_image/dev/nflasha5",
+  "0700_part_image/dev/nflasha7",
+  "0700_part_image/dev/nflasha8",
+  "0701_part_image_sum/",
+  "0701_part_image_sum/part_image.sum",
+  "0750_nor_loader/",
+  "0750_nor_loader/loader_nor.tar",
+  "0751_nor_loader_sum/",
+  "0751_nor_loader_sum/nor_loader.sum",
+  "0800_appli/",
+  "0800_appli/lens/",
+  "0800_appli/lens/lensfile.bin",
+  "0800_appli/setting/",
+  "0800_appli/setting/DmmCfg.bin",
+  "0800_appli/setting/appfw_infra/",
+  "0800_appli/setting/cxd90057.dtb",
+  "0800_appli/setting/development.txt",
+  "0800_appli/setting/facedmy.bin",
+  "0800_appli/setting/kemco.txt",
+  "0800_appli/setting/public_key.pem",
+  "0800_appli/setting/ulogio.bin",
+  "0800_appli/setting/verify_key.pem",
+  "0800_appli/tmp/",
+  "0800_appli/tmp/config.spec",
+  "0800_appli/tmp/heapmon.conf",
+  "0800_appli/tmp/hosts",
+  "0800_appli/tmp/images/",
+  "0800_appli/tmp/images/MYingHeiC-Big5-SJ_wIcon.ltt",
+  "0800_appli/tmp/images/MYingHeiC-GB18030-SJ_wIcon.ltt",
+  "0800_appli/tmp/images/Sony_DI_Icons.ttf",
+  "0800_appli/tmp/kikilog.dat",
+  "0800_appli/tmp/log/",
+  "0800_appli/tmp/log/.gitkeep",
+  "0800_appli/tmp/mtab",
+  "0800_appli/tmp/nsswitch.conf",
+  "0800_appli/tmp/pam.d/",
+  "0800_appli/tmp/pam.d/other",
+  "0800_appli/tmp/pam.d/ssh",
+  "0800_appli/tmp/passwd",
+  "0800_appli/tmp/protocols",
+  "0800_appli/tmp/regroot.pem",
+  "0800_appli/tmp/run/",
+  "0800_appli/tmp/run/sshd/",
+  "0800_appli/tmp/run/sshd/.gitkeep",
+  "0800_appli/tmp/services",
+  "0800_appli/tmp/ssh/",
+  "0800_appli/tmp/ssh/sshd_config",
+  "0800_appli/tmp/toprc",
+  "0801_appli_sum/",
+  "0801_appli_sum/appli.sum",
+  "1030_genlock/",
+  "1031_genlock_sum/",
+  "1050_i2c/",
+  "1050_i2c/fw2_normal_app.cyacd",
+  "1050_i2c/fw2_normal_cfg.cyacd",
+  "1051_i2c_sum/",
+  "1051_i2c_sum/i2c.sum"
+ ],
+ "version_context": [
+  {
+   "hits": [
+    {
+     "ctx": "Server\u0000\u0000Oracle\u0000\u0000ARCserve5.01\u0000\u0000\u0000\u0000CanonGP55\u0000\u0000\u0000\u0000\u0000\u0000\u0000QMS Prin",
+     "off": 375955784
+    },
+    {
+     "ctx": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000ILCE-7SM3 v5.01\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0005\u0000\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+     "off": 521974259
+    },
+    {
+     "ctx": "I\u00e0\u00a0\u0001\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u00005.01\u0000\u0000\u0000\u0000ILCE-7SM3\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+     "off": 539135296
+    },
+    {
+     "ctx": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0010G\u0018d\u007f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u00005.01\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+     "off": 541404456
+    }
+   ],
+   "pat": "5.01"
+  },
+  {
+   "hits": [],
+   "pat": "V5.01"
+  },
+  {
+   "hits": [
+    {
+     "ctx": "read\u0000_ZN17MassStorageServer5EntryEPv\u0000_ZN17MassStorageSer",
+     "off": 402406316
+    },
+    {
+     "ctx": "l_get_msg_src\u0000_ZN9MtpServer5EntryEPv\u0000_ZN9MtpServer12jobV",
+     "off": 403654123
+    },
+    {
+     "ctx": "_ZN22MintImsStreamingServer5StartEv\u0000_ZN5Sshla15StartHttp",
+     "off": 406899032
+    },
+    {
+     "ctx": "olPoint\u0000_ZN14upnpHttpServer5StartEv\u0000_ZN14upnpHttpServerC",
+     "off": 407178042
+    }
+   ],
+   "pat": "ver5"
+  },
+  {
+   "hits": [
+    {
+     "ctx": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u00ff\u0000\u0000\u0000\u0000\u0000\u0000\u0000ILCE-7SM3\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0003",
+     "off": 1576150
+    },
+    {
+     "ctx": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u00ff\u0000\u0000\u0000\u0000\u0000\u0000\u0000ILCE-7SM3\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0003",
+     "off": 2480102
+    },
+    {
+     "ctx": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u00ff\u0000\u0000\u0000\u0000\u0000\u0000\u0000ILCE-7SM3\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0003",
+     "off": 3908822
+    },
+    {
+     "ctx": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u00ff\u0000\u0000\u0000\u0000\u0000\u0000\u0000ILCE-7SM3\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0003",
+     "off": 4812774
+    },
+    {
+     "ctx": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u00ff\u0000\u0000\u0000\u0000\u0000\u0000\u0000ILCE-7SM3\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0003",
+     "off": 6241494
+    }
+   ],
+   "pat": "SM3"
+  }
+ ]
+}

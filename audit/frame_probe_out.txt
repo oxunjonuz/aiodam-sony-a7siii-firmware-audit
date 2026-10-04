@@ -1,0 +1,64 @@
+/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/fdat.py:312: SyntaxWarning: invalid escape sequence '\d'
+  version = re.match('^(\d)\.(\d{2})$', fdat.version)
+P1 the header (H = block[4:])
+   magic_at_block_offset                  4
+   first4_hex                             c4a9fc03
+   magic                                  UDTRFIRM
+   model                                  0x91030083
+   version                                5.01
+   firmware_offset                        1253888
+   firmware_size                          739658240
+   fsU                                    {'mode': 'U'}
+   num_file_systems                       2
+   stored_checksum                        0x9eb4163d
+   crc_over_388_bytes_fwtool_struct       0x6189c048
+   matches_388                            False
+   crc_over_496_bytes                     0x9818bd58
+   matches_496                            False
+   solved_4_bytes_when_region_is_500      00000000
+   solved_4_bytes_when_region_is_496      366039c8
+   region_500_matches                     False
+   zeros_in_stream_92_512                 False
+   zeros_in_stream_92_508                 True
+   header_len_implied                     512
+   fsU_declared_offset                    512
+   fsU_offset_matches_header_len_512      True
+   CONTROL prefix corruption: {'solved_4_when_region_is_500': 'f635cdf7', 'solved_4_when_region_is_496': '23598c7e', 'crc_496_after_flip_matches': False}
+P2 the frame of the first block
+   bytes                                  c4a9fc03
+   checksum_field                         0xa9c4
+   size_field                             0x3fc
+   size_without_flag                      1020
+   last_block_flag                        False
+   is_full_block                          True
+   prob_random_size_field_is_valid_nonlast 0.0155792236328125
+   sum_known_part_2_512                   39835
+   checksum_residual_needed_from_512_1024 4645
+   note                                   the full sum cannot be checked: bytes 512..1024 of the first block use another key
+P3 arithmetic
+   stream_end_from_header                 740912128
+   blocks_if_framed                       726385
+   predicted_cipher_len                   743818240
+   observed_cipher_len                    743818240
+   difference_bytes                       0
+   predicted_file_len                     743818512
+   observed_file_len                      743818512
+   last_block_payload                     448
+   last_block_padding                     572
+   framing_overhead                       2905540
+   framing_overhead_plus_padding          2906112
+   leftover_as_reported_in_report         2906112
+   decomposition_of_leftover              4*726385 + 572 = 2906112
+   sum_of_declared_components             740912128
+   components_fill_stream_exactly         True
+   CONTROL_predicted_flen_payload_1016    746747152
+   CONTROL_predicted_flen_payload_1020_plus_4 743818512
+   CONTROL_framed_without_last_partial    743817488
+P4 opening attempts (FS magic inside the stream)
+   double_aes_block0        {'magics': [], 'max_zero_run': 512, 'max_ff_run': 1024, 'zeros': 473}
+   cbc_90045_block0         {'magics': [], 'max_zero_run': 512, 'max_ff_run': 512, 'zeros': 473}
+   ecb_key_aes              {'magics': [], 'max_zero_run': 512, 'max_ff_run': 619, 'zeros': 473}
+   ecb_key_cxd90014         {'magics': [], 'max_zero_run': 982, 'max_ff_run': 902, 'zeros': 1}
+   ecb_key_cxd90045         {'magics': [], 'max_zero_run': 1024, 'max_ff_run': 940, 'zeros': 0}
+   CONTROL: {'planted': 'hsqs at 516', 'found_at': 516, 'tool_can_find': True, 'finds_all_occurrences': [516]}
+written: /work/SONY_A7SIII_UPDATE/audit/frame_probe.json

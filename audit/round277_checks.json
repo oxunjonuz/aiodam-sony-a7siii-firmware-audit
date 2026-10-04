@@ -1,0 +1,117 @@
+{
+ "checks": [
+  {
+   "name": "N1 the unpacked stream equals exactly the sum of the declared components",
+   "control": false,
+   "ok": true,
+   "detail": "bytes=740912128 sha256=11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66"
+  },
+  {
+   "name": "N2a all 726 385 block frames match their 16-bit sum",
+   "control": false,
+   "ok": true,
+   "detail": "blocks=726385 bad=0"
+  },
+  {
+   "name": "N2b sizes: 1020 in all but the last (448), and the end flag only on that one",
+   "control": false,
+   "ok": true,
+   "detail": "last=448 endflags=1"
+  },
+  {
+   "name": "N2c the padding of the last block is 572 bytes of 0xff, and 4*726385+572 = 2 906 112",
+   "control": false,
+   "ok": true,
+   "detail": "pad=572 all_ff=True sum=2906112"
+  },
+  {
+   "name": "N2d the same measure on an intact block matches (the instrument can say \"ok\")",
+   "control": false,
+   "ok": true,
+   "detail": "calc=a9c4 stored=a9c4"
+  },
+  {
+   "name": "C1 CONTROL (must go red): the frame sum matches on corrupted ciphertext",
+   "control": true,
+   "ok": false,
+   "detail": "calc=8724 stored=a9c4"
+  },
+  {
+   "name": "N3 the header: the crc32 of [12:512) matches, model 0x91030083, version 5.01",
+   "control": false,
+   "ok": true,
+   "detail": "crc=True model=0x91030083 ver=5.01"
+  },
+  {
+   "name": "C2 CONTROL (must go red): corrupting a byte in the crc area breaks the match",
+   "control": true,
+   "ok": false,
+   "detail": "crc after corruption=15399078 stored=9eb4163d"
+  },
+  {
+   "name": "N4 the model name: ILCE-7SM3 61 times in the image, including the string \"ILCE-7SM3 v5.01\", the only other name is ILCE-9 (2 times)",
+   "control": false,
+   "ok": true,
+   "detail": "hits=61 in_fw=61 pair=True others=['ILCE-9']"
+  },
+  {
+   "name": "C3 CONTROL (must go red): the search does NOT find a planted name",
+   "control": true,
+   "ok": false,
+   "detail": "planted at 1000, the search returned 1000"
+  },
+  {
+   "name": "N5a the public key CXD90057_k8 (PR #52) opens the body, the reference parse succeeds",
+   "control": false,
+   "ok": true,
+   "detail": "crypter=CXD90057_k8 model=0x91030083 ver=5.01 fs=1253376 fw=739658240"
+  },
+  {
+   "name": "N5b the other public keys do NOT open the body",
+   "control": false,
+   "ok": true,
+   "detail": "{\"CXD90057_k0\": \"BlockCryptException\", \"CXD90045\": \"BlockCryptException\", \"CXD90014\": \"BlockCryptException\"}"
+  },
+  {
+   "name": "N6a the 2048-bit key lying IN THE FILE itself yields no signature structure on the tail",
+   "control": false,
+   "ok": true,
+   "detail": "2048-bit keys=1, produced a structure=[]"
+  },
+  {
+   "name": "N6b the published Sony-PMCA-RE key yields no structure either",
+   "control": false,
+   "ok": true,
+   "detail": "m[:2]=51bb"
+  },
+  {
+   "name": "C4 CONTROL (must go red): the structural test does NOT accept a genuine signature",
+   "control": true,
+   "ok": false,
+   "detail": "structure on a signature of my own: 00 01"
+  },
+  {
+   "name": "N7 the internal integrity of the image is CRC32 in *.sum files, and it matches",
+   "control": false,
+   "ok": true,
+   "detail": "matched 12, mismatches 0: ['mount.conf:ok', 'big_backup.conf:ok', 'fw2_normal_cfg.cyacd:ok', 'fw2_normal_app.cyacd:ok', 'partinf.conf:ok', 'darwin_core.bin:ok', 'loader_nor.tar:ok', 'dev:not-in-tar']"
+  },
+  {
+   "name": "C5 CONTROL (must go red): a modified file still matches the OLD CRC32",
+   "control": true,
+   "ok": false,
+   "detail": "was 62c45caa now f3c0a4dc"
+  },
+  {
+   "name": "N8 the images: fs_user = squashfs (hsqs), firmware = tar (159 members)",
+   "control": false,
+   "ok": true,
+   "detail": "fs_magic=b'hsqs' members=159"
+  }
+ ],
+ "non_control_green": 13,
+ "non_control_total": 13,
+ "controls_red": 5,
+ "controls_total": 5,
+ "all_good": true
+}

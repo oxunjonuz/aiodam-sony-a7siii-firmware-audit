@@ -1,0 +1,486 @@
+{
+ "summary": {
+  "checks": 52,
+  "controls": 5,
+  "controls_red": 5,
+  "passed_noncontrol": 47,
+  "noncontrol": 47,
+  "failed": [],
+  "external_not_reproducible": [
+   "the live camera 192.168.1.102: port 22, its algorithm set, its host key fingerprint",
+   "the owner's run on the Mac (17:38:03): the table of neighbours on his /24",
+   "whether the camera host key changes on reboot",
+   "camera behaviour: signature verification, anti-rollback, interrupt handling, debug paths"
+  ]
+ },
+ "results": [
+  {
+   "id": "A1",
+   "claim": "size of the object, bytes",
+   "ok": true,
+   "measured": "743818632",
+   "expected": "743818632",
+   "how": "os.path.getsize",
+   "control": false
+  },
+  {
+   "id": "A2",
+   "claim": "sha256 of the object",
+   "ok": true,
+   "measured": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "expected": "dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb",
+   "how": "a full pass",
+   "control": false
+  },
+  {
+   "id": "A3",
+   "claim": "md5 and sha1 of the object (step 1 of the terms of reference: pin the hash sums)",
+   "ok": true,
+   "measured": "md5=ae4d074dca268917cc9697714f6baac0\n                          sha1=03c83a6b616c9f216495437359fac585db336b2f",
+   "expected": "both sums pinned",
+   "how": "a full pass",
+   "control": false
+  },
+  {
+   "id": "A4",
+   "claim": "TLV container: a block = [u32 length][4-byte tag][payload]",
+   "ok": true,
+   "measured": "[('DATV', 8, 4), ('PROV', 20, 4), ('UDID', 32, 60), ('FDAT', 100, 743818512)] ; DEND: size=4 tag=b'DEND' crc=1fafdcaa",
+   "expected": "[('DATV',8,4),('PROV',20,4),('UDID',32,60),('FDAT',100,743818512)]; DEND size=4 tag=b'DEND'",
+   "how": "own TLV parse; the offset is the length field, the body at +8",
+   "control": false
+  },
+  {
+   "id": "A5",
+   "claim": "DEND.crc == crc32(the first size-12 bytes)",
+   "ok": true,
+   "measured": "calc=0x1fafdcaa stored=0x1fafdcaa",
+   "expected": "both 0x1fafdcaa",
+   "how": "own crc32 over the prefix",
+   "control": false
+  },
+  {
+   "id": "A6",
+   "claim": "the UDID table: 7 entries (PID, VID, flags), all Sony 054c — including the updater-mode descriptor right inside the file",
+   "ok": true,
+   "measured": "count=7 entries=['054c:0448 f=1', '054c:047d f=1', '054c:0d15 f=1', '054c:0d16 f=1', '054c:0d19 f=1', '054c:0d1a f=1', '054c:03e2 f=2']",
+   "expected": "count=7; six 054c:0448|047d|0d15|0d16|0d19|0d1a with flag 1 and 054c:03e2 with flag 2",
+   "how": "own UDID parse: 8 bytes per entry (pid, vid, flags)",
+   "control": false
+  },
+  {
+   "id": "B1",
+   "claim": "the first 512 bytes of FDAT decrypted with the PUBLIC key_aes (ECB): a 4-byte frame + magic",
+   "ok": true,
+   "measured": "raw[0:4]=c4a9fc03 magic@4=b'UDTRFIRM' ver=b'0100' mode=b'U' luw=b'N'",
+   "expected": "frame c4a9fc03; magic UDTRFIRM at 4; format version 0100; mode U; flag N",
+   "how": "ECB decryption of the raw 512-byte window",
+   "control": false
+  },
+  {
+   "id": "B2",
+   "claim": "model, version and region from the header",
+   "ok": true,
+   "measured": "model=0x91030083 version=5.01 region=0",
+   "expected": "model=0x91030083 version=5.01 region=0",
+   "how": "header fields by offset",
+   "control": false
+  },
+  {
+   "id": "B3",
+   "claim": "component layout: fsU, the empty slot P, the firmware area",
+   "ok": true,
+   "measured": "fsU=('U', 512, 1253376) fsP=('P', 512, 0) fw=(1253888,739658240) numFS=2",
+   "expected": "fsU=(U,512,1253376) fsP=(P,512,0) fw=(1253888,739658240) numFS=2",
+   "how": "header fields",
+   "control": false
+  },
+  {
+   "id": "B4",
+   "claim": "the header crc32 is invertible: the 4 bytes H[508:512] are DETERMINED by it and are zero",
+   "ok": true,
+   "measured": "required bytes=00000000 checksum=0x9eb4163d",
+   "expected": "required=00000000, checksum matches",
+   "how": "linear algebra over GF(2)",
+   "control": false
+  },
+  {
+   "id": "B5",
+   "claim": "ECB leak: a run of identical CIPHERTEXT blocks (no key) agrees with the prediction from the decrypted header",
+   "ok": true,
+   "measured": "measured: runs=1 start=6 length=26 ; predicted: start=6 length=26",
+   "expected": "one run: start=6 length=26, the prediction matched",
+   "how": "comparison of neighbouring 16-byte ciphertext blocks, no key",
+   "control": false
+  },
+  {
+   "id": "C1",
+   "claim": "a fresh unpacking of the body with the public key gives a stream of the expected length and hash",
+   "ok": true,
+   "measured": "bytes=740912128\n                          sha256=11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "expected": "bytes=740912128 sha256=11880291ae4bd08b61c9d08475ee8a33703b1c8f08ad35cbcda3a47174101e66",
+   "how": "library decrypter + own hash and count",
+   "control": false
+  },
+  {
+   "id": "C2",
+   "claim": "two independent implementations (my block-wise code and the fwtool library) produced one file",
+   "ok": true,
+   "measured": "stream.bin=740912128/11880291ae4bd08b… ; stream_fwtool.bin=740912128/11880291ae4bd08b…",
+   "expected": "all lengths and sha256 match the fresh computation",
+   "how": "two files + a fresh computation",
+   "control": false
+  },
+  {
+   "id": "C3",
+   "claim": "the stream starts with the UDTRFIRM magic (stream coordinates, not ciphertext)",
+   "ok": true,
+   "measured": "stream[0:16]=554454524649524d3d16b49e30313030",
+   "expected": "the magic is in the first 8 bytes",
+   "how": "first bytes of a fresh unpacking",
+   "control": false
+  },
+  {
+   "id": "C4",
+   "claim": "every block frame matches its 16-bit sum; the number of blocks",
+   "ok": true,
+   "measured": "blocks=726385 bad=0",
+   "expected": "blocks=726385 bad=0",
+   "how": "own check of every frame sum",
+   "control": false
+  },
+  {
+   "id": "C5",
+   "claim": "payload size: 1020 in all but the last frame (448); the end flag only on that one",
+   "ok": true,
+   "measured": "last=448 endflags=1 distinct=[448, 1020]",
+   "expected": "last=448 endflags=1",
+   "how": "fields of the frames themselves",
+   "control": false
+  },
+  {
+   "id": "C6",
+   "claim": "the padding of the last frame is 572 bytes, all 0xff",
+   "ok": true,
+   "measured": "len=572 all_ff=True",
+   "expected": "len=572 all_ff=True",
+   "how": "reading the tail of the last frame",
+   "control": false
+  },
+  {
+   "id": "C7",
+   "claim": "F-07 does not exist: 4*726 385 + 572 = 2 906 112",
+   "ok": true,
+   "measured": "4*726385+572=2906112 ; sum of frames=740912128 ; 512+1253376+739658240=740912128",
+   "expected": "2 906 112 ; 740 912 128 ; 740 912 128",
+   "how": "frame arithmetic against the stream length",
+   "control": false
+  },
+  {
+   "id": "C8",
+   "claim": "there are no bytes beyond the declared components (unaccounted = 0)",
+   "ok": true,
+   "measured": "unaccounted=0",
+   "expected": "0",
+   "how": "stream length minus the header components",
+   "control": false
+  },
+  {
+   "id": "D1",
+   "claim": "fs_user is squashfs (hsqs) and its sha256",
+   "ok": true,
+   "measured": "magic=b'hsqs' sha256=62e86fad175e0326969d5f1cea29d780feb496ce8034acd2c9c3954320d8ccaa",
+   "expected": "magic=b'hsqs' sha256=62e86fad...d8ccaa",
+   "how": "a slice of the stream taken by the header fields",
+   "control": false
+  },
+  {
+   "id": "D2",
+   "claim": "firmware is a tar (ustar); the member count and the offset of the sshd_config member, in my own pass",
+   "ok": true,
+   "measured": "members=159 ; mount.conf: True ; first='0100_config/'",
+   "expected": "members=159, mount.conf present",
+   "how": "own parse of the ustar headers",
+   "control": false
+  },
+  {
+   "id": "D3:ILCE-7SM3",
+   "claim": "occurrences of the string 'ILCE-7SM3' in the stream",
+   "ok": true,
+   "measured": "61",
+   "expected": "61",
+   "how": "counted in a single pass over the whole stream",
+   "control": false
+  },
+  {
+   "id": "D3:ILCE-9",
+   "claim": "occurrences of the string 'ILCE-9' in the stream",
+   "ok": true,
+   "measured": "2",
+   "expected": "2",
+   "how": "counted in a single pass over the whole stream",
+   "control": false
+  },
+  {
+   "id": "D3:myftm",
+   "claim": "occurrences of the string 'myftm' in the stream",
+   "ok": true,
+   "measured": "44",
+   "expected": "44",
+   "how": "counted in a single pass over the whole stream",
+   "control": false
+  },
+  {
+   "id": "D3:crypter.elf",
+   "claim": "occurrences of the string 'crypter.elf' in the stream",
+   "ok": true,
+   "measured": "14",
+   "expected": "14",
+   "how": "counted in a single pass over the whole stream",
+   "control": false
+  },
+  {
+   "id": "D3:libnss_ssh",
+   "claim": "occurrences of the string 'libnss_ssh' in the stream",
+   "ok": true,
+   "measured": "6",
+   "expected": "6",
+   "how": "counted in a single pass over the whole stream",
+   "control": false
+  },
+  {
+   "id": "D3:OPENSSH PRIVATE KEY",
+   "claim": "occurrences of the string 'OPENSSH PRIVATE KEY' in the stream",
+   "ok": true,
+   "measured": "10",
+   "expected": "10",
+   "how": "counted in a single pass over the whole stream",
+   "control": false
+  },
+  {
+   "id": "D3:ssh_account_lock_recorder",
+   "claim": "occurrences of the string 'ssh_account_lock_recorder' in the stream",
+   "ok": true,
+   "measured": "8",
+   "expected": "8",
+   "how": "counted in a single pass over the whole stream",
+   "control": false
+  },
+  {
+   "id": "D3:ssh_session_monitoring",
+   "claim": "occurrences of the string 'ssh_session_monitoring' in the stream",
+   "ok": true,
+   "measured": "7",
+   "expected": "7",
+   "how": "counted in a single pass over the whole stream",
+   "control": false
+  },
+  {
+   "id": "D4",
+   "claim": "the private key: offset, block size (BEGIN..END inclusive), base64 characters",
+   "ok": true,
+   "measured": "offset=587628092 len(block)=504 body_b64=435",
+   "expected": "offset=587628092 len(block)=504 body_b64=435",
+   "how": "reading a window at the recorded offset and finding the closing line",
+   "control": false
+  },
+  {
+   "id": "D4b",
+   "claim": "CORRECTION to the 277/278 reports: the recorded \"501 B\" and \"471 base64 characters\" do not reproduce (471 is the offset of the END line, not the body length)",
+   "ok": true,
+   "measured": "measured now: block=504 B, body=435 characters (the reports said 501 and 471)",
+   "expected": "the discrepancy is recorded, not hushed up",
+   "how": "the measured value against the one recorded earlier",
+   "control": false
+  },
+  {
+   "id": "D5",
+   "claim": "parse of the key container: openssh-key-v1, cipher=none, kdf=none, 1 key, P-256, root@(none)",
+   "ok": true,
+   "measured": "cipher=b'none' kdf=b'none' nkeys=1 type=b'ecdsa-sha2-nistp256' curve=b'nistp256' comment=b'root@(none)' checkint matched=True",
+   "expected": "none / none / 1 / ecdsa-sha2-nistp256 / nistp256 / root@(none) / matched",
+   "how": "own parse of openssh-key-v1",
+   "control": false
+  },
+  {
+   "id": "D6",
+   "claim": "the key works: the public point from the private scalar (own P-256 arithmetic) == the embedded point",
+   "ok": true,
+   "measured": "d*G == Q : True",
+   "expected": "True",
+   "how": "double-and-add on P-256 without libraries",
+   "control": false
+  },
+  {
+   "id": "D7",
+   "claim": "key fingerprint: the third-party OpenSSH tool agrees with the recorded one",
+   "ok": true,
+   "measured": "ssh-keygen: 256 SHA256:J8L9aBLEimTdDW5m1iV7wU64LP1iWo3+lj9MGCxNODI no comment (ECDSA)  ; blob sha256=27c2fd6812c48a64dd0d6e66d6257bc14eb82cfd625a8dfe963f4c182c4d3832",
+   "expected": "fp=SHA256:J8L9aBLE…NODI ; blob sha256=27c2fd68…3832",
+   "how": "ssh-keygen on the raw bytes from the file + own sha256",
+   "control": false
+  },
+  {
+   "id": "D8",
+   "claim": "sshd_config (found through the tar table of contents): exactly one HostKey and exactly the algorithm set of the live camera",
+   "ok": true,
+   "measured": "member=0800_appli/tmp/ssh/sshd_config off=740733952 size=3094 ; HostKey lines=1 b'HostKey /tmp_network/ssh/ssh_host_ecdsa_key' ; set lines=4/4",
+   "expected": "one HostKey line /tmp_network/ssh/ssh_host_ecdsa_key + 4/4 set lines",
+   "how": "offset and size taken from the tar table of contents, not from the report",
+   "control": false
+  },
+  {
+   "id": "D8b",
+   "claim": "CORRECTION: the sshd_config offset named in the reports (740736525) is not the start of the file; the start from the tar table of contents is 740733952, and the text begins there",
+   "ok": true,
+   "measured": "start by the tar=740733952, the text begins with b'# Package generated configur' ; the reports said 740736525 (that is +2573 inside)",
+   "expected": "start 740733952",
+   "how": "compared with what the report recorded",
+   "control": false
+  },
+  {
+   "id": "D9",
+   "claim": "the text of the script that creates this key lies in the image in full",
+   "ok": true,
+   "measured": "b'ssh-keygen -q -b 256 -t ecdsa -N \\'\\' -f /tmp_network/ssh/ssh_host_ecdsa_key\\n\\nif [ \"$?\" == \"0\" ]; then\\n  RES=\"0\"\\nfi\\n\\nexit \"$RES\"\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00'",
+   "expected": "ssh-keygen -q -b 256 -t ecdsa -N '' -f /tmp_network/ssh/ssh_host_ecdsa_key",
+   "how": "read at the recorded offset 395581615",
+   "control": false
+  },
+  {
+   "id": "D10",
+   "claim": "inventory of armor blocks in the stream and distinct RSA moduli (own SPKI parse)",
+   "ok": true,
+   "measured": "literals={'CERTIFICATE': 172, 'OPENSSH PRIVATE KEY': 5, 'PUBLIC KEY': 8, 'ENCRYPTED PRIVATE KEY': 1} ; SPKI blocks=8 ; distinct moduli=6: [(2048, 'a8c8b16d', 429029376), (3071, '6fb15e12', 201950416), (3071, 'b70cc011', 201949144), (3072, '58b11719', 732636160), (3072, '88ae078d', 732631040), (3072, 'e66fea75', 429028352)]",
+   "expected": "PUBLIC KEY=8, OPENSSH PRIVATE KEY=5, distinct moduli=6 (3071x2, 3072x3, 2048x1)",
+   "how": "own scan of armor strings over mmap + SPKI parse with pycryptodome",
+   "control": false
+  },
+  {
+   "id": "D10b",
+   "claim": "CORRECTION: the \"4 PUBLIC KEY blocks\" of report 278 does not reproduce (there are 8, one of them a literal with no body); six distinct RSA keys, not five",
+   "ok": true,
+   "measured": "PUBLIC KEY literals=8, distinct moduli=6",
+   "expected": "the discrepancy is recorded",
+   "how": "measured against what was recorded earlier",
+   "control": false
+  },
+  {
+   "id": "D11",
+   "claim": "the body tail: 272 = 16 (IV) + 256; the IV matches the one the stream was opened with",
+   "ok": true,
+   "measured": "iv=89a85276c7208ea533a0e187fac4092c sig_len=256 iv==iv_payload:True (the tail is read at 743818348 inside FDAT)",
+   "expected": "iv=89a85276c7208ea533a0e187fac4092c sig_len=256 iv==iv_payload:True",
+   "how": "reading 272 bytes after the ciphertext area inside FDAT",
+   "control": false
+  },
+  {
+   "id": "D12",
+   "claim": "no key in the file confirms the tail: the 2048-bit key yields no PKCS#1 v1.5 structure",
+   "ok": true,
+   "measured": "m[:4]=497ff58c pkcs1_structure=False",
+   "expected": "497f..., no structure",
+   "how": "own modular exponentiation",
+   "control": false
+  },
+  {
+   "id": "D13",
+   "claim": "the internal integrity of the image is a CRC32 in .sum, and it matches on the member bytes themselves",
+   "ok": true,
+   "measured": "2/2 ['mount.conf:ok', 'big_backup.conf:ok']",
+   "expected": "all matched",
+   "how": "own zlib.crc32 over the member bytes",
+   "control": false
+  },
+  {
+   "id": "E1",
+   "claim": "the unpacked squashfs: files, ELF, scripts, total size, architecture",
+   "ok": true,
+   "measured": "files=58 elf=31 scripts=21 bytes=3151747 arch=[183]",
+   "expected": "files=58 elf=31 scripts=21 bytes=3151747 arch=[183]",
+   "how": "walk of out/fs_root",
+   "control": false
+  },
+  {
+   "id": "E2",
+   "claim": "config/chassis and config/body_version inside the updater image",
+   "ok": true,
+   "measured": "chassis=b'CXD90057+CXD90058' body_version=b'700.104.039'",
+   "expected": "chassis=b'CXD90057+CXD90058' body_version=b'700.104.039'",
+   "how": "reading two files",
+   "control": false
+  },
+  {
+   "id": "E3",
+   "claim": "pformat.elf: its size and the OpenSSL encryption found in its strings",
+   "ok": true,
+   "measured": "bytes=1631008 symbols=['AES_encrypt', 'SM4_encrypt', 'Camellia_cbc_encrypt', 'd2i_PKCS8_PRIV_KEY_INFO', 'CMS_EncryptedData_it']",
+   "expected": "bytes=1631008 symbols=5/5",
+   "how": "reading the file + searching its strings",
+   "control": false
+  },
+  {
+   "id": "E4",
+   "claim": "the pipeline: CRC32 yes, signature no; MODE_SERVICE=2; the loader md5 is commented out",
+   "ok": true,
+   "measured": "config.xml: crc32=True sign=False ; common.src MODE_SERVICE=2=True ; loader_writer.sh md5=True",
+   "expected": "crc32=True sign=False MODE_SERVICE=2=True md5=True",
+   "how": "reading three files of the image",
+   "control": false
+  },
+  {
+   "id": "K1",
+   "claim": "CONTROL: \"find\" a string that is certainly absent from the stream — must go red",
+   "ok": false,
+   "measured": "occurrences found: 0",
+   "expected": "0",
+   "how": "search for a certainly absent string",
+   "control": true
+  },
+  {
+   "id": "K2",
+   "claim": "CONTROL: a prefix corrupted by one bit still demands zeros — must go red",
+   "ok": false,
+   "measured": "required bytes=f635cdf7",
+   "expected": "not 00000000",
+   "how": "the same solver on corrupted input",
+   "control": true
+  },
+  {
+   "id": "K3",
+   "claim": "CONTROL: a corrupted scalar still gives the point Q — must go red",
+   "ok": false,
+   "measured": "match=False",
+   "expected": "False",
+   "how": "control",
+   "control": true
+  },
+  {
+   "id": "K4a",
+   "claim": "the frame of the second block matches on the correct ciphertext (the positive half)",
+   "ok": true,
+   "measured": "matches=True",
+   "expected": "True",
+   "how": "frame parse without corruption",
+   "control": false
+  },
+  {
+   "id": "K4",
+   "claim": "CONTROL: the frame of a corrupted block still matches — must go red",
+   "ok": false,
+   "measured": "matches=False",
+   "expected": "False",
+   "how": "one byte of ciphertext corrupted",
+   "control": true
+  },
+  {
+   "id": "K5",
+   "claim": "CONTROL: reading past the end of the stream returns data — must go red",
+   "ok": false,
+   "measured": "b''",
+   "expected": "b''",
+   "how": "boundary control",
+   "control": true
+  }
+ ]
+}

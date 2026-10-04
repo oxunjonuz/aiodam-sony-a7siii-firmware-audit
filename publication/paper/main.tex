@@ -1,0 +1,629 @@
+% main.tex — audit of the Sony ILCE-7SM3 (a7S III) firmware update file.
+% Authors: Oxunjon Ubaydullayev and Aiodam (autonomous research agent).
+% Every number below is bound to an artifact by paper_check.py: it is re-derived from the
+% artifact bytes, must appear in this source, and must appear in the printed PDF.
+% Appendix A is generated from numbers.json by make_numbers.py, not typed by hand.
+\documentclass[12pt]{article}
+\usepackage[a4paper,margin=0.92in]{geometry}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage{english}
+% Type: a palatino-style face (TeX Gyre Pagella) with its matching math font, instead of the
+% wide, heavy DejaVu Serif the first edition used. Mono stays DejaVu Sans Mono: the paper is full
+% of hex dumps and long hashes, and this face has the full ASCII range at a legible weight.
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{TeX Gyre Heros}[Scale=0.96]
+\setmonofont{DejaVu Sans Mono}[Scale=0.84]
+\usepackage{unicode-math}
+\setmathfont{TeX Gyre Pagella Math}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{longtable}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{microtype}
+\emergencystretch=1.6em
+\setlength{\parskip}{0.25em}
+
+\newcommand{\code}[1]{\texttt{\small #1}}
+\newcommand{\lc}[1]{\texttt{\small #1}}
+\newcommand{\lcf}[1]{\texttt{\footnotesize #1}}
+\newcommand{\hx}[1]{\texttt{\footnotesize #1}}
+\newcommand{\hl}[1]{\texttt{\footnotesize #1}}
+
+
+
+\title{\bf What is openly readable in a Sony ILCE-7SM3 (a7S III)\\
+firmware update file, and where the trust boundary really sits\\[0.4em]
+\large A static audit of a single file: measurements, limits, and the errors of the
+instruments that took them}
+\author{Oxunjon Ubaydullayev\thanks{%
+Commissioned the audit and wrote its terms of reference; performed the measurements on the
+live device (reading the camera's host key and scanning his own network) and supplied the raw
+logs; decides what is published.}%
+\and
+Aiodam (autonomous research agent)\thanks{%
+The measurements, the instruments, the format analysis and this text are its work. The errors
+of the instruments are not deleted from the record; they are listed in \S\ref{sec:errors}.}%
+}
+\date{4 October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+We take apart a single public Sony firmware update file, \code{BODYDATA.DAT}, for the camera
+ILCE-7SM3 (a7S III): \textbf{743\,818\,632} bytes, sha256 \hx{dbdd8b02\ldots c9eb}. The work
+is a static audit of the file in an isolated environment, complemented by exactly one bounded
+observation of the live device: TCP probes of three ports and a single SSH handshake, with no
+authentication, no payload written to the camera, and nothing sent to any other host. The
+result has two halves, and both were measured rather than deduced.
+
+\textbf{First: nothing inside the file is protected by anything the file carries.} The
+container is checked by a CRC32 (\hx{0x1fafdcaa}) that any reader can recompute without a key,
+and so is the integrity of the image contents. The firmware header is encrypted with a shared
+\emph{public} key in ECB mode, so it is readable by anyone holding the published key; and the
+mode itself leaks structure: across all 710 MiB of ciphertext there is exactly \textbf{1} run
+of identical 16-byte blocks (\textbf{26} blocks, starting at byte \textbf{96}), and that run
+was predicted from the decrypted header \emph{before} it was measured. The body
+(99.99993\,\% of the file) is decrypted with a \textbf{public} key published in an open but
+unmerged pull request, yielding a stream of \textbf{740\,912\,128} bytes, sha256
+\hx{11880291\ldots 1e66}, which contains the updater's own file-system image
+(squashfs, \textbf{58} files), a \textbf{159}-member firmware tar, and \textbf{1}
+unencrypted OpenSSH private key (ECDSA P-256) shipped inside a publicly distributed image.
+
+\textbf{Second: no signature inside the file is verified by anything the file carries.}
+Public RSA keys are present --- \textbf{6} distinct moduli --- but none of them verifies the
+256-byte block at the tail ($m[0{:}2] = \mathtt{49\,7f}$: no PKCS\#1 v1.5 structure), and no
+verification key is present at all. The updater's own pipeline map
+(\code{config/config.xml}) consists of steps of the form ``check the CRC32 of a group, then
+run its module''; there is no signature step in it. The only honest conclusion is that the
+\emph{trust boundary lives outside the file, in the device}, and cannot be probed from a file.
+
+One result came from the live device. The camera presents a host key that matches the key
+inside the file in none of three comparison routes (they differ in \textbf{64} of the
+\textbf{66} bytes of the point), while negotiating \emph{exactly} the algorithm set that the
+firmware's own \code{sshd\_config} imposes. So the firmware's sshd is indeed running on the
+camera, and its host key is its own --- which means the private key shipped inside the public
+file is \emph{not} this camera's live identity, although it remains a private key in an open
+distribution. What could not be established is whether that identity is stable at all: whether
+the live key survives a power cycle was \emph{not} measured, and neither was whether it is the
+same on every camera of the model. If it is created afresh on every boot, a client cannot pin
+the camera and the cryptography is present while the authentication is not.
+
+What this work does \emph{not} establish is as much a part of the result as what it does:
+signature verification on the device (the verification key is not in the file), rollback
+protection, the parser's robustness against malformed input, behaviour on an interrupted
+update, and the debug interfaces of a release build all need a camera, a bootloader dump or
+service mode --- not a file. The trust boundary sits outside the file.
+
+Finally, the paper is checked by an instrument rather than taken on trust. Every number is
+re-derived from its artifact's bytes (\code{paper\_check.py}); a full re-verification of all
+findings by a separate instrument yields \textbf{47} green checks out of \textbf{47} with
+\textbf{5} controls that must fail, and finds \textbf{4} corrections to numbers recorded in
+earlier reports.
+\end{abstract}
+
+\tableofcontents
+
+\section{Subject and scope: what was checked, and what it cannot be}
+\label{sec:setup}
+
+There is exactly one subject: a firmware update file \code{BODYDATA.DAT},
+743\,818\,632 bytes (709.4 MiB), sha256 \hx{dbdd8b02\ldots c9eb}, md5
+\hx{ae4d074d\ldots baac0}, sha1 \hx{03c83a6b\ldots 36b2f}. No experiment modified the
+original: copies were made in \code{/tmp}, synthetic images were built separately.
+
+The terms of reference (\code{TZ\_SONY\_ADUDIT.md}) ask, among other things, for the
+signature-verification mechanism on the device, the parser's robustness against malformed
+input (fuzzing under emulation), rollback protection, behaviour when an update is interrupted,
+and whether debug interfaces are present in a release build. From a single file these items
+are \textbf{not checkable}: signature verification is done by code in the camera, and error
+handling by its bootloader. Everything below is marked as measured on the file; everything
+that concerns device behaviour is marked as not measured.
+
+Two limits were observed without exception, and they are stated here because one of them is
+not what the word "static" alone would suggest. First, the analysis \emph{of the file} is
+static, and it is complemented by exactly one bounded observation of the live device: TCP
+connects to three ports and a single SSH handshake, performed on the owner's own camera, with
+no authentication, no payload written to the camera, and nothing sent to any other host
+(\S\ref{sec:live} reports it in full, including the fact that this observation yielded a
+negative result). Second, neither the
+paper nor the instruments shipped with it contain \textbf{any key material} --- neither the
+body key's value nor the private key. The instruments read the body key from the audit source
+at run time and print only \emph{fingerprints}; the paper names fingerprints and the location
+where the key was published, never the key.
+
+\section{Method: the rules this work followed}
+\label{sec:method}
+
+Four rules shaped the work, and they explain the shape of the paper.
+
+\begin{enumerate}
+\item \textbf{Every claim gets a route independent of the one that produced it.} The container
+format was parsed with our own code and compared against an independent public implementation
+(\code{fwtool.py}); the body was unpacked by two implementations (our byte-wise one and the
+library's) and the bytes compared; the key fingerprint was computed by our own P-256
+arithmetic and checked with an outside \code{ssh-keygen}; the container CRC32 was recomputed
+by our own code.
+\item \textbf{Every check has a control that must go red.} An instrument that cannot say
+``no'' does not prove ``yes'': a control is the same kind of check, phrased so that the
+correct answer to it is \emph{failure}.
+\item \textbf{Every number is bound to an artifact.} It is re-derived from the artifact's
+bytes on every check of the paper (\S\ref{sec:verification}) instead of being quoted from a
+report.
+\item \textbf{The errors of the instruments stay in the record.} This work produced
+\textbf{27} of them (F140--F166), none deleted; the ones that changed a \emph{conclusion}
+rather than the wording are in \S\ref{sec:errors}.
+\end{enumerate}
+
+\section{The container: parsed to the byte, but not authenticated}
+\label{sec:container}
+
+The file is a sequence of blocks of the form ``\code{u32} length, 4-byte tag, payload''
+(the first field is the length of the \emph{payload}, so a block's body starts eight bytes
+after the block begins; Table~\ref{tab:container}). The parse agrees with an independent
+implementation: the tags \code{DATV}, \code{PROV}, \code{UDID}, \code{FDAT} and \code{DEND}
+sit where they should, and these blocks account for the whole file with nothing left over.
+
+\begin{table}[htbp]\centering
+\small
+\caption{Container blocks (the offset is the block's start, i.e. its length field).}
+\label{tab:container}
+\begin{tabular}{lrll}
+\toprule
+tag & offset & payload length & what it is \\
+\midrule
+\code{DATV} & 8 & 4 & container version \\
+\code{PROV} & 20 & 4 & provenance \\
+\code{UDID} & 32 & 60 & USB descriptor table \\
+\code{FDAT} & 100 & 743\,818\,512 & encrypted body (its body starts at 108) \\
+\code{DEND} & 743\,818\,620 & 4 & CRC32 of everything before it \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The container's outer integrity is a CRC32: the stored value \hx{0x1fafdcaa} equals the
+\code{crc32} of the first 743\,818\,620 bytes. That catches accidental corruption, but it is
+not authentication: a modified file with a recomputed CRC32 is accepted by the reference
+parser, while the same file without the recomputation is rejected (controls C8/C8c in the
+instrument \code{checks.py}).
+
+The \code{UDID} table holds \textbf{7} entries of 8 bytes each (PID, VID, flags): six ordinary
+descriptors \code{054c:0448}, \code{054c:047d}, \code{054c:0d15}, \code{054c:0d16},
+\code{054c:0d19}, \code{054c:0d1a} with flag 1, and a seventh with flag 2 whose PID is
+\code{03e2} (\code{054c:03e2}). What matters here is that the update-mode descriptor sits
+\emph{inside the file itself} rather than being imported from an outside table: previously it
+was known only from the independent \code{Sony-PMCA-RE} project, and now it is confirmed from
+within.
+
+\section{The header is readable with a public key, and ECB leaks structure}
+\label{sec:header}
+
+The first 512 bytes of the body (that is, starting at offset 108) decrypt under the public
+key \code{key\_aes} --- the one that has lain in the open in a public implementation of the
+format for years --- in \textbf{ECB} mode. Inside is a coherent structure: a 4-byte frame
+(\hx{c4a9fc03}), the magic \code{UDTRFIRM}, format version \code{0100}, mode \code{U}, flag
+\code{N}, model \textbf{\code{0x91030083}}, firmware version \textbf{5.01}, region 0, and the
+component layout (Table~\ref{tab:header}).
+
+\begin{table}[htbp]\centering
+\small
+\caption{The \code{FDAT} header: measured fields.}
+\label{tab:header}
+\begin{tabular}{lr}
+\toprule
+field & value \\
+\midrule
+header checksum (\code{crc32} over $[12,508)$) & \hx{0x9eb4163d} \\
+bytes $H[508{:}512]$ that this checksum requires & \hx{00 00 00 00} \\
+file system \code{U} & offset 512, size 1\,253\,376 \\
+slot \code{P} & offset 512, size 0 (no data) \\
+firmware area & offset 1\,253\,888, size 739\,658\,240 \\
+number of file systems & 2 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two things in this section deserve their own paragraph.
+
+\textbf{(a) The header's integrity is not key-based either.} A \code{crc32} over four trailing
+bytes is a bijection, so the stored checksum \emph{determines} the bytes $H[508{:}512]$, and
+they are \hx{00000000}. A synthetic header that declares \code{firmware.offset} beyond the end
+of the file is silently accepted by the reference parser (control: with a broken CRC, it is
+rejected). The format and the reference implementation therefore carry no invariant that
+``offsets lie inside the image'' (CWE-20/CWE-1284) --- measured on the implementation, not on
+the camera's parser, which we never saw.
+
+\textbf{(b) ECB leaks structure, and this is a prediction rather than hindsight.} From the
+decrypted header one can see where a run of identical 16-byte ciphertext blocks \emph{must}
+appear: \textbf{26} of them. Measuring the file itself, \emph{without any key}, finds exactly
+\textbf{1} such run, starting at block \textbf{6} --- that is byte \textbf{96} of the
+ciphertext --- with length \textbf{26} blocks (\textbf{416} bytes) out of the
+743\,818\,240 bytes of ciphertext. This is the ECB leak (CWE-327): an observer who does not
+know the key still learns the fact ``416 bytes here are identical text''.
+
+\section{The body: opened with a public key; the ``unaccounted bytes'' were arithmetic}
+\label{sec:body}
+
+The body key --- two components, \code{key\_aes} plus the 32-byte generation key
+\code{key\_cxd90057\_k8} for CXD90057 ---
+sits in a public but \emph{unmerged} pull request against a public implementation of the
+format (author DavidBuchanan314, opened 10 September 2026). Confidentiality of the body is
+therefore broken publicly, and that is not our doing: we merely found a publication that was
+not in the main branch. Unpacking yields a stream of \textbf{740\,912\,128} bytes, sha256
+\hx{11880291\ldots 1e66}, reproduced independently by two different unpackers (our byte-wise
+one and the library's) with identical bytes.
+
+The stream is a sequence of 1024-byte frames: a 2-byte checksum, 2 bytes of size and
+end-of-stream flag, then the payload. Measured: \textbf{726\,385} frames, all checksums
+valid (\textbf{0} bad), payload size \textbf{1020} bytes in every frame but the last
+(\textbf{448}), the end flag set for \textbf{1} frame and only the last, and a tail padding
+of \textbf{572} bytes, all \code{0xff}.
+
+This closes a question that the first report carried as ``2\,906\,112 unaccounted bytes''
+(hypothesis F-07): they are the frame overhead plus the padding,
+$4 \times 726\,385 + 572 = 2\,906\,112$. The mistake was not in the file but in my
+coordinates: the header's offsets are in \emph{stream} coordinates (after the frames are
+stripped), whereas the ``remainder'' was computed as the difference between the ciphertext
+length and the sum of the components. The stream equals
+$512 + 1\,253\,376 + 739\,658\,240 = 740\,912\,128$ bytes, leaving
+\textbf{0} extra bytes.
+
+\section{What is inside}
+\label{sec:inside}
+
+\subsection{The updater's file-system image}
+
+The first 1\,253\,376 bytes of the stream are a \textbf{squashfs} 4.0 image (ZLIB, built on
+29 March 2024), sha256 \hx{62e86fad\ldots d8ccaa}. It was unpacked in full: \textbf{58}
+files, \textbf{3\,151\,747} bytes, of which \textbf{31} are ELF (all AArch64) and
+\textbf{21} are scripts. Roles were read from the files themselves rather than assigned by
+name: \code{edisx.elf} partitions the storage, \code{pformat.elf} (\textbf{1\,631\,008}
+bytes) writes images and carries a full OpenSSL, including \code{AES\_encrypt},
+\code{SM4\_encrypt}, \lc{Camellia\_cbc\_encrypt},
+\lc{d2i\_PKCS\allowbreak 8\_PRIV\_K\allowbreak EY\_INFO} and \code{CMS\_EncryptedData\_it}, with its own
+\code{[Encrypt] Error:} branch --- image encryption on the device exists, and lives there.
+\code{config/chassis} reads \code{CXD90057+CXD90058} (independent confirmation of the
+hardware class) and \lc{config/b\allowbreak ody\_vers\allowbreak ion} reads \code{700.104.039}.
+
+\subsection{The update pipeline is CRC32 and nothing else}
+
+\code{config/config.xml} in this image is the update map: every step is tied to its own
+checksum and the order is precisely \emph{check the CRC32 of a group, then run the module}.
+There is no signature step in the pipeline. The internal \code{.sum} files are CRC32 too (we
+recomputed them over the members' own bytes; one changed byte yields a consistent new
+checksum without any key). Next to it sits \code{MODE\_SERVICE=2}: a service mode exists, and
+in it \code{us\_mkfs.sh} skips repartitioning and writes only the application image. And
+separately: in \code{loader\_writer.sh} the md5 check of the loader is
+\textbf{commented out}, while \lc{nor\_load\allowbreak er\_write\allowbreak r.sh} declares \code{loader\_nor.md5}
+and never calls the check.
+
+\subsection{The firmware archive}
+
+The firmware area (739\,658\,240 bytes) is a \code{tar} of \textbf{159} members: partition
+configurations (\code{mount.conf}, built 29 June 2023 --- that is the date of the
+\emph{image build at Sony}, not of our work), partition images (WBI, \code{/usr} = \code{/dev/nflasha15}), regional
+files, i2c firmware, CA certificates inside the \code{/usr} image, and libraries' string
+tables. A note on method: \textbf{172} occurrences of the armour line \code{CERTIFICATE} in
+the stream are a count of \emph{literals}, not of objects, and \S\ref{sec:key} shows where
+that can lead: of the \textbf{8} blocks that begin with \code{BEGIN PUBLIC KEY}, one turned
+out to be a string with no body. The file names its own model: \code{ILCE-7SM3} occurs
+\textbf{61} times (including the pair \code{ILCE-7SM3 v5.01}), and the only other model name,
+\code{ILCE-9}, occurs \textbf{2} times in a neighbouring table. The public tables that map a
+model code to a name do not contain this model: our code \code{0x91030083} is a different
+CXD90057-class device from the a7 IV (\code{0x01030081}).
+
+\subsection{One private key inside a public distribution}
+\label{sec:key}
+
+In the whole stream there are \textbf{5} lines beginning \code{BEGIN OPENSSH PRIVATE KEY} and
+the same number of \code{END} lines, \textbf{10} literals in total. Exactly one of them is a
+real key: the other four pairs are string tables in the libcrypto/libssh2 libraries, where
+\code{BEGIN} and \code{END} stand tens of bytes apart. The distinguishing measurement is the
+body length: a real key has \textbf{435} base64 characters between the lines.
+
+The key sits at offset \textbf{587\,628\,092} inside the member
+\code{0700\_part\_image/dev/nflasha5} (the \code{/wbi} partition image), in a block of
+\textbf{504} bytes. Parsing it gives
+\code{openssh-key-v1}, \code{cipher=none}, \code{kdf=none} (that is, it is \emph{not}
+password-protected), type \lc{ecdsa-sh\allowbreak a2-nistp\allowbreak 256}, curve \code{nistp256}, comment
+\code{root@(none)}. That it works was checked along three independent paths: our own P-256
+arithmetic reproduces the public point from the private scalar; an outside \code{ssh-keygen}
+prints the same fingerprint \hx{SHA256:J8L9aBLE\ldots NODI}; and the sha256 of the public blob
+is \hx{27c2fd68\ldots c4d3832}. Control: flipping one bit of the scalar breaks $dG = Q$.
+
+What the key is for can be read from the same file. The \code{sshd\_config} member
+(\code{0800\_appli/tmp/ssh/sshd\_config}, \textbf{3094} bytes, at offset
+\textbf{740\,733\,952}) contains a \emph{single} \code{HostKey} line,
+\code{HostKey /tmp\_network/ssh/ssh\_host\_ecdsa\_key}, and exactly four algorithm lines:
+\code{HostKeyAlgorithms} \lc{ecdsa-sh\allowbreak a2-nistp\allowbreak 256}, \code{KexAlgorithms}
+\lc{ecdh-sha\allowbreak 2-nistp2\allowbreak 56}, \code{MACs} \code{hmac-sha2-256}, \code{Ciphers}
+\code{aes128-ctr}. Next to it we found the full text of the script that creates such a key ---
+\code{/usr/bin/create\_host\_key.sh}: \code{ssh-keygen -q -b 256 -t ecdsa -N '' -f
+/tmp\_network/ssh/ssh\_host\_ecdsa\_key}. The comment \code{root@(none)} is exactly what
+\code{ssh-keygen} writes when run as root on a machine with no hostname.
+
+The key grants no access: key-based login is \textbf{forbidden} in that config
+(\lc{PubkeyAu\allowbreak thentica\allowbreak tion no}, \lc{PermitRo\allowbreak otLogin \allowbreak no},
+\lc{Password\allowbreak Authentication \allowbreak no}, \code{MaxSessions 0}), and only forwards to \code{localhost:\allowbreak15740} and \code{localhost:\allowbreak60152}
+are allowed --- it is a server identity for a tunnel, not a way in. Its risk runs the other
+way: the private half of a host key sits in a file every camera owner downloads, and those are
+the same bytes in every copy of firmware 5.01.
+
+\subsection{Tail and signature: the verification key is not in the file}
+
+After the ciphertext area (the tail is read at offset \textbf{743\,818\,348} inside \code{FDAT})
+there remain \textbf{272} bytes: 16 bytes of plaintext IV
+(\hl{89a85276c720\allowbreak 8ea533a0e187\allowbreak fac4092c}) and \textbf{256} bytes --- exactly the size of an
+RSA-2048 signature. The file does contain RSA public keys (\textbf{6} distinct moduli: two of
+3071 bits, three of 3072, one of 2048), and the 2048-bit one (at offset
+\textbf{429\,029\,376}) is the only one that could, by size, sign those 256 bytes. It does not:
+raising the tail to the power $e$ modulo $n$ produces no PKCS\#1 v1.5 structure (the first two
+bytes are \hx{49 7f}), and no PSS either. An exhaustive sweep (2 keys $\times$ 10 candidate
+messages $\times$ 4 hashes $\times$ \{v1.5, PSS\}) yields not one acceptance. The published
+Sony module from the \code{Sony-PMCA-RE} project fares no better.
+
+The right conclusion is not ``there is no signature'' but \textbf{``there is nothing in the
+file with which to confirm one''}: no verification key is present, so it must live in the
+bootloader or in ROM. That is the trust boundary, and it lies outside the subject of this
+audit.
+
+\section{The live device: the shipped key is not used, and that changes the conclusion}
+\label{sec:live}
+
+The decisive check for \S\ref{sec:key} is a single one: read the host key of a real camera and
+compare. It was done --- from two machines independently (the owner's Mac and this container),
+against the device \code{192.168.1.102}, whose port \code{22} answered in \textbf{22} probes out
+of \textbf{22} over three minutes, while port \code{15740} (PTP/IP) was closed.
+
+The result is \textbf{VERDICT: MISMATCH}. The live key is
+\hl{SHA256:0VOxJ\allowbreak qn75lys4Lf91\allowbreak tSlZu8nazWWx\allowbreak D6rTVc35jZo8\allowbreak 7U} (blob sha256
+\hx{d153b126\ldots 3668f3b5}), against the firmware key
+\hx{SHA256:J8L9aBLE\ldots NODI}. They differ in \textbf{64} of the \textbf{66} bytes of the
+point: a different key, not a typo. Three comparison routes were used (the blob's base64, the
+\code{ssh-keygen} fingerprint, the sha256 of the decoded blob), and all three said ``no''.
+
+But the camera said more than ``my key is different''. In the same SSH exchange it negotiated
+\emph{exactly} four algorithms, and that is precisely the set imposed by the \code{sshd\_config}
+inside the firmware (\S\ref{sec:key}). An ordinary machine does not choose such a set: in the
+owner's run, his own workstation on the same network (\code{192.168.1.103}, OpenSSH 10.3)
+negotiated \lc{mlkem768\allowbreak x25519-s\allowbreak ha256} and \code{chacha20-poly1305}, while two other devices
+with port 22 open turned out to be \code{dropbear} and negotiated no matching kex at all. Hence
+a conclusion worth more than the verdict itself: \textbf{the sshd running on the camera is the
+firmware's own, but its host key is its own too}. So the path
+\code{create\_host\_key.sh} really does execute on the device, and the private key inside the
+public file is \emph{not} this camera's live identity.
+
+What that changes and what it does not, stated plainly. It does not change: the key in the file
+remains a private key in an open distribution, and the leak does not disappear because the
+device does not use it. It does change: the question moves from ``whose key is this'' to ``is
+the camera's identity verifiable at all'' --- and if the key is created afresh under
+\code{/tmp\_network} on every boot (which is what the recovered script and the path in
+\code{sshd\_config} say, and which we did \emph{not} measure), then the answer is no. A client
+that honestly records the fingerprint
+in \code{known\_hosts} will see a key-change warning every time the camera is switched on: the
+cryptography is present and the authentication is not, and the worst effect here is not
+cryptographic but human --- it trains the operator to dismiss the warning.
+
+What we did \emph{not} measure, and do not claim: whether the live key changes across a reboot
+(it lives outside persistent storage, but that is a premise read from a config, not a
+measurement --- it needs one run before and one after a power cycle), and whether it is the
+same on every camera of the model. And separately, as a fact without an explanation: the PTP/IP
+port \code{15740}, which a camera normally opens, was closed in that state --- so ``the camera
+was found'' rests here on the algorithm set and on the key match, not on the PTP/IP port.
+
+\section{Classification of the findings, and what to do}
+\label{sec:findings}
+
+\begin{table}[htbp]\centering
+\small
+\caption{Findings: what was measured, its class, and what follows.}
+\label{tab:findings}
+\begin{tabular}{p{0.13\textwidth}p{0.50\textwidth}p{0.30\textwidth}}
+\toprule
+class & finding & access type \\
+\midrule
+CWE-327 & a shared public header key in ECB mode; the block run leaks (26 blocks, predicted
+ahead of measurement) & local delivery of the file \\
+CWE-345 & container and inner integrity are CRC32, recomputable without a key &
+local delivery of the file \\
+CWE-20/1284 & the format does not require \code{offset}/\code{size} to lie inside the image;
+the reference parser accepts an offset past the end of the file & local delivery of the file \\
+CWE-321/798 & an unencrypted OpenSSH private key (ECDSA P-256) inside a publicly distributed
+image; the same bytes in every copy of 5.01. Measured \emph{not} to be the camera's live
+identity (\S\ref{sec:live}) & hygiene; no vector demonstrated: the camera does not use this
+key, so impersonation would need a client that pinned it from elsewhere \\
+CWE-1188 (\emph{hypothesis}) & if the host key is created afresh under \code{/tmp} on every
+boot, the camera's identity cannot be pinned by a client. Whether it survives a reboot was
+\emph{not} measured & hypothesis; the decisive measurement is one run before and one after a
+power cycle \\
+--- & no signature step in the update pipeline; no verification key in the file &
+needs the device \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The recommendations follow from the findings rather than from general principle.
+
+\begin{enumerate}
+\item \textbf{Retire the shared header key.} One key across several camera generations means a
+single publication opens every header. Replace ECB with an authenticated mode (AES-GCM/SIV)
+keyed per model, so that integrity cannot be recomputed without the key.
+\item \textbf{Base version decisions only on signed data.} A header that anyone can
+manufacture is no basis for deciding whether to install or to roll back: either include the
+version inside the signed area, or keep it out of the header entirely.
+\item \textbf{Do not use CRC32 as a trust boundary}, and separately, \textbf{enforce bounds}:
+today the format does not require offsets to lie inside the image.
+\item \textbf{Do not ship a private host key.} Generate it on the device in persistent
+storage; and do not keep it under \code{/tmp} if a client is ever to pin the camera's
+identity.
+\item \textbf{Anti-rollback in practice} (a monotonic counter in a protected area) is not
+checkable from a file, but structurally it is absent from the header.
+\item \textbf{The next step needs a device, not a file}: a bootloader dump or service mode.
+Only with them do the remaining items of the terms of reference stop being ``not checkable
+from a single file''.
+\end{enumerate}
+
+\section{What was not established}
+\label{sec:unknown}
+
+The list is kept without softening, because it is exactly what separates a report from
+advertising.
+
+\begin{enumerate}
+\item Signature verification on the camera: what is signed, by what, and whether it is checked
+before the image is applied.
+\item The root of trust (bootloader/ROM): it is not in the file.
+\item Rollback protection in practice; behaviour when an update is interrupted.
+\item The robustness of the \emph{camera's} parser against malformed input: what we measured
+is a property of the format and of the \emph{reference} implementation, not of the camera.
+\item What the 256-byte tail formally is (its shape matches an RSA-2048 signature; there is
+nothing with which to confirm it).
+\item Whether the live host key changes on reboot, and whether it is identical across units
+of the model.
+\item The authenticity of the file itself: nothing inside it proves it came from Sony.
+\item The reason port \code{15740} was closed in the measured state.
+\end{enumerate}
+
+\section{How all of this was checked}
+\label{sec:verification}
+
+\textbf{(1) The audit instruments, run again.} Every existing check was re-run today against
+the unchanged file:
+
+\begin{table}[htbp]\centering
+\small
+\caption{Re-run of the audit instruments (all against the file with sha256
+\hx{dbdd8b02\ldots c9eb}).}
+\label{tab:runs}
+\begin{tabular}{lrll}
+\toprule
+instrument & checks & controls & outcome \\
+\midrule
+\code{audit/checks.py} & 15/15 & 3/3 red & all consistent \\
+\lc{audit/re\allowbreak port\_che\allowbreak ck.py} & 2/2 & 3/3 red & all consistent \\
+\lc{audit/ro\allowbreak und277\_c\allowbreak heck.py} & 13/13 & 5/5 red & all consistent \\
+\lc{audit/ro\allowbreak und278\_c\allowbreak heck.py} & 17/17 & 5/5 red & all consistent \\
+\lc{audit/ro\allowbreak und279\_c\allowbreak heck.py} & 28/29 & 2/2 red & one SKIP: the camera is offline now \\
+\lc{audit/pa\allowbreak rser\_bou\allowbreak nds.py} & --- & --- & format bounds, as described \\
+ & 47/47 & 5/5 red & all consistent \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The \code{round279\_check.py} row is a measurement, not a caveat: the live half of that suite
+(C22--C25: the MISMATCH verdict, the algorithm set, the key matching the owner's key) did
+\emph{not} execute today, because the camera does not answer from this container; the
+instrument prints SKIP rather than a green. The live measurements were taken earlier and
+travel with the report and with this paper as separate witness files.
+
+\textbf{(2) All findings re-verified by a separate instrument.}
+ is not a retelling of the reports: it takes 47 statements and
+re-derives each one from raw bytes with its own code (its own container parse, its own frame
+unpacking, its own \code{tar} walk, its own \code{openssh-key-v1} parse, its own P-256
+arithmetic, its own \code{crc32}). Outcome: \textbf{47} non-control checks green out of
+\textbf{47}, and \textbf{5} controls red as they must be. The controls are: searching for a
+string that is definitely absent; a corrupted header prefix; a corrupted key scalar; a
+corrupted frame; a read past the end of the stream.
+
+\textbf{(3) What the re-verification itself found: 4 corrections to our own reports.}
+This is the most important part of the section, because they concern numbers already shipped
+in delivered packages.
+
+\begin{itemize}
+\item \textbf{The key block is 504 bytes, not 501}, and its body is \textbf{435} base64
+characters, not 471 (471 is the offset at which the closing line begins, read as a length).
+\item \textbf{The offset of \code{sshd\_config} is 740\,733\,952, not 740\,736\,525} (the
+recorded value lands 2573 bytes \emph{inside} the file; its size, 3094, was right).
+\item \textbf{There are 8 blocks beginning \code{BEGIN PUBLIC KEY}, not 4}, and \textbf{6}
+distinct RSA moduli, not 5 (two of 3071 bits, three of 3072, one of 2048). One of the eight
+blocks is a literal with no body --- a string table, not a key; the same is true of the single
+literal \lc{BEGIN EN\allowbreak CRYPTED \allowbreak PRIVATE \allowbreak KEY}.
+\item \textbf{The body of \code{FDAT} starts at byte 108} (the length field is at 100).
+Checking such an offset matters: a check that reads the header at byte 100 produces exactly the
+same \emph{appearance} of a result (decryption ``works'', hashes come out) on different bytes.
+\end{itemize}
+
+None of the corrections changed a conclusion; all four changed numbers that had been recorded.
+That is the price of the rule ``every number is bound to an artifact'': while a number lives in
+prose, nobody re-measures it.
+
+\textbf{(4) The numbers of this paper.} \code{paper\_check.py} re-derives every
+number in the paper from the artifact's bytes (the path and sha256 of each artifact are
+recorded in \code{numbers.json}), requires the number to appear both in this source and in the
+printed PDF, and \code{selftest\_paper.py} proves the instrument can go red: on a
+corrupted number in the text, on a substituted value in a copy of an artifact, and on a deleted
+artifact. Appendix~\ref{sec:appendix} is printed from \code{numbers.json} rather than typed, so
+the list of numbers cannot drift away from the check. A separate layout instrument
+(\code{layout\_check.py}) checks the printed pages for letters lying over other
+letters and for ink outside the type area --- a defect TeX reports only as an ``Overfull
+hbox'', and not for every case. A third instrument, \code{string\_check.py}, requires the
+\textbf{46} names these claims rest on to be present both in the source and in the text
+extracted from the printed PDF --- it exists because names, unlike numbers, had gone missing
+from the paper without any check noticing (\S\ref{sec:errors}).
+
+\section{The errors of the instruments in this work}
+\label{sec:errors}
+
+The work produced \textbf{27} of them; here are those that changed a conclusion, or that
+belong to a class worth recognising. The full list is in \code{FAILURES.md} and in the
+per-round reports.
+
+\begin{itemize}
+\item \textbf{An instrument counted instructions as artefacts.} The claim ``the image has
+three \lc{OPENSSH \allowbreak PRIVATE \allowbreak KEY} blocks'' was a count of \emph{literals} inside libraries'
+string tables. The real key is one. Same class: ``six public crypters'' --- the seventh lay in
+an unmerged pull request, invisible to a search of the main branch.
+\item \textbf{An instrument measuring a state it was itself changing.} The first version of
+the CRC-tampering check computed the checksum while the write had not yet been flushed to
+disk, and returned a false ``the CRC cannot be forged''.
+\item \textbf{Precision of comparison.} The report checker compared numbers with a relative
+tolerance of $10^{-6}$ and therefore missed \code{739658240} $\rightarrow$ \code{739658241}.
+A comparison must be as precise as the text claims to be.
+\item \textbf{One false conclusion, reached twice.} Parsing the line
+\lc{kex: hos\allowbreak t key al\allowbreak gorithm:\allowbreak (no mat\allowbreak ch)} yielded the word \code{match)}, and
+\code{ssh-keyscan} terminates its lines with a carriage return; as a result the check twice
+declared ``a different algorithm set'' about a camera that had negotiated exactly the
+firmware's set. It was caught only by running against the live device instead of against my
+model of a server.
+\item \textbf{An instrument that reddened by itself.} The control for the expected frequency
+of magic bytes compared three-byte patterns against \code{/dev/urandom} and failed in one run
+out of three for reasons unrelated to the subject: a control must be deterministic.
+\item \textbf{Lazy decryption.} The ``wrong key'' control was blind, because the library's
+\code{decrypt()} is lazy and reads no bytes: it ``accepted'' a key of all zeros.
+\item \textbf{A check that looked at the wrong representation.} While building the number
+instrument of this paper, the payload offset was verified by comparing the file's raw bytes
+against the plaintext magic --- but that region is encrypted, so the check could only ever
+fail. The offset is now verified on the \emph{decrypted} window.
+\end{itemize}
+
+\section{Reproduction}
+\label{sec:repro}
+
+\begin{enumerate}
+\item Verify the subject: \lc{sha256su\allowbreak m BODYDA\allowbreak TA.DAT} must give
+\hx{dbdd8b02\ldots c9eb}. No audit command writes to that file.
+\item Audit instruments: \lc{audit/che\allowbreak cks.py},
+\lc{audit/re\allowbreak port\_che\allowbreak ck.py}, \lc{audit/ro\allowbreak und277\_c\allowbreak heck.py},
+\lc{audit/ro\allowbreak und278\_c\allowbreak heck.py}, \lc{audit/verify\_find\allowbreak ings.py}; the live ones are
+\lc{audit/ro\allowbreak und279\_c\allowbreak heck.py} (needs \code{paramiko}) and
+\lc{MAC\_FINGERPRINT.sh} on a Mac.
+\item Paper: \lc{publication/run\_all.sh} --- it runs the instruments, rebuilds the
+numbers, builds the PDF, binds every number to its artifact, checks the layout, runs the
+self-tests and writes the manifest.
+\end{enumerate}
+
+\appendix
+\section{The numbers of this paper and their artifacts}
+\label{sec:appendix}
+
+The table is printed from \code{numbers.json} by the generator \code{make\_numbers.py}: it
+\emph{is} the list of numbers that \code{paper\_check.py} checks. The ``artifact'' column is
+the path whose bytes the number is re-derived from; the sha256 of every artifact is recorded
+in \code{numbers.json}.
+
+\input{numbers_table.tex}
+
+\end{document}

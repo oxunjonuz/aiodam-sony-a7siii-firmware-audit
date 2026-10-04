@@ -1,0 +1,46 @@
+/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/dat.py:60: SyntaxWarning: invalid escape sequence '\.'
+  return [path for path in paths if re.search('/FirmwareData_([^/]+)\.dat$', path)][0]
+/work/SONY_A7SIII_UPDATE/tools/fwtool.py-master/fwtool/sony/fdat.py:312: SyntaxWarning: invalid escape sequence '\d'
+  version = re.match('^(\d)\.(\d{2})$', fdat.version)
+============================================================================================
+      OK   C1  TLV parse of the container
+          items=[(8, 4, 'DATV'), (20, 4, 'PROV'), (32, 60, 'UDID'), (100, 743818512, 'FDAT'), (743818620, 4, 'DEND')] end=743818632
+      OK   C2  DEND.crc == crc32(file without the last 12 bytes)
+          calc=0x1fafdcaa stored=0x1fafdcaa
+      OK   C3  the independent fwtool implementation accepts the container and reads the same fields
+          firmwareData=743818512 normal=[('0x054c', '0x0448'), ('0x054c', '0x047d'), ('0x054c', '0x0d15'), ('0x054c', '0x0d16'), ('0x054c', '0x0d19'), ('0x054c', '0x0d1a')] updater=[('0x054c', '0x03e2')]
+      OK   C4  the first 512 bytes of FDAT decrypt with the PUBLIC key_aes (ECB)
+          magic=b'UDTRFIRM' version=b'0100' mode=b'U' luw=b'N'
+      OK   C5  the FDAT header fields are arithmetically consistent (the signature of a correct parse)
+          fsU=('U', 512, 1253376) fsP=('P', 512, 0) fwOff=1253888 fwSize=739658240 fwEnd=740912128 cipherLen=743818240 remainder=2906112 (divisible by 1024: True) numFS=2
+      OK   C6  the header crc32 determines H[508:512] uniquely (a bijection), and those bytes are zero
+          required bytes=00000000 crc=0x9eb4163d
+CTRL OK   C6c CONTROL (phrased the wrong way round, must go red): corrupting one bit in the known part does not change the required 4 bytes
+          answer on the corrupted prefix=f635cdf7
+      OK   C7  a run of identical CIPHERTEXT blocks (measured without the key) was predicted from the decrypted header
+          predicted blocks=6..31 ; measured: start=6 length=26 ; repeating groups in the whole file=1
+CTRL OK   C7c CONTROL (must go red): with a wrong key the predicted run coincides with the measured one
+          zero blocks under the zero key=[]
+      OK   C8  a modified file with the container CRC32 recomputed (no key) passes the parser
+          a byte at offset 4204 was changed, the CRC recomputed in one pass without a key
+CTRL OK   C8c CONTROL (must go red): the same modified file passes the parser without recomputing the CRC
+          the reference parser answers "Wrong checksum"
+      OK   C9  entropy of the body: every 1-MiB window >= 7.9995 bits/byte (no plain-text stretches)
+          windows=710 min=7.999532 mean=7.999824 max=7.999871
+      OK   C10 plain-text markers of length >=5 bytes are entirely absent from the file
+          found: {'UDTRFIRM': 0, 'cramfs': 0, 'squashfs': 0, 'libupdaterbody': 0, 'ustar': 0, 'FirmwareData': 0}
+      OK   C10b short magics: the 4-byte ones are practically absent, the 3-byte one appears at the frequency of random data (its presence proves nothing)
+          in the file: 4-byte {'\x7fELF': 0, 'hsqs': 0} ; 3-byte 37 against an expectation of 44.3 ; control (256 MiB AES-CTR, deterministic): 25 against an expectation of 16.0
+      OK   C11 no published decrypter yields a valid FDAT block (the block checksum does not match)
+          the UDTRFIRM magic is visible in all three attempts (shared header key); block sums: {'CXD4132 ecb(key_aes)': False, 'CXD90014 double-aes-ecb': False, 'CXD90045 ecb+CBC(IV)': False}
+      OK   C12 the reference tool refuses to decrypt the body
+          No decrypter found
+      OK   C13 the share of the file readable from public knowledge
+          512 bytes of 743818512 = 0.000069 %
+      OK   C14 the tail geometry matches what the reference code expects (the IV at offset -0x110)
+          len % 1024 = 0x110 ; (len-0x110) % 1024 = 0 ; tail=272 B = 16 (IV) + 256
+============================================================================================
+non-control: 15   controls: 3
+result: ALL MATCHED
+sha256(BODYDATA.DAT) = dbdd8b02ed81d6f0e0a0d36b55f5d12fa1bcf8682fbad1393996f10d1494c9eb
+evidence.json written
